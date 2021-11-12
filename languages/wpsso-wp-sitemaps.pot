@@ -60,8 +60,8 @@ msgstr ""
 
 #: lib/filters-messages.php:63
 msgid ""
-"%1$s extends the built-in WordPress sitemaps XML <a href=\"%2$s\">available "
-"since WordPress version 5.5</a>."
+"The %1$s add-on extends the built-in WordPress sitemaps XML <a href=\"%2$s"
+"\">available since WordPress version 5.5</a>."
 msgstr ""
 
 #: lib/filters-messages.php:65

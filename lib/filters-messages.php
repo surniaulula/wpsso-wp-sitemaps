@@ -60,7 +60,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$text .= '<p>';
 
-					$text .= sprintf( __( '%1$s extends the built-in WordPress sitemaps XML <a href="%2$s">available since WordPress version 5.5</a>.', 'wpsso-wp-sitemaps' ), $addon_name, $about_wp55 ) . ' ';
+					$text .= sprintf( __( 'The %1$s add-on extends the built-in WordPress sitemaps XML <a href="%2$s">available since WordPress version 5.5</a>.', 'wpsso-wp-sitemaps' ), $addon_name, $about_wp55 ) . ' ';
 
 					$text .= __( 'These options allow you to customize the post and taxonomy types included in the WordPress sitemaps XML.', 'wpsso-wp-sitemaps' ) . ' ';
 
