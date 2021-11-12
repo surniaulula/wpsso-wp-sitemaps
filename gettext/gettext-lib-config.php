@@ -5,4 +5,4 @@
  */
 _x( 'WP Sitemaps', 'lib file description', 'wpsso-wp-sitemaps' );
 _x( 'WPSSO WP Sitemaps', 'plugin name', 'wpsso-wp-sitemaps' );
-_x( 'Select post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" content.', 'plugin description', 'wpsso-wp-sitemaps' );
+_x( 'Manage post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" content.', 'plugin description', 'wpsso-wp-sitemaps' );
