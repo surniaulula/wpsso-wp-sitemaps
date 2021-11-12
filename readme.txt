@@ -69,7 +69,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0-dev.2 (TBD)**
+**Version 1.0.0-dev.2 (2021/11/12)**
 
 * **New Features**
 	* Initial release.
@@ -88,5 +88,5 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 1.0.0-dev.2 =
 
-(TBD) Initial release.
+(2021/11/12) Initial release.
 
