@@ -13,13 +13,13 @@ Requires At Least: 5.0
 Tested Up To: 5.8.2
 Stable Tag: 1.0.0
 
-Select post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" content.
+Manage post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" content.
 
 == Description ==
 
 <!-- about -->
 
-Select post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.
+Manage post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.
 
 <!-- /about -->
 
