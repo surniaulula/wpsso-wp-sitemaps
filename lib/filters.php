@@ -17,6 +17,7 @@ if ( ! class_exists( 'WpssoWpsmFilters' ) ) {
 		private $p;	// Wpsso class object.
 		private $a;	// WpssoWpsm class object.
 		private $msgs;	// WpssoWpsmFiltersMessages class object.
+		private $opts;	// WpssoWpsmFiltersOptions class object.
 
 		/**
 		 * Instantiated by WpssoWpsm->init_objects().
@@ -34,6 +35,10 @@ if ( ! class_exists( 'WpssoWpsmFilters' ) ) {
 
 			$this->p =& $plugin;
 			$this->a =& $addon;
+
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/filters-options.php';
+
+			$this->opts = new WpssoWpsmFiltersOptions( $plugin, $addon );
 
 			if ( is_admin() ) {
 
