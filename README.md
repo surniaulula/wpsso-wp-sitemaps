@@ -15,7 +15,7 @@
 <h2>Description</h2>
 
 <blockquote class="top">
-This add-on is currently in development.
+This add-on and its documentation are currently in development.
 </blockquote>
 
 <!-- about -->
