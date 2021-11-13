@@ -29,7 +29,11 @@ Manage post and taxonomy types included in the WordPress sitemaps XML, and exclu
 
 <h3>The WP Sitemaps Settings Page</h3>
 
+The WP Sitemaps settings page allows you to choose which post and taxonomy types are included in the WordPress sitemaps XML.
+
 <h3>The Document SSO Metabox</h3>
+
+When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Robots Meta metabox tab to exclude that webpage from the WordPress sitemaps XML.
 
 <h3>WPSSO Core Required</h3>
 
