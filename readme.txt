@@ -17,6 +17,8 @@ Manage post and taxonomy types included in the WordPress sitemaps XML, and exclu
 
 == Description ==
 
+> This add-on is currently in development.
+
 <!-- about -->
 
 Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.

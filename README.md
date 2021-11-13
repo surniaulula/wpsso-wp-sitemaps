@@ -14,6 +14,10 @@
 
 <h2>Description</h2>
 
+<blockquote>
+  <p>This add-on is currently in development.</p>
+</blockquote>
+
 <!-- about -->
 
 <p>Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.</p>
