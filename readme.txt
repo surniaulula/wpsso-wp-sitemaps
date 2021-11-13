@@ -17,7 +17,9 @@ Manage post and taxonomy types included in the WordPress sitemaps XML, and exclu
 
 == Description ==
 
-> This add-on is currently in development.
+<blockquote class="top">
+This add-on is currently in development.
+</blockquote>
 
 <!-- about -->
 
