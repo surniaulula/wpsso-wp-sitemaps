@@ -36,8 +36,8 @@ msgstr ""
 #: gettext/gettext-lib-config.php:8
 msgctxt "plugin description"
 msgid ""
-"Manage post and taxonomy types included in the WordPress sitemaps XML and "
-"exclude \"No Index\" content."
+"Manage post and taxonomy types included in the WordPress sitemaps XML, and "
+"exclude any \"No Index\" content."
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
@@ -103,8 +103,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Manage post and taxonomy types included in the WordPress sitemaps XML and "
-"exclude \"No Index\" content."
+"Manage post and taxonomy types included in the WordPress sitemaps XML, and "
+"exclude any \"No Index\" content."
 msgstr ""
 
 #. Author of the plugin/theme
