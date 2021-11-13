@@ -13,15 +13,19 @@ Requires At Least: 5.0
 Tested Up To: 5.8.2
 Stable Tag: 1.0.0
 
-Manage post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" content.
+Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" content.
 
 == Description ==
 
 <!-- about -->
 
-Manage post and taxonomy types included in the WordPress sitemaps XML and exclude "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.
+Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.
 
 <!-- /about -->
+
+<h3>The WP Sitemaps Settings Page</h3>
+
+<h3>The Document SSO Metabox</h3>
 
 <h3>WPSSO Core Required</h3>
 
