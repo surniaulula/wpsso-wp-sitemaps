@@ -85,8 +85,8 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 
 					$table_rows[ 'wpsm_sitemaps_for' ] = '' .
 						$this->form->get_th_html( _x( 'Include in Sitemaps', 'option label', 'wpsso' ),
-							$css_class = '', $css_id = 'plugin_sitemaps_for' ) .
-						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'plugin_sitemaps_for' ) . '</td>';
+							$css_class = '', $css_id = 'wpsm_sitemaps_for' ) .
+						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'wpsm_sitemaps_for' ) . '</td>';
 
 					break;
 			}

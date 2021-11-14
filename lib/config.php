@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '1.0.0-dev.3',	// Plugin version.
+					'version'     => '1.0.0-dev.4',	// Plugin version.
 					'opt_version' => '1',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '9.8.0-dev.3',
+							'min_version'   => '9.8.0-dev.4',
 						),
 					),
 
@@ -71,29 +71,29 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					/**
 					 * Advanced Settings > WordPress Sitemaps metabox.
 					 */
-					'plugin_sitemaps_for_article'                => 1,
-					'plugin_sitemaps_for_attachment'             => 0,
-					'plugin_sitemaps_for_download'               => 1,	// For Easy Digital Downloads.
-					'plugin_sitemaps_for_organization'           => 1,
-					'plugin_sitemaps_for_page'                   => 1,
-					'plugin_sitemaps_for_place'                  => 1,
-					'plugin_sitemaps_for_post'                   => 1,
-					'plugin_sitemaps_for_product'                => 1,	// For WooCommerce, etc.
-					'plugin_sitemaps_for_question'               => 1,
-					'plugin_sitemaps_for_reply'                  => 0,	// For Bbpress
-					'plugin_sitemaps_for_tax_category'           => 1,
-					'plugin_sitemaps_for_tax_faq_category'       => 1,
-					'plugin_sitemaps_for_tax_link_category'      => 1,
-					'plugin_sitemaps_for_tax_post_tag'           => 1,
-					'plugin_sitemaps_for_tax_product_brand'      => 1,	// For WooCommerce Brands.
-					'plugin_sitemaps_for_tax_product_cat'        => 1,	// For WooCommerce.
-					'plugin_sitemaps_for_tax_product_tag'        => 1,	// For WooCommerce.
-					'plugin_sitemaps_for_tax_pwb-brand'          => 1,	// For Perfect WooCommerce Brands Add-on.
-					'plugin_sitemaps_for_tax_yith_product_brand' => 1,	// For YITH WooCommerce Brands Add-on.
-					'plugin_sitemaps_for_topic'                  => 0,	// For Bbpress
-					'plugin_sitemaps_for_tribe_events'           => 1,	// For The Events Calendar.
-					'plugin_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
-					'plugin_sitemaps_for_user_page'              => 1,
+					'wpsm_sitemaps_for_article'                => 1,
+					'wpsm_sitemaps_for_attachment'             => 0,
+					'wpsm_sitemaps_for_download'               => 1,	// For Easy Digital Downloads.
+					'wpsm_sitemaps_for_organization'           => 1,
+					'wpsm_sitemaps_for_page'                   => 1,
+					'wpsm_sitemaps_for_place'                  => 1,
+					'wpsm_sitemaps_for_post'                   => 1,
+					'wpsm_sitemaps_for_product'                => 1,	// For WooCommerce, etc.
+					'wpsm_sitemaps_for_question'               => 1,
+					'wpsm_sitemaps_for_reply'                  => 0,	// For Bbpress
+					'wpsm_sitemaps_for_tax_category'           => 1,
+					'wpsm_sitemaps_for_tax_faq_category'       => 1,
+					'wpsm_sitemaps_for_tax_link_category'      => 1,
+					'wpsm_sitemaps_for_tax_post_tag'           => 1,
+					'wpsm_sitemaps_for_tax_product_brand'      => 1,	// For WooCommerce Brands.
+					'wpsm_sitemaps_for_tax_product_cat'        => 1,	// For WooCommerce.
+					'wpsm_sitemaps_for_tax_product_tag'        => 1,	// For WooCommerce.
+					'wpsm_sitemaps_for_tax_pwb-brand'          => 1,	// For Perfect WooCommerce Brands Add-on.
+					'wpsm_sitemaps_for_tax_yith_product_brand' => 1,	// For YITH WooCommerce Brands Add-on.
+					'wpsm_sitemaps_for_topic'                  => 0,	// For Bbpress
+					'wpsm_sitemaps_for_tribe_events'           => 1,	// For The Events Calendar.
+					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
+					'wpsm_sitemaps_for_user_page'              => 1,
 				),
 			),
 		);

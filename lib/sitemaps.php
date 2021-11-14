@@ -63,7 +63,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			foreach ( $post_types as $name => $obj ) {
 
-				if ( empty( $this->p->options[ 'plugin_sitemaps_for_' . $name ] ) ) {
+				if ( empty( $this->p->options[ 'wpsm_sitemaps_for_' . $name ] ) ) {
 
 					unset( $post_types[ $name ] );
 				}
@@ -153,7 +153,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			foreach ( $taxonomies as $name => $obj ) {
 
-				if ( empty( $this->p->options[ 'plugin_sitemaps_for_tax_' . $name ] ) ) {
+				if ( empty( $this->p->options[ 'wpsm_sitemaps_for_tax_' . $name ] ) ) {
 
 					unset( $taxonomies[ $name ] );
 				}
@@ -208,7 +208,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 		 */
 		public function wp_sitemaps_users_query_args( $args ) {
 
-			if ( empty( $this->p->options[ 'plugin_sitemaps_for_user_page' ] ) ) {
+			if ( empty( $this->p->options[ 'wpsm_sitemaps_for_user_page' ] ) ) {
 
 				/**
 				 * Exclude all user pages by including only user ID 0 (which does not exist).

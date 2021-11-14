@@ -33,11 +33,11 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 		public function filter_get_defaults( $defs ) {
 
 			$this->p->util->add_post_type_names( $defs, array(
-				'plugin_sitemaps_for' => 1,
+				'wpsm_sitemaps_for' => 1,
 			) );
 
 			$this->p->util->add_taxonomy_names( $defs, array(
-				'plugin_sitemaps_for_tax' => 1,
+				'wpsm_sitemaps_for_tax' => 1,
 			) );
 
 			return $defs;
