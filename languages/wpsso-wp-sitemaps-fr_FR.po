@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WPSSO WP Sitemaps 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-sitemaps\n"
 "POT-Creation-Date: 2021-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-15 09:17-0800\n"
+"PO-Revision-Date: 2021-11-15 13:00-0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -33,8 +33,8 @@ msgstr "WPSSO sitemaps WP"
 
 #: gettext/gettext-lib-config.php:8
 msgctxt "plugin description"
-msgid "Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any \"No Index\" content."
-msgstr "Gérez les types d'article et taxonomie inclus dans le XML sitemaps de WordPress et exclure le contenu \"Pas d'indexation\"."
+msgid "Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as \"No Index\"."
+msgstr "Gérez les types d'article et taxonomie inclus dans le XML des sitemaps WordPress et exclure le contenu marquées comme \"Pas d'indexation\"."
 
 #: gettext/gettext-lib-config.php:9
 msgctxt "plugin name"
@@ -93,8 +93,8 @@ msgid "https://wpsso.com/extend/plugins/wpsso-wp-sitemaps/"
 msgstr "https://wpsso.com/extend/plugins/wpsso-wp-sitemaps/"
 
 #. Description of the plugin/theme
-msgid "Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any \"No Index\" content."
-msgstr "Gérez les types d'article et taxonomie inclus dans le XML sitemaps de WordPress et exclure le contenu \"Pas d'indexation\"."
+msgid "Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as \"No Index\"."
+msgstr "Gérez les types d'article et taxonomie inclus dans le XML des sitemaps WordPress et exclure le contenu marquées comme \"Pas d'indexation\"."
 
 #. Author of the plugin/theme
 msgid "JS Morisset"
