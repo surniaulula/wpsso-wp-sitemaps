@@ -13,7 +13,7 @@ Requires At Least: 5.0
 Tested Up To: 5.8.2
 Stable Tag: 1.0.0
 
-Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" content.
+Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as "No Index".
 
 == Description ==
 
@@ -23,7 +23,7 @@ This add-on and its documentation are currently in development.
 
 <!-- about -->
 
-Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.
+Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages marked as "No Index".
 
 <!-- /about -->
 
@@ -81,7 +81,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0-b.1 (2021/11/15)**
+**Version 1.0.0-rc.1 (2021/11/15)**
 
 * **New Features**
 	* Initial release.
@@ -94,11 +94,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.0.
 	* WordPress v5.0.
-	* WPSSO Core v9.8.0-b.1.
+	* WPSSO Core v9.8.0-rc.1.
 
 == Upgrade Notice ==
 
-= 1.0.0-b.1 =
+= 1.0.0-rc.1 =
 
 (2021/11/15) Initial release.
 

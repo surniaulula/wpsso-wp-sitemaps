@@ -2,7 +2,7 @@
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO WP Sitemaps</td></tr>
-<tr><th align="right" valign="top" nowrap>Summary</th><td>Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any &quot;No Index&quot; content.</td></tr>
+<tr><th align="right" valign="top" nowrap>Summary</th><td>Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as &quot;No Index&quot;.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>1.0.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.0 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.0 or newer</td></tr>
@@ -20,7 +20,7 @@ This add-on and its documentation are currently in development.
 
 <!-- about -->
 
-<p>Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages.</p>
+<p>Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages marked as "No Index".</p>
 
 <!-- /about -->
 
