@@ -44,7 +44,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 				$this->p->debug->mark();
 			}
 
-			if ( ! SucomUtilWP::sitemaps_enabled() ) {	// Nothing to do.
+			if ( SucomUtilWP::sitemaps_disabled() ) {	// Nothing to do.
 
 				return;
 			}
@@ -110,7 +110,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 				$args[ 'post_status' ] = array( 'inherit' );
 			}
 
-			if ( ! empty( $this->p->options[ 'add_meta_name_robots' ] ) ) {
+			if ( $this->p->util->robots->is_enabled() ) {
 
 				static $local_cache = array();	// Create post ID exclusion only once.
 
@@ -166,7 +166,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 		 */
 		public function wp_sitemaps_taxonomies_query_args( $args, $taxonomy ) {
 
-			if ( ! empty( $this->p->options[ 'add_meta_name_robots' ] ) ) {
+			if ( $this->p->util->robots->is_enabled() ) {
 
 				static $local_cache = array();	// Create term ID exclusion only once.
 
@@ -213,7 +213,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 				 */
 				$args[ 'include' ] = array( 0 );
 
-			} elseif ( ! empty( $this->p->options[ 'add_meta_name_robots' ] ) ) {
+			} elseif ( $this->p->util->robots->is_enabled() ) {
 
 				static $local_cache = null;	// Create user ID exclusion only once.
 

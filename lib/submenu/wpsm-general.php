@@ -72,7 +72,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 
 					$table_rows[] = '<td colspan="2">' . $this->p->msgs->get( 'info-' . $metabox_id . '-' . $tab_key ) . '</td>';
 
-					if ( ! SucomUtilWP::sitemaps_enabled() ) {	// Nothing to do.
+					if ( SucomUtilWP::sitemaps_disabled() ) {	// Nothing to do.
 
 						return $this->p->msgs->get_wp_sitemaps_disabled_rows( $table_rows );
 					}
