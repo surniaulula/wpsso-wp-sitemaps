@@ -17,11 +17,11 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '1.0.0-b.1',	// Plugin version.
+					'version'     => '1.0.0-rc.1',	// Plugin version.
 					'opt_version' => '1',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps',
-					'desc'        => 'Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" content.',
+					'desc'        => 'Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as "No Index".',
 					'slug'        => 'wpsso-wp-sitemaps',
 					'base'        => 'wpsso-wp-sitemaps/wpsso-wp-sitemaps.php',
 					'update_auth' => '',		// No premium version.
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '9.8.0-b.1',
+							'min_version'   => '9.8.0-rc.1',
 						),
 					),
 

@@ -10,12 +10,12 @@
  * Author URI: https://wpsso.com/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Description: Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude any "No Index" content.
+ * Description: Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as "No Index".
  * Requires PHP: 7.0
  * Requires At Least: 5.0
  * Tested Up To: 5.8.2
  * WC Tested Up To: 5.9.0
- * Version: 1.0.0-b.1
+ * Version: 1.0.0-rc.1
  * 
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *

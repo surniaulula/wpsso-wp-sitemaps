@@ -77,11 +77,11 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						return $this->p->msgs->get_wp_sitemaps_disabled_rows( $table_rows );
 					}
 
-					$sitemap_url = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
+					$sitemaps_url = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
 
 					$table_rows[ 'wpsm_sitemaps_url' ] = '' . 
 						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso' ) ) .
-						'<td>' . $this->form->get_no_input_clipboard( $sitemap_url ) . '</td>';
+						'<td>' . $this->form->get_no_input_clipboard( $sitemaps_url ) . '</td>';
 
 					$table_rows[ 'wpsm_sitemaps_for' ] = '' .
 						$this->form->get_th_html( _x( 'Include in Sitemaps', 'option label', 'wpsso' ),
