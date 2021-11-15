@@ -138,8 +138,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 				if ( ! empty( $local_cache[ $post_type ] ) ) {
 
-					$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ?
-						$local_cache[ $post_type ] :
+					$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ? $local_cache[ $post_type ] :
 						array_merge( $args[ 'post__not_in' ], $local_cache[ $post_type ] );
 				}
 			}
@@ -194,8 +193,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 				if ( ! empty( $local_cache[ $taxonomy ] ) ) {
 
-					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ?
-						$local_cache[ $taxonomy ] :
+					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache[ $taxonomy ] :
 						array_merge( $args[ 'exclude' ], $local_cache[ $taxonomy ] );
 				}
 			}
@@ -244,8 +242,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 				if ( ! empty( $local_cache ) ) {
 
-					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ?
-						$local_cache :
+					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache :
 						array_merge( $args[ 'exclude' ], $local_cache );
 				}
 			}
