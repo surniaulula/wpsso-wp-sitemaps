@@ -81,7 +81,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0-dev.4 (2021/11/14)**
+**Version 1.0.0-b.1 (2021/11/15)**
 
 * **New Features**
 	* Initial release.
@@ -94,11 +94,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.0.
 	* WordPress v5.0.
-	* WPSSO Core v9.8.0-dev.4.
+	* WPSSO Core v9.8.0-b.1.
 
 == Upgrade Notice ==
 
-= 1.0.0-dev.4 =
+= 1.0.0-b.1 =
 
-(2021/11/14) Initial release.
+(2021/11/15) Initial release.
 
