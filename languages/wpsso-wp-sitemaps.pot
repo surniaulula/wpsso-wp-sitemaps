@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO WP Sitemaps package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO WP Sitemaps 1.0.0-dev.4\n"
+"Project-Id-Version: WPSSO WP Sitemaps 1.0.0-b.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2021-MO-DA HO:MI+ZONE\n"
@@ -80,7 +80,7 @@ msgid ""
 "To <strong>exclude</strong> individual posts, pages, custom post types, "
 "taxonomy terms (categories, tags, etc.), or user profile pages from the "
 "WordPress sitemaps XML, enable the <strong>%1$s</strong> option under their "
-"individual %2$s &gt; %3$s tabs."
+"%2$s &gt; %3$s metabox tabs."
 msgstr ""
 
 #: lib/submenu/wpsm-general.php:38

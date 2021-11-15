@@ -64,7 +64,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$text .= __( 'These options allow you to customize the post and taxonomy types included in the WordPress sitemaps XML.', 'wpsso-wp-sitemaps' ) . ' ';
 
-					$text .= sprintf( __( 'To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under their individual %2$s &gt; %3$s tabs.', 'wpsso-wp-sitemaps' ), $no_index_label, $sso_mb_title, $robots_tab ) . ' ';
+					$text .= sprintf( __( 'To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under their %2$s &gt; %3$s metabox tabs.', 'wpsso-wp-sitemaps' ), $no_index_label, $sso_mb_title, $robots_tab ) . ' ';
 
 					$text .= '</p>';
 
