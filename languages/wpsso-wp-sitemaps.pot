@@ -1,8 +1,8 @@
-# Copyright (C) 2021 WPSSO WP Sitemaps
-# This file is distributed under the same license as the WPSSO WP Sitemaps package.
+# Copyright (C) 2021 WPSSO WP Sitemaps XML
+# This file is distributed under the same license as the WPSSO WP Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO WP Sitemaps 1.0.0\n"
+"Project-Id-Version: WPSSO WP Sitemaps XML 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2021-MO-DA HO:MI+ZONE\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: gettext/gettext-lib-config.php:7
 msgctxt "plugin name"
-msgid "WPSSO WP Sitemaps"
+msgid "WPSSO WP Sitemaps XML"
 msgstr ""
 
 #: gettext/gettext-lib-config.php:8
@@ -99,7 +99,7 @@ msgid "Include in Sitemaps"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WPSSO WP Sitemaps"
+msgid "WPSSO WP Sitemaps XML"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

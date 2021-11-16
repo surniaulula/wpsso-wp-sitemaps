@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WPSSO WP Sitemaps
+ * Plugin Name: WPSSO WP Sitemaps XML
  * Plugin Slug: wpsso-wp-sitemaps
  * Text Domain: wpsso-wp-sitemaps
  * Domain Path: /languages
