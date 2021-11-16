@@ -11,8 +11,8 @@
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Description: Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as "No Index".
- * Requires PHP: 7.0
- * Requires At Least: 5.0
+ * Requires PHP: 7.2
+ * Requires At Least: 5.5
  * Tested Up To: 5.8.2
  * WC Tested Up To: 5.9.0
  * Version: 1.0.0
