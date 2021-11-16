@@ -19,9 +19,11 @@ Manage post and taxonomy types included in the WordPress sitemaps XML and exclud
 
 <!-- about -->
 
-* Manage post and taxonomy types included in the WordPress sitemaps XML.
-* Exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles marked as "No Index".
-* Automatically enhance the built-in WordPress sitemaps XML with the article modification time.
+Manage which post and taxonomy types are included in the WordPress sitemaps XML.
+
+Exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles marked as "No Index".
+
+Automatically enhance the built-in WordPress sitemaps XML with article modification times.
 
 <!-- /about -->
 
@@ -79,7 +81,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.0.0 (2021/11/15)**
+**Version 1.0.0 (2021/11/16)**
 
 * **New Features**
 	* Initial release.
@@ -98,5 +100,5 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 1.0.0 =
 
-(2021/11/15) Initial release.
+(2021/11/16) Initial release.
 
