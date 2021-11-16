@@ -2,7 +2,7 @@
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO WP Sitemaps</td></tr>
-<tr><th align="right" valign="top" nowrap>Summary</th><td>Manage post and taxonomy types included in the WordPress sitemaps XML, and exclude content marked as &quot;No Index&quot;.</td></tr>
+<tr><th align="right" valign="top" nowrap>Summary</th><td>Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as &quot;No Index&quot;.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>1.0.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.0 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.0 or newer</td></tr>
