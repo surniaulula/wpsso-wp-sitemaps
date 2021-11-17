@@ -81,6 +81,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 1.0.1 (2021/11/17)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* Removed a 'WPSSO_PLUGINDIR' dependency check before loading the `WpssoWpsmSitemaps` class.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.5.
+	* WPSSO Core v9.8.0.
+
 **Version 1.0.0 (2021/11/16)**
 
 * **New Features**
@@ -97,6 +112,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.8.0.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+
+(2021/11/17) Removed a 'WPSSO_PLUGINDIR' dependency check before loading the `WpssoWpsmSitemaps` class.
 
 = 1.0.0 =
 
