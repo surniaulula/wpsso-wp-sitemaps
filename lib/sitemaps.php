@@ -50,8 +50,8 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 			}
 
 			add_filter( 'wp_sitemaps_post_types', array( $this, 'wp_sitemaps_post_types' ), 10, 1 );
-			add_filter( 'wp_sitemaps_posts_entry', array( $this, 'wp_sitemaps_posts_entry' ), 10, 3 );
 			add_filter( 'wp_sitemaps_posts_query_args', array( $this, 'wp_sitemaps_posts_query_args' ), 10, 2 );
+			add_filter( 'wp_sitemaps_posts_entry', array( $this, 'wp_sitemaps_posts_entry' ), 10, 3 );
 			add_filter( 'wp_sitemaps_taxonomies', array( $this, 'wp_sitemaps_taxonomies' ), 10, 1 );
 			add_filter( 'wp_sitemaps_taxonomies_query_args', array( $this, 'wp_sitemaps_taxonomies_query_args' ), 10, 2 );
 			add_filter( 'wp_sitemaps_users_query_args', array( $this, 'wp_sitemaps_users_query_args' ), 10, 1 );
@@ -70,31 +70,6 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 			}
 
 			return $post_types;
-		}
-
-		/**
-		 * Add a modification time for Open Graph type non-website posts (ie. article, book, product, etc.).
-		 */
-		public function wp_sitemaps_posts_entry( $sitemap_entry, $post, $post_type ) {
-
-			if ( empty( $post->ID ) ) {	// Just in case.
-
-				return $sitemap_entry;
-			}
-
-			$mod = $this->p->post->get_mod( $post->ID );
-
-			$og_type = $this->p->og->get_mod_og_type( $mod );
-
-			if ( 'website' !== $og_type ) {
-
-				if ( $mod[ 'post_modified_time' ] ) {
-
-					$sitemap_entry[ 'lastmod' ] = $mod[ 'post_modified_time' ];
-				}
-			}
-
-			return $sitemap_entry;
 		}
 
 		/**
@@ -144,6 +119,33 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 			}
 
 			return $args;
+		}
+
+		/**
+		 * Add a modification time for Open Graph type non-website posts (ie. article, book, product, etc.).
+		 *
+		 * Note that this filter is executed for /wp-sitemap-posts-page-#.xml, not /wp-sitemap.xml.
+		 */
+		public function wp_sitemaps_posts_entry( $sitemap_entry, $post, $post_type ) {
+
+			if ( empty( $post->ID ) ) {	// Just in case.
+
+				return $sitemap_entry;
+			}
+
+			$mod = $this->p->post->get_mod( $post->ID );
+
+			$og_type = $this->p->og->get_mod_og_type( $mod );
+
+			if ( 'website' !== $og_type ) {
+
+				if ( $mod[ 'post_modified_time' ] ) {
+
+					$sitemap_entry[ 'lastmod' ] = $mod[ 'post_modified_time' ];
+				}
+			}
+
+			return $sitemap_entry;
 		}
 
 		public function wp_sitemaps_taxonomies( $taxonomies ) {
