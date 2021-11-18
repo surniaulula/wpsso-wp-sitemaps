@@ -78,9 +78,8 @@ msgstr ""
 #: lib/filters-messages.php:67
 msgid ""
 "To <strong>exclude</strong> individual posts, pages, custom post types, "
-"taxonomy terms (categories, tags, etc.), or user profile pages from the "
-"WordPress sitemaps XML, enable the <strong>%1$s</strong> option under the "
-"%2$s &gt; %3$s metabox tab."
+"taxonomy terms, or user profile pages from the WordPress sitemaps XML, "
+"enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab."
 msgstr ""
 
 #: lib/submenu/wpsm-general.php:38
