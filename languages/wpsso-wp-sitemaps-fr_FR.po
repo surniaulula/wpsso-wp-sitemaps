@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WPSSO WP Sitemaps 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-sitemaps\n"
 "POT-Creation-Date: 2021-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2021-11-16 12:31-0800\n"
+"PO-Revision-Date: 2021-11-18 09:13-0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -66,8 +66,8 @@ msgid "These options allow you to customize the post and taxonomy types included
 msgstr "Ces options vous permettent de personnaliser les types d'article et de taxonomie inclus dans le XML sitemaps WordPress."
 
 #: lib/filters-messages.php:67
-msgid "To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under their %2$s &gt; %3$s metabox tabs."
-msgstr "Pour <strong>exclure</strong> des articles, pages, types d'articles personnalisés, termes de taxonomie (catégories, étiquettes, etc.) ou pages de profil utilisateur individuelles du XML sitemaps WordPress, activez l'option <strong>%1$s</strong> sous leurs onglets de métabox %2$s &gt; %3$s."
+msgid "To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab."
+msgstr "Pour <strong>exclure</strong> des articles, pages, types d'articles personnalisés, termes de taxonomie (catégories, étiquettes, etc.) ou pages de profil utilisateur individuelles du XML sitemaps WordPress, activez l'option <strong>%1$s</strong> sous l'onglet métabox %2$s &gt; %3$s."
 
 #: lib/submenu/wpsm-general.php:38
 msgctxt "metabox title"
