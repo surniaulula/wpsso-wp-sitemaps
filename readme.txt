@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
-Tags: sitemaps, xml, noindex, google, seo
+Tags: xml sitemaps, xml sitemap, sitemaps, noindex, seo, google
 Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.5
