@@ -59,7 +59,7 @@ WPSSO WP Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](http
 == Screenshots ==
 
 01. The WPSSO WPSM settings page offers options to customize the post and taxonomy types included in the WordPress sitemaps XML.
-02. The "No Index" option in the Document SSO &gt; Robots Meta metabox tab can exclude individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), or user profile pages from the WordPress sitemaps XML.
+02. The No Index option in the Document SSO &gt; Robots Meta metabox tab can be used to exclude individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML.
 
 == Changelog ==
 
