@@ -49,16 +49,6 @@
 
 <h2>Frequently Asked Questions</h2>
 
-<h3 class="top">Frequently Asked Questions</h3>
 
-<ul>
-<li>None.</li>
-</ul>
-
-<h3>Notes and Documentation</h3>
-
-<ul>
-<li>None.</li>
-</ul>
 
 

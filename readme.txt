@@ -48,14 +48,6 @@ WPSSO WP Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](http
 
 == Frequently Asked Questions ==
 
-<h3 class="top">Frequently Asked Questions</h3>
-
-* None.
-
-<h3>Notes and Documentation</h3>
-
-* None.
-
 == Screenshots ==
 
 01. The WPSSO WPSM settings page offers options to customize the post and taxonomy types included in the WordPress sitemaps XML.
