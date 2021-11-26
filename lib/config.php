@@ -173,12 +173,25 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/register.php';
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps.php';
 
-			add_filter( 'wpssowpsm_load_lib', array( 'WpssoWpsmConfig', 'load_lib' ), 10, 3 );
+			add_filter( 'wpssowpsm_load_lib', array( __CLASS__, 'load_lib' ), 10, 3 );
 		}
 
 		public static function load_lib( $success = false, $filespec = '', $classname = '' ) {
 
-			if ( false === $success && ! empty( $filespec ) ) {
+			if ( false !== $success ) {
+
+				return $success;
+			}
+
+			if ( ! empty( $classname ) ) {
+
+				if ( class_exists( $classname ) ) {
+
+					return $classname;
+				}
+			}
+
+			if ( ! empty( $filespec ) ) {
 
 				$file_path = WPSSOWPSM_PLUGINDIR . 'lib/' . $filespec . '.php';
 
