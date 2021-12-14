@@ -26,21 +26,23 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 			$this->a =& $addon;
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'get_defaults'           => 1,
+				'add_custom_post_type_names' => 1,
+				'add_custom_taxonomy_names'  => 1,
 			) );
 		}
 
-		public function filter_get_defaults( $defs ) {
+		public function filter_add_custom_post_type_names( $post_type_names ) {
 
-			$this->p->util->add_post_type_names( $defs, array(
-				'wpsm_sitemaps_for' => 1,
-			) );
+			$post_type_names[ 'wpsm_sitemaps_for' ] = 1;
 
-			$this->p->util->add_taxonomy_names( $defs, array(
-				'wpsm_sitemaps_for_tax' => 1,
-			) );
+			return $post_type_names;
+		}
 
-			return $defs;
+		public function filter_add_custom_taxonomy_names( $taxonomy_names ) {
+
+			$taxonomy_names[ 'wpsm_sitemaps_for_tax' ] = 1;
+
+			return $taxonomy_names;
 		}
 	}
 }
