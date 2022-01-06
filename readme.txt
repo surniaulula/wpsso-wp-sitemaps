@@ -10,7 +10,7 @@ Tags: xml sitemaps, xml sitemap, sitemaps, noindex, seo, google
 Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.5
-Tested Up To: 5.8.2
+Tested Up To: 5.8.3
 Stable Tag: 1.1.0
 
 Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as "No Index".
