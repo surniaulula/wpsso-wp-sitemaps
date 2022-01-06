@@ -15,7 +15,7 @@
  * Requires At Least: 5.5
  * Tested Up To: 5.8.2
  * WC Tested Up To: 6.0.0
- * Version: 1.0.1
+ * Version: 1.1.0-dev.1
  * 
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -24,7 +24,7 @@
  *      {bugfix}        Backwards-compatible bug fixes or small improvements.
  *      {stage}.{level} Pre-production release: dev < a (alpha) < b (beta) < rc (release candidate).
  * 
- * Copyright 2014-2021 Jean-Sebastien Morisset (https://wpsso.com/)
+ * Copyright 2014-2022 Jean-Sebastien Morisset (https://wpsso.com/)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

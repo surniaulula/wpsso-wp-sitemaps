@@ -2,7 +2,7 @@
 /**
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Copyright 2020-2021 Jean-Sebastien Morisset (https://wpsso.com/)
+ * Copyright 2020-2022 Jean-Sebastien Morisset (https://wpsso.com/)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -133,7 +133,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			$mod = $this->p->post->get_mod( $post->ID );
 
-			$og_type = $this->p->og->get_mod_og_type( $mod );
+			$og_type = $this->p->og->get_mod_og_type_id( $mod );	// Since WPSSO Core v9.13.0.
 
 			if ( 'website' !== $og_type ) {
 
