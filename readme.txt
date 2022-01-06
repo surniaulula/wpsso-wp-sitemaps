@@ -76,6 +76,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 1.1.0-dev.1 (2022/01/06)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Added support for the new `WpssoOpenGraph->get_mod_og_type_id()` method in WPSSO Core v9.13.0.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.5.
+	* WPSSO Core v9.13.0-dev.1.
+
 **Version 1.0.1 (2021/11/17)**
 
 * **New Features**
@@ -107,6 +122,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.8.0.
 
 == Upgrade Notice ==
+
+= 1.1.0-dev.1 =
+
+(2022/01/06) Added support for the new `WpssoOpenGraph->get_mod_og_type_id()` method in WPSSO Core v9.13.0.
 
 = 1.0.1 =
 
