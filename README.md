@@ -30,7 +30,7 @@
 
 <h3>The Document SSO Metabox</h3>
 
-<p>When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Robots Meta metabox tab to exclude that webpage from the WordPress sitemaps XML.</p>
+<p>When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Edit Visibility tab to exclude that webpage from the WordPress sitemaps XML.</p>
 
 <h3>WPSSO Core Required</h3>
 

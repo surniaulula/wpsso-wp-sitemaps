@@ -33,7 +33,7 @@ The WP Sitemaps settings page allows you to choose which post and taxonomy types
 
 <h3>The Document SSO Metabox</h3>
 
-When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Robots Meta metabox tab to exclude that webpage from the WordPress sitemaps XML.
+When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Edit Visibility tab to exclude that webpage from the WordPress sitemaps XML.
 
 <h3>WPSSO Core Required</h3>
 
@@ -51,7 +51,7 @@ WPSSO WP Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](http
 == Screenshots ==
 
 01. The WPSSO WPSM settings page offers options to customize the post and taxonomy types included in the WordPress sitemaps XML.
-02. The No Index option in the Document SSO &gt; Robots Meta metabox tab can be used to exclude individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML.
+02. The No Index option under the Document SSO &gt; Edit Visibility tab can be used to exclude individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML.
 
 == Changelog ==
 
@@ -76,7 +76,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 1.2.0-dev.2 (2022/01/14)**
+**Version 1.2.0-dev.4 (2022/01/15)**
 
 * **New Features**
 	* None.
@@ -92,7 +92,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v9.14.0-dev.2.
+	* WPSSO Core v9.14.0-dev.4.
 
 **Version 1.1.0 (2022/01/06)**
 
@@ -141,9 +141,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 1.2.0-dev.2 =
+= 1.2.0-dev.4 =
 
-(2022/01/14) Renamed the lib/abstracts/ folder and its classes.
+(2022/01/15) Renamed the lib/abstracts/ folder and its classes.
 
 = 1.1.0 =
 
