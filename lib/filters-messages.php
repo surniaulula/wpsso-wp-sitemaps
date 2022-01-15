@@ -49,10 +49,10 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 					$no_index_label = _x( 'No Index', 'option label', 'wpsso' );
 
 					// translators: Please ignore - translation uses a different text domain.
-					$sso_mb_title = _x( $this->p->cf[ 'meta' ][ 'title' ], 'metabox title', 'wpsso' );
+					$metabox_title = _x( $this->p->cf[ 'meta' ][ 'title' ], 'metabox title', 'wpsso' );
 
 					// translators: Please ignore - translation uses a different text domain.
-					$robots_tab = _x( 'Robots Meta', 'metabox tab', 'wpsso' );
+					$visibility = _x( 'Edit Visibility', 'metabox tab', 'wpsso' );
 
 					$about_wp55 = __( 'https://make.wordpress.org/core/2020/07/22/new-xml-sitemaps-functionality-in-wordpress-5-5/', 'wpsso-wp-sitemaps' );
 
@@ -64,7 +64,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$text .= __( 'These options allow you to customize the post and taxonomy types included in the WordPress sitemaps XML.', 'wpsso-wp-sitemaps' ) . ' ';
 
-					$text .= sprintf( __( 'To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab.', 'wpsso-wp-sitemaps' ), $no_index_label, $sso_mb_title, $robots_tab ) . ' ';
+					$text .= sprintf( __( 'To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab.', 'wpsso-wp-sitemaps' ), $no_index_label, $metabox_title, $visibility ) . ' ';
 
 					$text .= '</p>';
 
