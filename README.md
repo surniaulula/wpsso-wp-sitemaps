@@ -9,7 +9,7 @@
 <tr><th align="right" valign="top" nowrap>Tested Up To WordPress</th><td>5.9.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>
 <tr><th align="right" valign="top" nowrap>License</th><td><a href="https://www.gnu.org/licenses/gpl.txt">GPLv3</a></td></tr>
-<tr><th align="right" valign="top" nowrap>Tags / Keywords</th><td>xml sitemaps, xml sitemap, sitemaps, noindex, seo, google</td></tr>
+<tr><th align="right" valign="top" nowrap>Tags / Keywords</th><td>xml sitemaps, xml sitemap, sitemaps, noindex, woocommerce, seo, google</td></tr>
 </table>
 
 <h2>Description</h2>
@@ -21,6 +21,8 @@
 <p>Exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles marked as "No Index".</p>
 
 <p>Automatically enhance the built-in WordPress sitemaps XML with article modification times.</p>
+
+<p>Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.</p>
 
 <!-- /about -->
 

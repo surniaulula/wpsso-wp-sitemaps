@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
-Tags: xml sitemaps, xml sitemap, sitemaps, noindex, seo, google
+Tags: xml sitemaps, xml sitemap, sitemaps, noindex, woocommerce, seo, google
 Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.5
@@ -24,6 +24,8 @@ Manage which post and taxonomy types are included in the WordPress sitemaps XML.
 Exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles marked as "No Index".
 
 Automatically enhance the built-in WordPress sitemaps XML with article modification times.
+
+Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
 
 <!-- /about -->
 
@@ -75,6 +77,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 <p>Under the SSO &gt; Update Manager settings page, select the "Development and Up" (for example) version filter for the WPSSO Core plugin and/or its add-ons. Save the plugin settings and click the "Check for Plugin Updates" button to fetch the latest version information. When new development versions are available, they will automatically appear under your WordPress Dashboard &gt; Updates page. You can always reselect the "Stable / Production" version filter at any time to reinstall the latest stable version.</p>
 
 <h3>Changelog / Release Notes</h3>
+
+**Version 2.0.0-dev.1 (2022/02/02)**
+
+* **New Features**
+	* Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Added a new `WpssoWpsmSitemaps->wp_sitemaps_posts_pre_url_list()` filter to include the post type archive page.
+	* Added a new `WpssoWpsmSitemaps->get_posts_query_args()` method.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.5.
+	* WPSSO Core v10.1.0-dev.1.
 
 **Version 1.2.0 (2022/01/19)**
 
@@ -140,6 +158,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.8.0.
 
 == Upgrade Notice ==
+
+= 2.0.0-dev.1 =
+
+(2022/02/02) Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
 
 = 1.2.0 =
 
