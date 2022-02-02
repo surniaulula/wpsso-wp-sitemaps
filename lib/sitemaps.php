@@ -50,6 +50,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 			add_filter( 'wp_sitemaps_taxonomies', array( $this, 'wp_sitemaps_taxonomies' ), 10, 1 );
 			add_filter( 'wp_sitemaps_taxonomies_query_args', array( $this, 'wp_sitemaps_taxonomies_query_args' ), 10, 2 );
 			add_filter( 'wp_sitemaps_users_query_args', array( $this, 'wp_sitemaps_users_query_args' ), 10, 1 );
+			add_filter( 'wp_sitemaps_posts_pre_url_list', array( $this, 'wp_sitemaps_posts_pre_url_list' ), 10, 3 );
 		}
 
 		public function wp_sitemaps_post_types( $post_types ) {
@@ -243,6 +244,112 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 						array_merge( $args[ 'exclude' ], $local_cache );
 				}
 			}
+
+			return $args;
+		}
+
+		/**
+		 * Since WPSSO WPSM v2.0.0.
+		 *
+		 * Extend the functionality of the WP_Sitemaps_Posts->get_url_list() public method from
+		 * wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php to include post type archive pages without
+		 * a post ID.
+		 */
+		public function wp_sitemaps_posts_pre_url_list( $url_list, $post_type, $page_num ) {
+
+			$args = $this->get_posts_query_args( $post_type );
+
+			$args[ 'paged' ] = $page_num;
+
+			$query = new WP_Query( $args );
+
+			$url_list = array();
+	
+			if ( $post_type_archive_url = get_post_type_archive_link( $post_type ) ) {
+				
+				$sitemap_entry = array( 'loc' => $post_type_archive_url );
+				
+				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_post_type_archive_entry', $sitemap_entry, $post_type );
+
+				if ( $sitemap_entry ) {	// Just in case.
+				
+					$url_list[] = $sitemap_entry;
+				}
+			}
+
+			/**
+			 * Add a URL for the homepage in the pages sitemap.
+			 *
+			 * Shows only on the first page if the reading settings are set to display latest posts.
+			 */
+			if ( 'page' === $post_type && 1 === $page_num && 'posts' === get_option( 'show_on_front' ) ) {
+
+				/**
+				 * Extract the data needed for home URL to add to the array.
+				 */
+				$sitemap_entry = array( 'loc' => home_url( '/' ) );
+	
+				/**
+				 * Filters the sitemap entry for the home page when the 'show_on_front' option equals 'posts'.
+				 *
+				 * @since 5.5.0
+				 *
+				 * @param array $sitemap_entry Sitemap entry for the home page.
+				 */
+				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemap_entry );
+
+				if ( $sitemap_entry ) {	// Just in case.
+				
+					$url_list[] = $sitemap_entry;
+				}
+			}
+	
+			foreach ( $query->posts as $post ) {
+
+				$sitemap_entry = array( 'loc' => get_permalink( $post ) );
+	
+				/**
+				 * Filters the sitemap entry for an individual post.
+				 *
+				 * @since 5.5.0
+				 *
+				 * @param array   $sitemap_entry Sitemap entry for the post.
+				 * @param WP_Post $post          Post object.
+				 * @param string  $post_type     Name of the post_type.
+				 */
+				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_entry', $sitemap_entry, $post, $post_type );
+
+				if ( $sitemap_entry ) {	// Just in case.
+
+					$url_list[] = $sitemap_entry;
+				}
+			}
+
+			return $url_list;
+		}
+
+		/**
+		 * Since WPSSO WPSM v2.0.0.
+		 *
+		 * Recreates the functionality of the WP_Sitemaps_Posts->get_posts_query_args() protected method from
+		 * wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
+		 */
+		private function get_posts_query_args( $post_type ) {
+
+			$args = apply_filters(
+				'wp_sitemaps_posts_query_args',
+				array(
+					'orderby'                => 'ID',
+					'order'                  => 'ASC',
+					'post_type'              => $post_type,
+					'posts_per_page'         => wp_sitemaps_get_max_urls( 'post' ),
+					'post_status'            => array( 'publish' ),
+					'no_found_rows'          => true,
+					'update_post_term_cache' => false,
+					'update_post_meta_cache' => false,
+				),
+				$post_type
+			);
 
 			return $args;
 		}
