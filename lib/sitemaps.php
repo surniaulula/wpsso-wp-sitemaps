@@ -264,15 +264,15 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 			$query = new WP_Query( $args );
 
 			$url_list = array();
-	
+
 			if ( $post_type_archive_url = get_post_type_archive_link( $post_type ) ) {
-				
+
 				$sitemap_entry = array( 'loc' => $post_type_archive_url );
-				
+
 				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_post_type_archive_entry', $sitemap_entry, $post_type );
 
 				if ( $sitemap_entry ) {	// Just in case.
-				
+
 					$url_list[] = $sitemap_entry;
 				}
 			}
@@ -288,7 +288,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 				 * Extract the data needed for home URL to add to the array.
 				 */
 				$sitemap_entry = array( 'loc' => home_url( '/' ) );
-	
+
 				/**
 				 * Filters the sitemap entry for the home page when the 'show_on_front' option equals 'posts'.
 				 *
@@ -299,15 +299,15 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemap_entry );
 
 				if ( $sitemap_entry ) {	// Just in case.
-				
+
 					$url_list[] = $sitemap_entry;
 				}
 			}
-	
+
 			foreach ( $query->posts as $post ) {
 
 				$sitemap_entry = array( 'loc' => get_permalink( $post ) );
-	
+
 				/**
 				 * Filters the sitemap entry for an individual post.
 				 *
