@@ -19,13 +19,13 @@ Manage post and taxonomy types included in the WordPress sitemaps XML and exclud
 
 <!-- about -->
 
-Manage which post and taxonomy types are included in the WordPress sitemaps XML.
+Select post and taxonomy types included in the WordPress sitemaps XML.
 
-Exclude posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles marked as "No Index".
+**Add post type archive pages to the WordPress sitemap XML**, like the WooCommerce shop page and The Events Calendar events page.
 
-Automatically enhance the built-in WordPress sitemaps XML with article modification times.
+Enhance the WordPress sitemaps XML with article modification times.
 
-Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
+Exclude individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.
 
 <!-- /about -->
 
