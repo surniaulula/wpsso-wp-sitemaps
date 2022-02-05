@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.0.0-dev.6 (2022/02/04)**
+**Version 2.0.0-b.1 (2022/02/04)**
 
 * **New Features**
 	* Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
@@ -92,7 +92,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v10.1.0-dev.6.
+	* WPSSO Core v10.1.0-b.1.
 
 **Version 1.2.0 (2022/01/19)**
 
@@ -159,7 +159,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.0.0-dev.6 =
+= 2.0.0-b.1 =
 
 (2022/02/04) Adds post type archive pages to the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
 
