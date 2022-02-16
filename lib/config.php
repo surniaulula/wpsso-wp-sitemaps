@@ -18,7 +18,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
 					'version'     => '2.0.0',	// Plugin version.
-					'opt_version' => '1',		// Increment when changing default option values.
+					'opt_version' => '2',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
 					'desc'        => 'Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as "No Index".',
@@ -89,6 +89,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tax_product_cat'        => 1,	// For WooCommerce.
 					'wpsm_sitemaps_for_tax_product_tag'        => 1,	// For WooCommerce.
 					'wpsm_sitemaps_for_tax_pwb-brand'          => 1,	// For Perfect WooCommerce Brands Add-on.
+					'wpsm_sitemaps_for_tax_tribe_events_cat'   => 0,	// For The Events Calendar.
 					'wpsm_sitemaps_for_tax_yith_product_brand' => 1,	// For YITH WooCommerce Brands Add-on.
 					'wpsm_sitemaps_for_topic'                  => 0,	// For Bbpress
 					'wpsm_sitemaps_for_tribe_events'           => 1,	// For The Events Calendar.
