@@ -88,6 +88,8 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			if ( ! isset( $local_cache[ $post_type ] ) ) {
 
+				$redirect_url_disabled = $this->p->util->is_redirect_disabled();
+
 				$local_cache[ $post_type ] = array();
 
 				$query = new WP_Query( array_merge( $args, array(
@@ -102,6 +104,13 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 						if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
 
+							$local_cache[ $post_type ][] = $post_id;
+
+						/**
+						 * If WPSSO is handling redirects, then exclude this post if it is being redirected.
+						 */
+						} elseif ( ! $redirect_url_disabled && $this->p->util->get_redirect_url( 'post', $post_id ) ) {
+							
 							$local_cache[ $post_type ][] = $post_id;
 						}
 					}
@@ -171,6 +180,8 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			if ( ! isset( $local_cache[ $taxonomy ] ) ) {
 
+				$redirect_url_disabled = $this->p->util->is_redirect_disabled();
+
 				$local_cache[ $taxonomy ] = array();
 
 				$query = new WP_Term_Query( array_merge( $args, array(
@@ -183,6 +194,13 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 					foreach ( $query->terms as $term_id ) {
 
 						if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
+
+							$local_cache[ $taxonomy ][] = $term_id;
+						
+						/**
+						 * If WPSSO is handling redirects, then exclude this term if it is being redirected.
+						 */
+						} elseif ( ! $redirect_url_disabled && $this->p->util->get_redirect_url( 'term', $term_id ) ) {
 
 							$local_cache[ $taxonomy ][] = $term_id;
 						}
@@ -220,6 +238,8 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 				if ( null === $local_cache ) {
 
+					$redirect_url_disabled = $this->p->util->is_redirect_disabled();
+
 					$local_cache = array();
 
 					$query = new WP_User_Query( array_merge( $args, array(
@@ -234,6 +254,13 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 						foreach ( $users as $user_id ) {
 
 							if ( $this->p->util->robots->is_noindex( 'user', $user_id ) ) {
+
+								$local_cache[] = $user_id;
+						
+							/**
+							 * If WPSSO is handling redirects, then exclude this user if it is being redirected.
+							 */
+							} elseif ( ! $redirect_url_disabled && $this->p->util->get_redirect_url( 'user', $user_id ) ) {
 
 								$local_cache[] = $user_id;
 							}
