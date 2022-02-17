@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.1.0-dev.3 (2022/02/06)**
+**Version 2.1.0-dev.3 (2022/02/17)**
 
 * **New Features**
 	* None.
