@@ -81,37 +81,37 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 				$args[ 'post_status' ] = array( 'inherit' );
 			}
 
-			if ( $this->p->util->robots->is_enabled() ) {
+			/**
+			 * Create a post ID noindex array by post type.
+			 */
+			static $local_cache = array();
 
-				static $local_cache = array();	// Create post ID exclusion only once.
+			if ( ! isset( $local_cache[ $post_type ] ) ) {
 
-				if ( ! isset( $local_cache[ $post_type ] ) ) {
+				$local_cache[ $post_type ] = array();
 
-					$local_cache[ $post_type ] = array();
+				$query = new WP_Query( array_merge( $args, array(
+					'fields'        => 'ids',
+					'no_found_rows' => true,
+					'post_type'     => $post_type,
+				) ) );
 
-					$query = new WP_Query( array_merge( $args, array(
-						'fields'        => 'ids',
-						'no_found_rows' => true,
-						'post_type'     => $post_type,
-					) ) );
+				if ( ! empty( $query->posts ) ) {	// Just in case.
 
-					if ( ! empty( $query->posts ) ) {	// Just in case.
+					foreach ( $query->posts as $post_id ) {
 
-						foreach ( $query->posts as $post_id ) {
+						if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
 
-							if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
-
-								$local_cache[ $post_type ][] = $post_id;
-							}
+							$local_cache[ $post_type ][] = $post_id;
 						}
 					}
 				}
+			}
 
-				if ( ! empty( $local_cache[ $post_type ] ) ) {
+			if ( ! empty( $local_cache[ $post_type ] ) ) {
 
-					$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ? $local_cache[ $post_type ] :
-						array_merge( $args[ 'post__not_in' ], $local_cache[ $post_type ] );
-				}
+				$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ? $local_cache[ $post_type ] :
+					array_merge( $args[ 'post__not_in' ], $local_cache[ $post_type ] );
 			}
 
 			return $args;
@@ -164,36 +164,36 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 		 */
 		public function wp_sitemaps_taxonomies_query_args( $args, $taxonomy ) {
 
-			if ( $this->p->util->robots->is_enabled() ) {
+			/**
+			 * Create a term ID noindex array by taxonomy.
+			 */
+			static $local_cache = array();
 
-				static $local_cache = array();	// Create term ID exclusion only once.
+			if ( ! isset( $local_cache[ $taxonomy ] ) ) {
 
-				if ( ! isset( $local_cache[ $taxonomy ] ) ) {
+				$local_cache[ $taxonomy ] = array();
 
-					$local_cache[ $taxonomy ] = array();
+				$query = new WP_Term_Query( array_merge( $args, array(
+					'fields'        => 'ids',
+					'no_found_rows' => true,
+				) ) );
 
-					$query = new WP_Term_Query( array_merge( $args, array(
-						'fields'        => 'ids',
-						'no_found_rows' => true,
-					) ) );
+				if ( ! empty( $query->terms ) ) {	// Just in case.
 
-					if ( ! empty( $query->terms ) ) {	// Just in case.
+					foreach ( $query->terms as $term_id ) {
 
-						foreach ( $query->terms as $term_id ) {
+						if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
 
-							if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
-
-								$local_cache[ $taxonomy ][] = $term_id;
-							}
+							$local_cache[ $taxonomy ][] = $term_id;
 						}
 					}
 				}
+			}
 
-				if ( ! empty( $local_cache[ $taxonomy ] ) ) {
+			if ( ! empty( $local_cache[ $taxonomy ] ) ) {
 
-					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache[ $taxonomy ] :
-						array_merge( $args[ 'exclude' ], $local_cache[ $taxonomy ] );
-				}
+				$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache[ $taxonomy ] :
+					array_merge( $args[ 'exclude' ], $local_cache[ $taxonomy ] );
 			}
 
 			return $args;
@@ -207,13 +207,16 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 			if ( empty( $this->p->options[ 'wpsm_sitemaps_for_user_page' ] ) ) {
 
 				/**
-				 * Exclude all user pages by including only user ID 0 (which does not exist).
+				 * Exclude all users by including only user ID 0 (which does not exist).
 				 */
 				$args[ 'include' ] = array( 0 );
 
-			} elseif ( $this->p->util->robots->is_enabled() ) {
+			} else {
 
-				static $local_cache = null;	// Create user ID exclusion only once.
+				/**
+				 * Create a user ID noindex array.
+				 */
+				static $local_cache = null;
 
 				if ( null === $local_cache ) {
 
