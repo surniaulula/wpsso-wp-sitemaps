@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.1.0-b.1 (2022/02/17)**
+**Version 2.1.0-b.1 (2022/02/18)**
 
 * **New Features**
 	* None.
@@ -176,7 +176,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.1.0-b.1 =
 
-(2022/02/17) Removed test for `WpssoUtilRobots->is_enabled()` when checking for noindex, to allow noindex checks even if the robots meta tag is disabled.
+(2022/02/18) Removed test for `WpssoUtilRobots->is_enabled()` when checking for noindex, to allow noindex checks even if the robots meta tag is disabled.
 
 = 2.0.0 =
 
