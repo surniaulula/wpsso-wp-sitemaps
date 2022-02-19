@@ -78,12 +78,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.1.0-b.3 (2022/02/18)**
+**Version 2.1.0-rc.1 (2022/02/19)**
 
 * **New Features**
 	* None.
 * **Improvements**
-	* Removed test for `WpssoUtilRobots->is_enabled()` when checking for noindex, to allow noindex checks even if the robots meta tag is disabled.
+	* Added a test for `WpssoUtil->get_redirect_url()` to exclude the post, term, or user if it is being redirected.
+	* Removed test for `WpssoUtilRobots->is_enabled()` when checking for noindex, which allows noindex checks even if the robots meta tag is disabled.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
@@ -91,7 +92,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v10.1.0-b.3.
+	* WPSSO Core v10.1.0-rc.1.
 
 **Version 2.0.0 (2022/02/05)**
 
@@ -174,9 +175,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.1.0-b.3 =
+= 2.1.0-rc.1 =
 
-(2022/02/18) Removed test for `WpssoUtilRobots->is_enabled()` when checking for noindex, to allow noindex checks even if the robots meta tag is disabled.
+(2022/02/19) Exclude posts, terms, or users that are being redirected. Allow noindex checks even if the robots meta tag is disabled.
 
 = 2.0.0 =
 
