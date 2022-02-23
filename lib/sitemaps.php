@@ -110,7 +110,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 						 * If WPSSO is handling redirects, then exclude this post if it is being redirected.
 						 */
 						} elseif ( ! $redirect_url_disabled && $this->p->util->get_redirect_url( 'post', $post_id ) ) {
-							
+
 							$local_cache[ $post_type ][] = $post_id;
 						}
 					}
@@ -196,7 +196,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 						if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
 
 							$local_cache[ $taxonomy ][] = $term_id;
-						
+
 						/**
 						 * If WPSSO is handling redirects, then exclude this term if it is being redirected.
 						 */
@@ -256,7 +256,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 							if ( $this->p->util->robots->is_noindex( 'user', $user_id ) ) {
 
 								$local_cache[] = $user_id;
-						
+
 							/**
 							 * If WPSSO is handling redirects, then exclude this user if it is being redirected.
 							 */
