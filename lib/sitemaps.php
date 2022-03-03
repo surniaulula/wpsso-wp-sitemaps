@@ -55,7 +55,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 		public function wp_sitemaps_post_types( $post_types ) {
 
-			$post_types = SucomUtilWP::get_post_types( $output = 'objects' );
+			$post_types = SucomUtil::get_post_types( $output = 'objects' );
 
 			foreach ( $post_types as $name => $obj ) {
 
@@ -155,7 +155,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 		public function wp_sitemaps_taxonomies( $taxonomies ) {
 
-			$taxonomies = SucomUtilWP::get_taxonomies( $output = 'objects' );
+			$taxonomies = SucomUtil::get_taxonomies( $output = 'objects' );
 
 			foreach ( $taxonomies as $name => $obj ) {
 
