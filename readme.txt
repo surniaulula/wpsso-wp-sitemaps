@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* None.
+	* Updated `SucomUtilWP` method calls to `SucomUtil` for WPSSO Core v11.5.0.
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
@@ -192,7 +192,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.1.1-dev.6 =
 
-(2022/03/03) None.
+(2022/03/03) Updated `SucomUtilWP` method calls to `SucomUtil` for WPSSO Core v11.5.0.
 
 = 2.1.0 =
 
