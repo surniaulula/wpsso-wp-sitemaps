@@ -88,7 +88,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			if ( ! isset( $local_cache[ $post_type ] ) ) {
 
-				$redir_disabled = $this->p->util->is_redirect_disabled();
+				$redir_enabled = $this->p->util->is_redirect_enabled();
 
 				$local_cache[ $post_type ] = array();
 
@@ -109,7 +109,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 						/**
 						 * If WPSSO is handling redirects, then exclude this post if it is being redirected.
 						 */
-						} elseif ( ! $redir_disabled && $this->p->util->get_redirect_url( 'post', $post_id ) ) {
+						} elseif ( $redir_enabled && $this->p->util->get_redirect_url( 'post', $post_id ) ) {
 
 							$local_cache[ $post_type ][] = $post_id;
 						}
@@ -180,7 +180,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 			if ( ! isset( $local_cache[ $taxonomy ] ) ) {
 
-				$redir_disabled = $this->p->util->is_redirect_disabled();
+				$redir_enabled = $this->p->util->is_redirect_enabled();
 
 				$local_cache[ $taxonomy ] = array();
 
@@ -200,7 +200,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 						/**
 						 * If WPSSO is handling redirects, then exclude this term if it is being redirected.
 						 */
-						} elseif ( ! $redir_disabled && $this->p->util->get_redirect_url( 'term', $term_id ) ) {
+						} elseif ( $redir_enabled && $this->p->util->get_redirect_url( 'term', $term_id ) ) {
 
 							$local_cache[ $taxonomy ][] = $term_id;
 						}
@@ -238,7 +238,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 				if ( null === $local_cache ) {
 
-					$redir_disabled = $this->p->util->is_redirect_disabled();
+					$redir_enabled = $this->p->util->is_redirect_enabled();
 
 					$local_cache = array();
 
@@ -260,7 +260,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 							/**
 							 * If WPSSO is handling redirects, then exclude this user if it is being redirected.
 							 */
-							} elseif ( ! $redir_disabled && $this->p->util->get_redirect_url( 'user', $user_id ) ) {
+							} elseif ( $redir_enabled && $this->p->util->get_redirect_url( 'user', $user_id ) ) {
 
 								$local_cache[] = $user_id;
 							}
