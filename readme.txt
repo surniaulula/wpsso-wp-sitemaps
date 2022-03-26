@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.5
 Tested Up To: 5.9.2
-Stable Tag: 2.1.1
+Stable Tag: 2.1.2
 
 Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as "No Index".
 
