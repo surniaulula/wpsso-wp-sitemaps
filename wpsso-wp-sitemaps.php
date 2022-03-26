@@ -15,7 +15,7 @@
  * Requires At Least: 5.5
  * Tested Up To: 5.9.2
  * WC Tested Up To: 6.3.1
- * Version: 2.1.2
+ * Version: 3.0.0-dev.1
  * 
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -40,9 +40,6 @@ if ( ! class_exists( 'WpssoAbstractAddOn' ) ) {
 if ( ! class_exists( 'WpssoWpsm' ) ) {
 
 	class WpssoWpsm extends WpssoAbstractAddOn {
-
-		public $filters;	// WpssoWpsmFilters class object.
-		public $sitemaps;	// WpssoWpsmSitemaps class object.
 
 		protected $p;		// Wpsso class object.
 
@@ -82,8 +79,8 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 				return;	// Stop here.
 			}
 
-			$this->filters  = new WpssoWpsmFilters( $this->p, $this );
-			$this->sitemaps = new WpssoWpsmSitemaps( $this->p, $this );
+			new WpssoWpsmFilters( $this->p, $this );
+			new WpssoWpsmSitemapsFilters( $this->p, $this );
 		}
 	}
 
