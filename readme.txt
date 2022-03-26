@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.0.0-dev.1 (2022/03/26)**
+**Version 3.0.0-dev.2 (2022/03/26)**
 
 * **New Features**
 	* None.
@@ -223,7 +223,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 3.0.0-dev.1 =
+= 3.0.0-dev.2 =
 
 (2022/03/26) Replaced the WordPress `WP_Sitemaps_Renderer->get_sitemap_xml()` method.
 
