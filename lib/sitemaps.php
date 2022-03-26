@@ -128,10 +128,6 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) ) {
 
 		/**
 		 * Add a modification time for Open Graph type non-website posts (ie. article, book, product, etc.).
-		 *
-		 * Note that this filter is executed for /wp-sitemap-posts-page-#.xml, not /wp-sitemap.xml.
-		 *
-		 * See WP_Sitemaps_Renderer->get_sitemap_xml() in wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
 		 */
 		public function wp_sitemaps_posts_entry( $sitemap_entry, $post, $post_type ) {
 
