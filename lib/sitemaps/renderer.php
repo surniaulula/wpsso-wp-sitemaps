@@ -45,9 +45,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 				$url = $data->addChild( 'url' );
 
-				/**
-				 * Order tags with 'loc' first.
-				 */
 				$url_item = array_merge( $standard_tags, $url_item );
 	
 				foreach ( $url_item as $name => $value ) {
