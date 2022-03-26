@@ -61,8 +61,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 						if ( ! empty( $url_item[ 'language' ] ) ) {
 
 							$loc->addAttribute( 'language', $url_item[ 'language' ] );
-
-							unset( $url_item[ 'language' ] );
 						}
 
 					} elseif ( isset( $standard_tags[ $name ] ) ) {
