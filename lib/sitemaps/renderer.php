@@ -23,38 +23,59 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 		public function get_sitemap_xml( $url_list ) {
 
-			$urlset = new SimpleXMLElement(
-				sprintf(
-					'%1$s%2$s%3$s',
-					'<?xml version="1.0" encoding="UTF-8" ?' . '>',
-					$this->stylesheet,
-					'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" />'
-				)
-			);
+			$urlset = array( 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' );
+
+			$urlset = (array) apply_filters( 'wp_sitemap_xml_urlset', $urlset );
+
+			/**
+			 * See https://www.php.net/manual/en/class.simplexmlelement.php.
+			 */
+			$data = new SimpleXMLElement( sprintf( '%1$s%2$s%3$s',
+				'<?xml version="1.0" encoding="UTF-8" ?' . '>',
+				$this->stylesheet,
+				'<urlset ' . implode( ' ', $urlset ) . ' />'
+			) );
+
+			/**
+			 * See https://www.sitemaps.org/protocol.html.
+			 */
+			$standard_tags = array( 'loc' => '', 'lastmod' => '', 'changefreq' => '', 'priority' => '' );
 
 			foreach ( $url_list as $url_item ) {
 
-				$url = $urlset->addChild( 'url' );
+				$url = $data->addChild( 'url' );
+
+				/**
+				 * Order tags with 'loc' first.
+				 */
+				$url_item = array_merge( $standard_tags, $url_item );
 	
 				foreach ( $url_item as $name => $value ) {
 
+					if ( '' === $value ) {
+
+						continue;
+					}
+
 					if ( 'loc' === $name ) {
 
-						$url->addChild( $name, esc_url( $value ) );
+						$loc = $url->addChild( $name, esc_url( $value ) );
 
-					} elseif ( in_array( $name, array( 'lastmod', 'changefreq', 'priority' ), true ) ) {
+						if ( ! empty( $url_item[ 'language' ] ) ) {
+
+							$loc->addAttribute( 'language', $url_item[ 'language' ] );
+
+							unset( $url_item[ 'language' ] );
+						}
+
+					} elseif ( isset( $standard_tags[ $name ] ) ) {
 
 						$url->addChild( $name, esc_xml( $value ) );
-
-					} else {
-
-						_doing_it_wrong( __METHOD__, sprintf( __( 'Fields other than %s are not currently supported for sitemaps.' ),
-							implode( ',', array( 'loc', 'lastmod', 'changefreq', 'priority' ) ) ), '5.5.0' );
 					}
 				}
 			}
 	
-			return $urlset->asXML();
+			return $data->asXML();
 		}
 	}
 }

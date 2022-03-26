@@ -256,6 +256,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				}
 			}
 
+			$schema_lang = $mod[ 'obj' ]->get_options( $mod[ 'id' ], 'schema_lang', $filter_opts = true, $pad_opts = true );
+
+			if ( WpssoSchema::is_valid_val( $schema_lang ) ) {
+
+				$sitemap_entry[ 'language' ] = $schema_lang;
+			}
+
 			return $sitemap_entry;
 		}
 
