@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.1.2-rc.1 (2022/03/25)**
+**Version 2.1.2 (2022/03/26)**
 
 * **New Features**
 	* None.
@@ -91,7 +91,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v12.0.0-rc.1.
+	* WPSSO Core v12.0.0.
 
 **Version 2.1.1 (2022/03/07)**
 
@@ -205,9 +205,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.1.2-rc.1 =
+= 2.1.2 =
 
-(2022/03/25) Added support for `WpssoUtil->is_redirect_enabled()` in WPSSO Core v12.0.0.
+(2022/03/26) Added support for `WpssoUtil->is_redirect_enabled()` in WPSSO Core v12.0.0.
 
 = 2.1.1 =
 
