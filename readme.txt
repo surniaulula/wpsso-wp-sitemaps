@@ -78,16 +78,19 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.0.0-dev.1 (TBD)**
+**Version 3.0.0-dev.1 (2022/03/26)**
 
 * **New Features**
 	* None.
 * **Improvements**
-	* None.
+	* Replaced the WordPress `WP_Sitemaps_Renderer->get_sitemap_xml()` method.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* None.
+	* Moved lib/sitemaps.php to lib/sitemaps/filters.php.
+	* Added lib/sitemaps.php to define the `$wp_sitemaps` global variable before `wp_sitemaps_get_server()` runs.
+	* Added lib/sitemaps/sitemaps.php to extend WP_Sitemaps and set a different renderer.
+	* Added lib/sitemaps/renderer.php to extend WP_Sitemaps_Renderer.
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
@@ -222,7 +225,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 3.0.0-dev.1 =
 
-(TBD) None.
+(2022/03/26) Replaced the WordPress `WP_Sitemaps_Renderer->get_sitemap_xml()` method.
 
 = 2.1.2 =
 
