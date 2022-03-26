@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	/**
 	 * Since WPSSO WPSM v3.0.0.
 	 *
-	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide a different get_sitemap_xml() method.
+	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide a better get_sitemap_xml() method.
 	 *
 	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
 	 */
