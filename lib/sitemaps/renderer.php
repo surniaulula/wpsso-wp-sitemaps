@@ -51,12 +51,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		 */
 		public function get_sitemap_xml( $url_list ) {
 
-			/**
-			 * Include 'xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"' if adding images.
-			 */
 			$urlset = array(
 				'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+				'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
 				'xmlns:xhtml="http://www.w3.org/1999/xhtml"',
+				'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"',
 			);
 
 			$urlset = (array) apply_filters( 'wp_sitemap_xml_urlset', $urlset );
@@ -70,12 +69,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				'<urlset ' . implode( ' ', $urlset ) . ' />'
 			) );
 
-			$this->add_sitemap_xml_children( $data, 'url', $url_list );
+			$this->add_sitemap_xml_children( $data, $url_list, 'url' );
 	
 			return $data->asXML();
 		}
 		
-		protected function add_sitemap_xml_children( &$data, $element_name, $items ) {
+		protected function add_sitemap_xml_children( &$data, $items, $container_name ) {
 
 			if ( ! is_array( $items ) ) {
 
@@ -89,7 +88,14 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 			foreach ( $items as $item ) {
 
-				$container = $data->addChild( $element_name );
+				$container = $data->addChild( $container_name );
+
+				if ( 'xhtml:link' === $container_name ) {
+
+					$container->addAttribute( 'rel', 'alternate' );
+				}
+
+				$loc = false;
 
 				$item = array_merge( $standard_tags, $item );	// Make sure 'loc' is first.
 	
@@ -100,32 +106,28 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 						continue;
 					}
 
-					if ( 'loc' === $name ) {
+					if ( 'alternates' === $name ) {
 
-						$loc = $container->addChild( $name, esc_url( $value ) );
+						$this->add_sitemap_xml_children( $container, $value, 'xhtml:link' );	// Recurse.
 
-						if ( ! empty( $item[ 'language' ] ) ) {
+					} elseif ( 'href' === $name ) {
 
+						$container->addAttribute( 'href', esc_url( $value ) );
+
+					} elseif ( 'hreflang' === $name ) {
+
+						$container->addAttribute( 'hreflang', esc_xml( $item[ 'hreflang' ] ) );
+							
+					} elseif ( 'language' === $name ) {
+
+						if ( $loc ) {
+						
 							$loc->addAttribute( 'language', $item[ 'language' ] );
 						}
 
-					} elseif ( 'alternates' === $name ) {
+					} elseif ( 'loc' === $name ) {
 
-						$this->add_sitemap_xml_children( $container, 'xhtml:link', $value );	// Recurse.
-
-					} elseif ( 'xhtml:link' === $element_name ) {
-
-						$container->addAttribute( 'rel', 'alternate' );
-
-						if ( ! empty( $item[ 'language' ] ) ) {
-
-							$container->addAttribute( 'hreflang', esc_xml( $item[ 'language' ] ) );
-						}
-							
-						if ( ! empty( $item[ 'href' ] ) ) {
-
-							$container->addAttribute( 'href', esc_url( $value ) );
-						}
+						$loc = $container->addChild( $name, esc_url( $value ) );
 
 					} elseif ( isset( $standard_tags[ $name ] ) ) {
 

@@ -256,12 +256,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				}
 			}
 
-			$schema_lang = $mod[ 'obj' ]->get_options( $mod[ 'id' ], 'schema_lang', $filter_opts = true, $pad_opts = true );
-
-			if ( WpssoSchema::is_valid_val( $schema_lang ) ) {
-
-				$sitemap_entry[ 'language' ] = $schema_lang;
-			}
+			$sitemap_entry[ 'language' ]   = $this->p->schema->get_lang( $mod );
+			$sitemap_entry[ 'alternates' ] = $this->p->util->get_alternates( $mod );
 
 			return $sitemap_entry;
 		}
