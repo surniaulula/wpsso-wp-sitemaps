@@ -131,7 +131,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 							
 					} elseif ( 'loc' === $name ) {
 
-						$loc = $container->addChild( $name, esc_url( $value ) );
+						$container->addChild( $name, esc_url( $value ) );
 
 					} elseif ( isset( $standard_tags[ $name ] ) && is_string( $value ) ) {
 
