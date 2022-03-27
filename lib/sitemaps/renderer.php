@@ -34,29 +34,24 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		 * $url_list = array(
 		 *	array(
 		 *		'loc' => 'https://example.com/page-1/',
-		 *		'language' => 'en_US',
 		 *		'lastmod' => '2021-12-13T03:56:29+00:00',
 		 *		'alternates' => array(
 		 * 			array(
 		 *				'href' => 'https://example.com/en/page-1/',
-		 * 				'language' => 'en_US',
-		 *				'lastmod' => '2021-12-13T03:56:29+00:00',
+		 * 				'hreflang' => 'en_US',
 		 * 			),
 		 * 			array(
 		 *				'href' => 'https://example.com/fr/page-1/',
-		 * 				'language' => 'fr_FR',
-		 *				'lastmod' => '2021-12-13T03:56:29+00:00',
+		 * 				'hreflang' => 'fr_FR',
 		 * 			),
 		 * 			array(
 		 *				'href' => 'https://example.com/es/page-1/',
-		 * 				'language' => 'es_ES',
-		 *				'lastmod' => '2021-12-13T03:56:29+00:00',
+		 * 				'hreflang' => 'es_ES',
 		 * 			),
 		 * 		),
 		 *	),
 		 *	array(
 		 *		'loc' => 'https://example.com/page-2/',
-		 *		'language' => 'en_US',
 		 *		'lastmod' => '2021-12-13T03:56:29+00:00',
 		 *	),
 		 * );
