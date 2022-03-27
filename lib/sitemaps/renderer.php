@@ -29,7 +29,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
 		/**
-		 *
 		 * Example:
 		 *
 		 * $url_list = array(
@@ -90,6 +89,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			}
 
 			/**
+			 * Standard sitemap tags array used for re-ordering the $item array with 'loc' as the first element.
+			 *
 			 * See https://www.sitemaps.org/protocol.html.
 			 */
 			$standard_tags = array( 'loc' => '', 'lastmod' => '', 'changefreq' => '', 'priority' => '' );
@@ -102,7 +103,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				}
 
 				$loc       = false;
-				$item      = array_merge( $standard_tags, $item );	// Make sure 'loc' is first.
+				$item      = array_merge( $standard_tags, $item );
 				$container = $data->addChild( $container_name );
 
 				if ( 'xhtml:link' === $container_name ) {
