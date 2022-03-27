@@ -17,12 +17,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 *
 	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide a better get_sitemap_xml() method.
 	 *
+	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
+	 *
 	 * You can use a sitemap to tell Google all of the language and region variants for each URL. To do so, add a <loc> element
 	 * specifying a single URL, with child <xhtml:link> entries listing every language/locale variant of the page including
 	 * itself. Therefore if you have 3 versions of a page, your sitemap will have 3 entries, each with 3 identical child
 	 * entries.
 	 *
-	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
 	 * See https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap.
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
