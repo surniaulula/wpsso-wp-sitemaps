@@ -91,7 +91,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 				$container = $data->addChild( $element_name );
 
-				$item = array_merge( $standard_tags, $item );
+				$item = array_merge( $standard_tags, $item );	// Make sure 'loc' is first.
 	
 				foreach ( $item as $name => $value ) {
 
