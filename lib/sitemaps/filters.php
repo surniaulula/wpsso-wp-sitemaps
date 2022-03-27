@@ -51,6 +51,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			add_filter( 'wp_sitemaps_taxonomies', array( $this, 'wp_sitemaps_taxonomies' ), 10, 1 );
 			add_filter( 'wp_sitemaps_taxonomies_query_args', array( $this, 'wp_sitemaps_taxonomies_query_args' ), 10, 2 );
+			add_filter( 'wp_sitemaps_taxonomies_entry', array( $this, 'wp_sitemaps_taxonomies_entry' ), 10, 3 );
 
 			add_filter( 'wp_sitemaps_users_query_args', array( $this, 'wp_sitemaps_users_query_args' ), 10, 1 );
 		}
@@ -235,7 +236,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/**
-		 * Add a modification time for Open Graph type non-website posts (ie. article, book, product, etc.).
+		 * Add the modification time for Open Graph type non-website posts (ie. article, book, product, etc.), post
+		 * language, and alternate post languages.
 		 */
 		public function wp_sitemaps_posts_entry( $sitemap_entry, $post, $post_type ) {
 
@@ -244,8 +246,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				return $sitemap_entry;
 			}
 
-			$mod = $this->p->post->get_mod( $post->ID );
-
+			$mod     = $this->p->post->get_mod( $post->ID );
 			$og_type = $this->p->og->get_mod_og_type_id( $mod );	// Since WPSSO Core v9.13.0.
 
 			if ( 'website' !== $og_type ) {
@@ -256,7 +257,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				}
 			}
 
-			$sitemap_entry[ 'language' ]   = $this->p->schema->get_lang( $mod );
 			$sitemap_entry[ 'alternates' ] = $this->p->util->get_alternates( $mod );
 
 			return $sitemap_entry;
@@ -324,6 +324,24 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			}
 
 			return $args;
+		}
+
+		/**
+		 * Add the term language and alternate term languages.
+		 */
+		public function wp_sitemaps_taxonomies_entry( $sitemap_entry, $term, $taxonomy ) {
+
+			if ( empty( $term->term_id ) ) {	// Just in case.
+
+				return $sitemap_entry;
+			}
+
+			$mod = $this->p->term->get_mod( $term->term_id );
+
+			$sitemap_entry[ 'language' ]   = $this->p->schema->get_lang( $mod );
+			$sitemap_entry[ 'alternates' ] = $this->p->util->get_alternates( $mod );
+
+			return $sitemap_entry;
 		}
 
 		/**

@@ -17,11 +17,18 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 *
 	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide a better get_sitemap_xml() method.
 	 *
+	 * You can use a sitemap to tell Google all of the language and region variants for each URL. To do so, add a <loc> element
+	 * specifying a single URL, with child <xhtml:link> entries listing every language/locale variant of the page including
+	 * itself. Therefore if you have 3 versions of a page, your sitemap will have 3 entries, each with 3 identical child
+	 * entries.
+	 *
 	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
+	 * See https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap.
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
 		/**
+		 *
 		 * Example:
 		 *
 		 * $url_list = array(
@@ -30,6 +37,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		 *		'language' => 'en_US',
 		 *		'lastmod' => '2021-12-13T03:56:29+00:00',
 		 *		'alternates' => array(
+		 * 			array(
+		 *				'href' => 'https://example.com/en/page-1/',
+		 * 				'language' => 'en_US',
+		 *				'lastmod' => '2021-12-13T03:56:29+00:00',
+		 * 			),
 		 * 			array(
 		 *				'href' => 'https://example.com/fr/page-1/',
 		 * 				'language' => 'fr_FR',
@@ -86,8 +98,15 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			 */
 			$standard_tags = array( 'loc' => '', 'lastmod' => '', 'changefreq' => '', 'priority' => '' );
 
-			foreach ( $items as $item ) {
+			foreach ( $items as $num => $item ) {
 
+				if ( ! is_array( $item ) ) {
+
+					continue;
+				}
+
+				$loc       = false;
+				$item      = array_merge( $standard_tags, $item );	// Make sure 'loc' is first.
 				$container = $data->addChild( $container_name );
 
 				if ( 'xhtml:link' === $container_name ) {
@@ -95,18 +114,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 					$container->addAttribute( 'rel', 'alternate' );
 				}
 
-				$loc = false;
-
-				$item = array_merge( $standard_tags, $item );	// Make sure 'loc' is first.
-	
 				foreach ( $item as $name => $value ) {
 
 					if ( '' === $value ) {
 
 						continue;
-					}
 
-					if ( 'alternates' === $name ) {
+					} elseif ( 'alternates' === $name ) {
 
 						$this->add_sitemap_xml_children( $container, $value, 'xhtml:link' );	// Recurse.
 
@@ -118,18 +132,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 						$container->addAttribute( 'hreflang', esc_xml( $item[ 'hreflang' ] ) );
 							
-					} elseif ( 'language' === $name ) {
-
-						if ( $loc ) {
-						
-							$loc->addAttribute( 'language', $item[ 'language' ] );
-						}
-
 					} elseif ( 'loc' === $name ) {
 
 						$loc = $container->addChild( $name, esc_url( $value ) );
 
-					} elseif ( isset( $standard_tags[ $name ] ) ) {
+					} elseif ( isset( $standard_tags[ $name ] ) && is_string( $value ) ) {
 
 						$container->addChild( $name, esc_xml( $value ) );
 					}
