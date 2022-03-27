@@ -119,7 +119,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 						if ( ! empty( $item[ 'language' ] ) ) {
 
-							$container->addAttribute( 'hreflang', $item[ 'language' ] );
+							$container->addAttribute( 'hreflang', esc_xml( $item[ 'language' ] ) );
 						}
 							
 						if ( ! empty( $item[ 'href' ] ) ) {
