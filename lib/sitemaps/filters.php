@@ -338,7 +338,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$mod = $this->p->term->get_mod( $term->term_id );
 
-			$sitemap_entry[ 'language' ]   = $this->p->schema->get_lang( $mod );
 			$sitemap_entry[ 'alternates' ] = $this->p->util->get_link_rel_alternates( $mod );
 
 			return $sitemap_entry;
