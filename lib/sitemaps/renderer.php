@@ -28,6 +28,39 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
+		public function render_sitemap( $url_list ) {
+	
+			$wpsso =& Wpsso::get_instance();
+
+			global $wp_query;
+
+			$wp_query->is_404 = false;
+
+			ob_implicit_flush( true );
+			ob_end_flush();
+
+			$content = $this->get_sitemap_xml( $url_list );
+
+			if ( $wpsso->debug->enabled ) {
+
+				$content .= $wpsso->debug->get_html( null, 'debug log' );
+			}
+
+			$length = strlen( $content );
+
+			header( 'HTTP/1.1 200 OK' );
+			header( 'Content-type: application/xml; charset=UTF-8' );
+			header( 'Content-Length: ' . $length );
+
+			echo $content;
+			
+			flush();
+
+			sleep( 1 );
+
+			exit;
+		}
+
 		/**
 		 * Example:
 		 *
@@ -91,9 +124,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			 *
 			 * See https://www.sitemaps.org/protocol.html.
 			 */
-			$standard_tags = array( 'loc' => '', 'lastmod' => '', 'changefreq' => '', 'priority' => '' );
+			$allowed_tags = array(
+				'loc'        => '',
+				'lastmod'    => '',
+				'changefreq' => '',
+				'priority'   => '',
+				'alternates' => '',
+				'href'       => '',
+				'hreflang'   => '',
+			);
 
-			$items = array_merge( $standard_tags, $items );	// Re-order the array.
+			$items = array_merge( $allowed_tags, $items );	// Re-order the array.
 
 			foreach ( $items as $name => $val ) {
 
@@ -124,9 +165,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 					$data->addChild( $name, esc_url( $val ) );
 
-				} elseif ( isset( $standard_tags[ $name ] ) && is_string( $val ) ) {
+				} elseif ( isset( $allowed_tags[ $name ] ) && is_string( $val ) ) {
 
 					$data->addChild( $name, esc_xml( $val ) );
+
+				} else {
+
+					$error_msg = sprintf( __( '"%s" is not a recognized field name.', $name, 'wpsso-wp-sitemaps' ) ) . ' ';
+
+					$error_msg .= sprintf( __( 'Fields other than %s are not currently supported for sitemaps.' ), implode( ',', $allowed_tags ) );
+
+					_doing_it_wrong( __METHOD__, $error_msg, '5.5.0' );
 				}
 			}
 		}

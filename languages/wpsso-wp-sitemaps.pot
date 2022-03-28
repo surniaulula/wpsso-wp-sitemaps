@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO WP Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO WP Sitemaps XML 3.0.0-dev.7\n"
+"Project-Id-Version: WPSSO WP Sitemaps XML 3.0.0-dev.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2022-MO-DA HO:MI+ZONE\n"
@@ -80,6 +80,14 @@ msgid ""
 "To <strong>exclude</strong> individual posts, pages, custom post types, "
 "taxonomy terms, or user profile pages from the WordPress sitemaps XML, "
 "enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab."
+msgstr ""
+
+#: lib/sitemaps/renderer.php:174
+msgid "\"%s\" is not a recognized field name."
+msgstr ""
+
+#: lib/sitemaps/renderer.php:176
+msgid "Fields other than %s are not currently supported for sitemaps."
 msgstr ""
 
 #: lib/submenu/wpsm-general.php:38
