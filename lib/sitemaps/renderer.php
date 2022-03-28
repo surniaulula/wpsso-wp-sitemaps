@@ -65,80 +65,73 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"',
 			);
 
+			// @todo pvb: I STRONLY suggest you change the name of this filter by prefixing it with this plugin's name
+			//       so that it does not seem like it is a core filter.
+			// @todo pvb: I also STRONGLY suggest you change the same to something like 'xxxx_declarations' so that
+			//       it's clear to users of the filter that it's not filtering the $urlset, it's filtering the
+			//       namespace declarations (and schemaLocations associated with those declarations).
+			// @todo pvb: I also STRONGLY suggest you NOT allow other plugins to filter the default namespace (i.e.,
+			//       only allow them to add extension namespaces).  See https://github.com/GoogleChromeLabs/wp-sitemaps/issues/151#issuecomment-612252959
+			//       for an alternate (pun intended :-) way of having this filter work.  Note: that comment on that
+			//       sitemaps feature plugin does NOT address (i.e., via a filter) allowing plugins to specify @author pbiron
+			//       URL for the schema document to use for a given namespace URI (e.g., for use in @xsi:schemaLocation).
+			//       I've got code somehwere that provides another filter to do that but I've switched computers
+			//       since I developed that and I'll have to dig out the hard drive for my old machine to find it.
 			$urlset = (array) apply_filters( 'wp_sitemap_xml_urlset', $urlset );
 
 			/**
 			 * See https://www.php.net/manual/en/class.simplexmlelement.php.
 			 */
-			$data = new SimpleXMLElement( sprintf( '%1$s%2$s%3$s',
-				'<?xml version="1.0" encoding="UTF-8" ?' . '>',
-				$this->stylesheet,
-				'<urlset ' . implode( ' ', $urlset ) . ' />'
-			) );
+			$urlset = new SimpleXMLElement(
+				sprintf(
+					'%1$s%2$s%3$s',
+					'<?xml version="1.0" encoding="UTF-8" ?' . '>',
+					$this->stylesheet,
+					'<urlset ' . implode( ' ', $urlset ) . '/>'
+				)
+			);
 
-			$this->add_sitemap_xml_children( $data, $url_list, 'url' );
-	
-			return $data->asXML();
-		}
-		
-		protected function add_sitemap_xml_children( &$data, $items, $container_name ) {
+			foreach ( $url_list as $url_item ) {
+				$url = $urlset->addChild( 'url' );
 
-			if ( ! is_array( $items ) ) {
+				// Add each element as a child node to the <url> entry.
+				foreach ( $url_item as $name => $value ) {
+					if ( 'loc' === $name ) {
+						$url->addChild( $name, esc_url( $value ) );
+					} elseif ( in_array( $name, array( 'lastmod', 'changefreq', 'priority' ), true ) ) {
+						$url->addChild( $name, esc_xml( $value ) );
+					} elseif ( 'alternates' === $name && ! empty( $value ) ) {
+						$xhtml_link = $url->addChild( 'link', null, 'http://www.w3.org/1999/xhtml' );
+						$xhtml_link->addAttribute( 'rel', 'alternate' );
 
-				return;
-			}
-
-			/**
-			 * Standard sitemap tags array used for re-ordering the $item array with 'loc' as the first element.
-			 *
-			 * See https://www.sitemaps.org/protocol.html.
-			 */
-			$standard_tags = array( 'loc' => '', 'lastmod' => '', 'changefreq' => '', 'priority' => '' );
-
-			foreach ( $items as $num => $item ) {
-
-				if ( ! is_array( $item ) ) {
-
-					continue;
-				}
-
-				$loc       = false;
-				$item      = array_merge( $standard_tags, $item );
-				$container = $data->addChild( $container_name );
-
-				if ( 'xhtml:link' === $container_name ) {
-
-					$container->addAttribute( 'rel', 'alternate' );
-				}
-
-				foreach ( $item as $name => $value ) {
-
-					if ( '' === $value ) {
-
-						continue;
-
-					} elseif ( 'alternates' === $name ) {
-
-						$this->add_sitemap_xml_children( $container, $value, 'xhtml:link' );	// Recurse.
-
-					} elseif ( 'href' === $name ) {
-
-						$container->addAttribute( 'href', esc_url( $value ) );
-
-					} elseif ( 'hreflang' === $name ) {
-
-						$container->addAttribute( 'hreflang', esc_xml( $item[ 'hreflang' ] ) );
-							
-					} elseif ( 'loc' === $name ) {
-
-						$container->addChild( $name, esc_url( $value ) );
-
-					} elseif ( isset( $standard_tags[ $name ] ) && is_string( $value ) ) {
-
-						$container->addChild( $name, esc_xml( $value ) );
+						foreach ( $value as $attributes ) {
+							foreach ( $attributes as $attr_name => $attr_value ) {
+								if ( 'href' === $attr_name ) {
+									$xhtml_link->addAttribute( $attr_name, esc_url( $attr_value ) );
+								} elseif ( 'hreflang' === $attr_name ) {
+									$xhtml_link->addAttribute( $attr_name, esc_attr( $attr_value ) );
+								}
+								// @todo pvb: allow other attributes on xhtml:link (e.g., @charset)?  I don't know if
+								//       Google et. al accept any attributes other than @rel, @href, and @hreflang
+								//       that are legal in XHTML...or only those 3.
+							}
+						}
+					} else {
+						_doing_it_wrong(
+							__METHOD__,
+							sprintf(
+								/* translators: %s: List of element names. */
+								__( 'Fields other than %s are not currently supported for sitemaps.' ),
+								implode( ',', array( 'loc', 'lastmod', 'changefreq', 'priority', 'xhtml:link' ) )
+							),
+							'5.5.0'
+						);
 					}
 				}
 			}
+
+			echo $urlset->asXML();
 		}
+
 	}
 }
