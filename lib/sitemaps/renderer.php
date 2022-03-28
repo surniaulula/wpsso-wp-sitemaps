@@ -78,15 +78,15 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 			foreach ( $url_list as $num => $items ) {
 
-				$container = $data->addChild( 'url' );
+				$url_data = $data->addChild( 'url' );
 
-				$this->add_container_children( $container, $items );
+				$this->modify_data( $url_data, $items );
 			}
 	
 			return $data->asXML();
 		}
 		
-		protected function add_container_children( &$container, $items ) {
+		protected function modify_data( &$data, $items ) {
 
 			if ( ! is_array( $items ) ) {
 
@@ -112,28 +112,28 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 					foreach ( $val as $num => $hrefs ) {
 					
-						$alt = $container->addChild( 'xhtml:link', null, 'http://www.w3.org/1999/xhtml' );
+						$link_data = $data->addChild( 'xhtml:link', null, 'http://www.w3.org/1999/xhtml' );
 
-						$alt->addAttribute( 'rel', 'alternate' );
+						$link_data->addAttribute( 'rel', 'alternate' );
 
-						$this->add_container_children( $alt, $hrefs );	// Recurse.
+						$this->modify_data( $link_data, $hrefs );	// Recurse.
 					}
 
 				} elseif ( 'href' === $name ) {
 
-					$container->addAttribute( 'href', esc_url( $val ) );
+					$data->addAttribute( 'href', esc_url( $val ) );
 
 				} elseif ( 'hreflang' === $name ) {
 
-					$container->addAttribute( 'hreflang', esc_xml( $val ) );
+					$data->addAttribute( 'hreflang', esc_xml( $val ) );
 						
 				} elseif ( 'loc' === $name ) {
 
-					$container->addChild( $name, esc_url( $val ) );
+					$data->addChild( $name, esc_url( $val ) );
 
 				} elseif ( isset( $standard_tags[ $name ] ) && is_string( $val ) ) {
 
-					$container->addChild( $name, esc_xml( $val ) );
+					$data->addChild( $name, esc_xml( $val ) );
 				}
 			}
 		}
