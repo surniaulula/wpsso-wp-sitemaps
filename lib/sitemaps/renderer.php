@@ -13,9 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps_Renderer' ) ) {
 
 	/**
-	 * Since WPSSO WPSM v3.0.0.
-	 *
-	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide a better get_sitemap_xml() method.
+	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide better render_sitemap() and get_sitemap_xml() methods.
 	 *
 	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
 	 *
@@ -28,6 +26,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
+		/**
+		 * Since WPSSO WPSM v3.0.0.
+		 *
+		 * Replace the render_sitemap() method to clear the output buffer and if debugging is enabled, re-format the XML
+		 * and include debugging messages.
+		 */
 		public function render_sitemap( $url_list ) {
 	
 			$wpsso =& Wpsso::get_instance();
@@ -70,6 +74,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		}
 
 		/**
+		 * Since WPSSO WPSM v3.0.0.
+		 *
+		 * Replace the get_sitemap_xml() method to include additional namespaces and add support for alternate post and
+		 * term languages.
+		 *
 		 * Example:
 		 *
 		 * $url_list = array(
