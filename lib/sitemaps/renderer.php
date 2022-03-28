@@ -43,6 +43,14 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 			if ( $wpsso->debug->enabled ) {
 
+				$dom = new DOMDocument();
+
+				$dom->preserveWhiteSpace = true;
+				$dom->formatOutput = true;
+				$dom->loadXML( $content );
+
+				$content = $dom->saveXML();
+
 				$content .= $wpsso->debug->get_html( null, 'debug log' );
 			}
 

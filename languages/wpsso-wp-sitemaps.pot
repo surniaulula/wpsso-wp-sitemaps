@@ -82,11 +82,11 @@ msgid ""
 "enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab."
 msgstr ""
 
-#: lib/sitemaps/renderer.php:174
+#: lib/sitemaps/renderer.php:182
 msgid "\"%s\" is not a recognized field name."
 msgstr ""
 
-#: lib/sitemaps/renderer.php:176
+#: lib/sitemaps/renderer.php:184
 msgid "Fields other than %s are not currently supported for sitemaps."
 msgstr ""
 
