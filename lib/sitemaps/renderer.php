@@ -58,35 +58,28 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		 */
 		public function get_sitemap_xml( $url_list ) {
 
-			$urlset = array(
+			$namespaces = array(
 				'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
 				'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
 				'xmlns:xhtml="http://www.w3.org/1999/xhtml"',
 				'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"',
 			);
 
-			$urlset = (array) apply_filters( 'wp_sitemap_xml_urlset', $urlset );
+			$urlset = '<urlset ' . implode( ' ', $namespaces ) . ' />';
 
-			/**
-			 * See https://www.php.net/manual/en/class.simplexmlelement.php.
-			 */
-			$data = new SimpleXMLElement( sprintf( '%1$s%2$s%3$s',
-				'<?xml version="1.0" encoding="UTF-8" ?' . '>',
-				$this->stylesheet,
-				'<urlset ' . implode( ' ', $urlset ) . ' />'
-			) );
+			$data = new SimpleXMLElement( '<?xml version="1.0" encoding="UTF-8" ?' . '>' . $this->stylesheet . $urlset );
 
-			foreach ( $url_list as $num => $items ) {
+			foreach ( $url_list as $num => $url_items ) {
 
 				$url_data = $data->addChild( 'url' );
 
-				$this->modify_data( $url_data, $items );
+				$this->add_items( $url_data, $url_items );
 			}
 	
 			return $data->asXML();
 		}
 		
-		protected function modify_data( &$data, $items ) {
+		protected function add_items( &$data, $items ) {
 
 			if ( ! is_array( $items ) ) {
 
@@ -110,13 +103,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 				} elseif ( 'alternates' === $name && is_array( $val ) ) {
 
-					foreach ( $val as $num => $hrefs ) {
+					foreach ( $val as $num => $attrs ) {
 					
-						$link_data = $data->addChild( 'xhtml:link', null, 'http://www.w3.org/1999/xhtml' );
+						$link_data = $data->addChild( 'link', null, 'http://www.w3.org/1999/xhtml' );
 
 						$link_data->addAttribute( 'rel', 'alternate' );
 
-						$this->modify_data( $link_data, $hrefs );	// Recurse.
+						$this->add_items( $link_data, $attrs );	// Recurse.
 					}
 
 				} elseif ( 'href' === $name ) {
