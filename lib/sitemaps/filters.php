@@ -14,8 +14,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 	class WpssoWpsmSitemapsFilters {
 
-		private $p;	// Wpsso class object.
-		private $a;	// WpssoWpsm class object.
+		private $p;		// Wpsso class object.
+		private $a;		// WpssoWpsm class object.
+		private $stylesheet;	// WP_Sitemaps_Stylesheet class object.
 
 		/**
 		 * Instantiated by WpssoWpsm->init_objects().
@@ -44,18 +45,25 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				return;
 			}
 
-			add_filter( 'wp_sitemaps_post_types', array( $this, 'wp_sitemaps_post_types' ), 10, 1 );
-			add_filter( 'wp_sitemaps_posts_query_args', array( $this, 'wp_sitemaps_posts_query_args' ), 10, 2 );
-			add_filter( 'wp_sitemaps_posts_pre_url_list', array( $this, 'wp_sitemaps_posts_pre_url_list' ), 10, 3 );
-			add_filter( 'wp_sitemaps_posts_entry', array( $this, 'wp_sitemaps_posts_entry' ), 10, 3 );
+			$this->stylesheet = new WP_Sitemaps_Stylesheet();
 
-			add_filter( 'wp_sitemaps_taxonomies', array( $this, 'wp_sitemaps_taxonomies' ), 10, 1 );
-			add_filter( 'wp_sitemaps_taxonomies_query_args', array( $this, 'wp_sitemaps_taxonomies_query_args' ), 10, 2 );
-			add_filter( 'wp_sitemaps_taxonomies_entry', array( $this, 'wp_sitemaps_taxonomies_entry' ), 10, 3 );
+			add_filter( 'wp_sitemaps_post_types', array( $this, 'wp_sitemaps_post_types' ), 1000, 1 );
+			add_filter( 'wp_sitemaps_posts_query_args', array( $this, 'wp_sitemaps_posts_query_args' ), 1000, 2 );
+			add_filter( 'wp_sitemaps_posts_pre_url_list', array( $this, 'wp_sitemaps_posts_pre_url_list' ), 1000, 3 );
+			add_filter( 'wp_sitemaps_posts_entry', array( $this, 'wp_sitemaps_posts_entry' ), 1000, 3 );
 
-			add_filter( 'wp_sitemaps_users_query_args', array( $this, 'wp_sitemaps_users_query_args' ), 10, 1 );
+			add_filter( 'wp_sitemaps_taxonomies', array( $this, 'wp_sitemaps_taxonomies' ), 1000, 1 );
+			add_filter( 'wp_sitemaps_taxonomies_query_args', array( $this, 'wp_sitemaps_taxonomies_query_args' ), 1000, 2 );
+			add_filter( 'wp_sitemaps_taxonomies_entry', array( $this, 'wp_sitemaps_taxonomies_entry' ), 1000, 3 );
+
+			add_filter( 'wp_sitemaps_users_query_args', array( $this, 'wp_sitemaps_users_query_args' ), 1000, 1 );
+
+			add_filter( 'wp_sitemaps_stylesheet_content', array( $this, 'wp_sitemaps_stylesheet_content'), 1000, 1 );
 		}
 
+		/**
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
+		 */
 		public function wp_sitemaps_post_types( $post_types ) {
 
 			$post_types = SucomUtil::get_post_types( $output = 'objects' );
@@ -72,7 +80,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/**
-		 * Exclude posts from the sitemap that have been defined as noindex.
+		 * Exclude posts from the sitemap that are noindex or redirected.
+		 *
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_posts_query_args( $args, $post_type ) {
 
@@ -84,14 +94,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$args[ 'post_status' ] = array( 'inherit' );
 			}
 
-			/**
-			 * Create a post ID noindex array by post type.
-			 */
-			static $local_cache = array();
+			static $local_cache = array();	// Create the exclusion list only once.
 
 			if ( ! isset( $local_cache[ $post_type ] ) ) {
-
-				$redir_enabled = $this->p->util->is_redirect_enabled();
 
 				$local_cache[ $post_type ] = array();
 
@@ -102,6 +107,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				) ) );
 
 				if ( ! empty( $query->posts ) ) {	// Just in case.
+
+					$redir_enabled = $this->p->util->is_redirect_enabled();
 
 					foreach ( $query->posts as $post_id ) {
 
@@ -132,9 +139,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		/**
 		 * Since WPSSO WPSM v2.0.0.
 		 *
-		 * Extend the functionality of the WP_Sitemaps_Posts->get_url_list() public method from
-		 * wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php to include post type archive pages without
-		 * a post ID.
+		 * Include post type archive pages without a post ID.
+		 *
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_posts_pre_url_list( $url_list, $post_type, $page_num ) {
 
@@ -172,10 +179,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				/**
 				 * Filters the sitemap entry for the home page when the 'show_on_front' option equals 'posts'.
-				 *
-				 * @since 5.5.0
-				 *
-				 * @param array $sitemap_entry Sitemap entry for the home page.
 				 */
 				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemap_entry );
 
@@ -191,12 +194,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				/**
 				 * Filters the sitemap entry for an individual post.
-				 *
-				 * @since 5.5.0
-				 *
-				 * @param array   $sitemap_entry Sitemap entry for the post.
-				 * @param WP_Post $post          Post object.
-				 * @param string  $post_type     Name of the post_type.
 				 */
 				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_entry', $sitemap_entry, $post, $post_type );
 
@@ -212,8 +209,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		/**
 		 * Since WPSSO WPSM v2.0.0.
 		 *
-		 * Recreates the functionality of the WP_Sitemaps_Posts->get_posts_query_args() protected method from
-		 * wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
+		 * Recreates the functionality of the WP_Sitemaps_Posts->get_posts_query_args() protected method.
+		 * 
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function get_posts_query_args( $post_type ) {
 
@@ -238,6 +236,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		/**
 		 * Add the modification time for Open Graph type non-website posts (ie. article, book, product, etc.), post
 		 * language, and alternate post languages.
+		 *
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_posts_entry( $sitemap_entry, $post, $post_type ) {
 
@@ -262,6 +262,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $sitemap_entry;
 		}
 
+		/**
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
+		 */
 		public function wp_sitemaps_taxonomies( $taxonomies ) {
 
 			$taxonomies = SucomUtil::get_taxonomies( $output = 'objects' );
@@ -278,18 +281,15 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/**
-		 * Exclude terms from the sitemap that have been defined as noindex.
+		 * Exclude terms from the sitemap that are noindex or redirected.
+		 * 
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
 		public function wp_sitemaps_taxonomies_query_args( $args, $taxonomy ) {
 
-			/**
-			 * Create a term ID noindex array by taxonomy.
-			 */
-			static $local_cache = array();
+			static $local_cache = array();	// Create the exclusion list only once.
 
 			if ( ! isset( $local_cache[ $taxonomy ] ) ) {
-
-				$redir_enabled = $this->p->util->is_redirect_enabled();
 
 				$local_cache[ $taxonomy ] = array();
 
@@ -299,6 +299,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				) ) );
 
 				if ( ! empty( $query->terms ) ) {	// Just in case.
+
+					$redir_enabled = $this->p->util->is_redirect_enabled();
 
 					foreach ( $query->terms as $term_id ) {
 
@@ -328,6 +330,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 		/**
 		 * Add the term language and alternate term languages.
+		 *
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
 		public function wp_sitemaps_taxonomies_entry( $sitemap_entry, $term, $taxonomy ) {
 
@@ -344,7 +348,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/**
-		 * Exclude users from the sitemap that have been defined as noindex.
+		 * Exclude users from the sitemap that are noindex or redirected.
+		 *
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-users.php
 		 */
 		public function wp_sitemaps_users_query_args( $args ) {
 
@@ -357,14 +363,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			} else {
 
-				/**
-				 * Create a user ID noindex array.
-				 */
-				static $local_cache = null;
+				static $local_cache = null;	// Create the exclusion list only once.
 
 				if ( null === $local_cache ) {
-
-					$redir_enabled = $this->p->util->is_redirect_enabled();
 
 					$local_cache = array();
 
@@ -376,6 +377,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$users = $query->get_results();
 
 					if ( ! empty( $users ) ) {	// Just in case.
+
+						$redir_enabled = $this->p->util->is_redirect_enabled();
 
 						foreach ( $users as $user_id ) {
 
@@ -402,6 +405,114 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			}
 
 			return $args;
+		}
+
+		/**
+		 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php.
+		 */
+		public function wp_sitemaps_stylesheet_content( $xsl_content ) {
+
+			$css         = $this->stylesheet->get_stylesheet_css();
+			$title       = esc_xml( __( 'XML Sitemap' ) );
+			$desc        = esc_xml( __( 'This XML Sitemap is generated by WordPress to make your content more visible for search engines.' ) );
+			$plugin_name = $this->p->cf[ 'plugin' ][ 'wpssowpsm' ][ 'name' ];
+			$plugin_desc = esc_xml( sprintf( __( 'The default XML Sitemap generated by WordPress has been extended and customized by the %s plugin.', 'wpsso-wp-sitemaps' ), $plugin_name ) );
+			$learn_more  = sprintf(
+				'<a href="%s">%s</a>',
+				esc_url( __( 'https://www.sitemaps.org/' ) ),
+				esc_xml( __( 'Learn more about XML sitemaps.' ) )
+			);
+
+			$text = sprintf(
+				/* translators: %s: Number of URLs. */
+				esc_xml( __( 'Number of URLs in this XML Sitemap: %s.' ) ),
+				'<xsl:value-of select="count( sitemap:urlset/sitemap:url )" />'
+			);
+
+			$lang       = get_language_attributes( 'html' );
+			$url        = esc_xml( __( 'URL' ) );
+			$lastmod    = esc_xml( __( 'Last Modified' ) );
+			$changefreq = esc_xml( __( 'Change Frequency' ) );
+			$priority   = esc_xml( __( 'Priority' ) );
+	
+			$xsl_content = <<<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet
+		version="1.0"
+		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+		xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
+		exclude-result-prefixes="sitemap"
+		>
+
+	<xsl:output method="html" encoding="UTF-8" indent="yes" />
+
+	<!--
+	  Set variables for whether lastmod, changefreq or priority occur for any url in the sitemap.
+	  We do this up front because it can be expensive in a large sitemap.
+	  -->
+	<xsl:variable name="has-lastmod"    select="count( /sitemap:urlset/sitemap:url/sitemap:lastmod )"    />
+	<xsl:variable name="has-changefreq" select="count( /sitemap:urlset/sitemap:url/sitemap:changefreq )" />
+	<xsl:variable name="has-priority"   select="count( /sitemap:urlset/sitemap:url/sitemap:priority )"   />
+
+	<xsl:template match="/">
+		<html {$lang}>
+			<head>
+				<title>{$title}</title>
+				<style>
+					{$css}
+				</style>
+			</head>
+			<body>
+				<div id="sitemap">
+					<div id="sitemap__header">
+						<h1>{$title}</h1>
+						<p>{$desc}</p>
+						<p>{$plugin_desc}</p>
+						<p>{$learn_more}</p>
+					</div>
+					<div id="sitemap__content">
+						<p class="text">{$text}</p>
+						<table id="sitemap__table">
+							<thead>
+								<tr>
+									<th class="loc">{$url}</th>
+									<xsl:if test="\$has-lastmod">
+										<th class="lastmod">{$lastmod}</th>
+									</xsl:if>
+									<xsl:if test="\$has-changefreq">
+										<th class="changefreq">{$changefreq}</th>
+									</xsl:if>
+									<xsl:if test="\$has-priority">
+										<th class="priority">{$priority}</th>
+									</xsl:if>
+								</tr>
+							</thead>
+							<tbody>
+								<xsl:for-each select="sitemap:urlset/sitemap:url">
+									<tr>
+										<td class="loc"><a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a></td>
+										<xsl:if test="\$has-lastmod">
+											<td class="lastmod"><xsl:value-of select="sitemap:lastmod" /></td>
+										</xsl:if>
+										<xsl:if test="\$has-changefreq">
+											<td class="changefreq"><xsl:value-of select="sitemap:changefreq" /></td>
+										</xsl:if>
+										<xsl:if test="\$has-priority">
+											<td class="priority"><xsl:value-of select="sitemap:priority" /></td>
+										</xsl:if>
+									</tr>
+								</xsl:for-each>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</body>
+		</html>
+	</xsl:template>
+</xsl:stylesheet>
+EOF;
+
+			return $xsl_content;
 		}
 	}
 }

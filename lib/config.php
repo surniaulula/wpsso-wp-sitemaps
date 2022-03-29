@@ -21,7 +21,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'opt_version' => '2',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
-					'desc'        => 'Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as "No Index".',
+					'desc'        => 'Select post and taxonomy types added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.',
 					'slug'        => 'wpsso-wp-sitemaps',
 					'base'        => 'wpsso-wp-sitemaps/wpsso-wp-sitemaps.php',
 					'update_auth' => '',		// No premium version.
