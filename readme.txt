@@ -78,7 +78,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.0.0-dev.10 (2022/03/28)**
+**Version 3.0.0-dev.10 (2022/03/29)**
 
 * **New Features**
 	* None.
@@ -225,7 +225,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 3.0.0-dev.10 =
 
-(2022/03/28) Replaced the WordPress `WP_Sitemaps_Renderer->get_sitemap_xml()` method to provide alternate languages in the sitemap.
+(2022/03/29) Replaced the WordPress `WP_Sitemaps_Renderer->get_sitemap_xml()` method to provide alternate languages in the sitemap.
 
 = 2.1.2 =
 
