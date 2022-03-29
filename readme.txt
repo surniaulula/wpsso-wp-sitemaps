@@ -72,7 +72,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.0.0-dev.11 (2022/03/29)**
+**Version 3.0.0-dev.12 (2022/03/29)**
 
 * **New Features**
 	* None.
@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v12.1.0-dev.11.
+	* WPSSO Core v12.1.0-dev.12.
 
 **Version 2.1.2 (2022/03/26)**
 
@@ -217,7 +217,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 3.0.0-dev.11 =
+= 3.0.0-dev.12 =
 
 (2022/03/29) Replaced the WordPress `WP_Sitemaps_Renderer->get_sitemap_xml()` method to provide alternate languages in the sitemap.
 
