@@ -463,6 +463,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				<title>{$title}</title>
 				<style>
 					{$css}
+					#sitemap__table tr td { vertical-align:top; }
 				</style>
 			</head>
 			<body>
@@ -506,7 +507,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
     	
     	<xsl:template match="sitemap:url">
 		<tr>
-			<td class="loc" style="vertical-align:top;">
+			<td class="loc">
 				<a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a>
 				<xsl:if test="\$has-xhtml-link">
 					<ul style="list-style:none;">
@@ -515,17 +516,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				</xsl:if>
 			</td>
 			<xsl:if test="\$has-lastmod">
-				<td class="lastmod" style="vertical-align:top;">
+				<td class="lastmod">
 					<xsl:value-of select="sitemap:lastmod" />
 				</td>
 			</xsl:if>
 			<xsl:if test="\$has-changefreq">
-				<td class="changefreq" style="vertical-align:top;">
+				<td class="changefreq">
 					<xsl:value-of select="sitemap:changefreq" />
 				</td>
 			</xsl:if>
 			<xsl:if test="\$has-priority">
-				<td class="priority" style="vertical-align:top;">
+				<td class="priority">
 					<xsl:value-of select="sitemap:priority" />
 				</td>
 			</xsl:if>
