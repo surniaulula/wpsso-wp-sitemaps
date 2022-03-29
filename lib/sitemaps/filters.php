@@ -464,6 +464,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				<style>
 					{$css}
 					#sitemap__table tr td { vertical-align:top; }
+					#sitemap__table tr td ul.xhtml-links { list-style:none; font-size:0.85em; }
 				</style>
 			</head>
 			<body>
@@ -510,7 +511,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			<td class="loc">
 				<a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a>
 				<xsl:if test="\$has-xhtml-link">
-					<ul style="list-style:none;">
+					<ul class="xhtml-links">
                              			<xsl:apply-templates select="xhtml:link"/>
 					</ul>
 				</xsl:if>
@@ -534,7 +535,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	</xsl:template>
 
 	<xsl:template match="xhtml:link">
-		<li><small>
+		<li>
 			<xsl:variable name="altloc">
 				<xsl:value-of select="@href"/>
 			</xsl:variable>
@@ -542,7 +543,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			<xsl:if test="@hreflang">
 				[<xsl:value-of select="@hreflang"/>]
 			</xsl:if>
-		</small></li>
+		</li>
 	</xsl:template>
 </xsl:stylesheet>
 EOF;
