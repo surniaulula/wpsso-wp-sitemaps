@@ -2,7 +2,7 @@
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO WP Sitemaps XML</td></tr>
-<tr><th align="right" valign="top" nowrap>Summary</th><td>Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as &quot;No Index&quot;.</td></tr>
+<tr><th align="right" valign="top" nowrap>Summary</th><td>Select post and taxonomy types added to the WordPress sitemaps XML, include localized pages for Google, exclude &quot;No Index&quot; and redirected pa</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.1.2</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.5 or newer</td></tr>
@@ -16,23 +16,17 @@
 
 <!-- about -->
 
-<p>Select post and taxonomy types included in the WordPress sitemaps XML.</p>
+<p>Select post and taxonomy types added to the WordPress sitemaps XML.</p>
 
-<p><strong>Add post type archive pages to the WordPress sitemap XML</strong>, like the WooCommerce shop page and The Events Calendar events page.</p>
+<p>Include post type archive pages to the WordPress sitemap XML like the WooCommerce shop page and The Events Calendar events page.</p>
+
+<p>Include <a href="https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap">localized pages for Google</a> from PolyLang and WMPL (WPSSO Core Premium edition required).</p>
 
 <p>Enhance the WordPress sitemaps XML with article modification times.</p>
 
-<p>Exclude individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.</p>
+<p>Exclude "No Index" or redirected posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.</p>
 
 <!-- /about -->
-
-<h3>The WP Sitemaps Settings Page</h3>
-
-<p>The WP Sitemaps settings page allows you to choose which post and taxonomy types are included in the WordPress sitemaps XML.</p>
-
-<h3>The Document SSO Metabox</h3>
-
-<p>When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Edit Visibility tab to exclude that webpage from the WordPress sitemaps XML.</p>
 
 <h3>WPSSO Core Required</h3>
 

@@ -13,29 +13,23 @@ Requires At Least: 5.5
 Tested Up To: 5.9.2
 Stable Tag: 2.1.2
 
-Manage post and taxonomy types included in the WordPress sitemaps XML and exclude content marked as "No Index".
+Select post and taxonomy types added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.
 
 == Description ==
 
 <!-- about -->
 
-Select post and taxonomy types included in the WordPress sitemaps XML.
+Select post and taxonomy types added to the WordPress sitemaps XML.
 
-**Add post type archive pages to the WordPress sitemap XML**, like the WooCommerce shop page and The Events Calendar events page.
+Include post type archive pages to the WordPress sitemap XML like the WooCommerce shop page and The Events Calendar events page.
+
+Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) from PolyLang and WMPL (WPSSO Core Premium edition required).
 
 Enhance the WordPress sitemaps XML with article modification times.
 
-Exclude individual posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.
+Exclude "No Index" or redirected posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.
 
 <!-- /about -->
-
-<h3>The WP Sitemaps Settings Page</h3>
-
-The WP Sitemaps settings page allows you to choose which post and taxonomy types are included in the WordPress sitemaps XML.
-
-<h3>The Document SSO Metabox</h3>
-
-When editing a post, page, custom post type, taxonomy term (category, tag, etc.), or user profile page, you can enable the "No Index" option under the Document SSO &gt; Edit Visibility tab to exclude that webpage from the WordPress sitemaps XML.
 
 <h3>WPSSO Core Required</h3>
 
@@ -52,8 +46,8 @@ WPSSO WP Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](http
 
 == Screenshots ==
 
-01. The WPSSO WPSM settings page offers options to customize the post and taxonomy types included in the WordPress sitemaps XML.
-02. The No Index option under the Document SSO &gt; Edit Visibility tab can be used to exclude individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML.
+01. The WPSSO WPSM settings page provides options to customize the post and taxonomy types added to the WordPress sitemaps XML.
+02. The "No Index" option under the Document SSO &gt; Edit Visibility tab can be used to exclude individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML.
 
 == Changelog ==
 
