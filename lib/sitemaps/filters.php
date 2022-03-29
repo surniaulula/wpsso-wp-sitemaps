@@ -475,65 +475,73 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					</div>
 					<div id="sitemap__content">
 						<p class="text">{$text}</p>
-						<table id="sitemap__table">
-							<thead>
-								<tr>
-									<th class="loc">{$url}</th>
-									<xsl:if test="\$has-lastmod">
-										<th class="lastmod">{$lastmod}</th>
-									</xsl:if>
-									<xsl:if test="\$has-changefreq">
-										<th class="changefreq">{$changefreq}</th>
-									</xsl:if>
-									<xsl:if test="\$has-priority">
-										<th class="priority">{$priority}</th>
-									</xsl:if>
-								</tr>
-							</thead>
-							<tbody>
-								<xsl:for-each select="sitemap:urlset/sitemap:url">
-									<tr>
-										<td class="loc" style="vertical-align:top;">
-											<a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a>
-											<xsl:if test="\$has-xhtml-link">
-												<ul style="list-style:none;">
-													<xsl:for-each select="xhtml:link">
-														<li><small>
-															<xsl:variable name="altloc">
-																<xsl:value-of select="@href"/>
-															</xsl:variable>
-															<a href="\$altloc"><xsl:value-of select="@href"/></a>
-															<xsl:if test="@hreflang">
-																[<xsl:value-of select="@hreflang"/>]
-															</xsl:if>
-														</small></li>
-													</xsl:for-each>
-												</ul>
-											</xsl:if>
-										</td>
-										<xsl:if test="\$has-lastmod">
-											<td class="lastmod" style="vertical-align:top;">
-												<xsl:value-of select="sitemap:lastmod" />
-											</td>
-										</xsl:if>
-										<xsl:if test="\$has-changefreq">
-											<td class="changefreq" style="vertical-align:top;">
-												<xsl:value-of select="sitemap:changefreq" />
-											</td>
-										</xsl:if>
-										<xsl:if test="\$has-priority">
-											<td class="priority" style="vertical-align:top;">
-												<xsl:value-of select="sitemap:priority" />
-											</td>
-										</xsl:if>
-									</tr>
-								</xsl:for-each>
-							</tbody>
-						</table>
+                                		<xsl:apply-templates select="sitemap:urlset"/>
 					</div>
 				</div>
 			</body>
 		</html>
+	</xsl:template>
+
+    	<xsl:template match="sitemap:urlset">
+		<table id="sitemap__table">
+			<thead>
+				<tr>
+					<th class="loc">{$url}</th>
+					<xsl:if test="\$has-lastmod">
+						<th class="lastmod">{$lastmod}</th>
+					</xsl:if>
+					<xsl:if test="\$has-changefreq">
+						<th class="changefreq">{$changefreq}</th>
+					</xsl:if>
+					<xsl:if test="\$has-priority">
+						<th class="priority">{$priority}</th>
+					</xsl:if>
+				</tr>
+			</thead>
+			<tbody>
+                             	<xsl:apply-templates select="sitemap:url"/>
+			</tbody>
+		</table>
+	</xsl:template>
+    	
+    	<xsl:template match="sitemap:url">
+		<tr>
+			<td class="loc" style="vertical-align:top;">
+				<a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a>
+				<xsl:if test="\$has-xhtml-link">
+					<ul style="list-style:none;">
+                             			<xsl:apply-templates select="xhtml:link"/>
+					</ul>
+				</xsl:if>
+			</td>
+			<xsl:if test="\$has-lastmod">
+				<td class="lastmod" style="vertical-align:top;">
+					<xsl:value-of select="sitemap:lastmod" />
+				</td>
+			</xsl:if>
+			<xsl:if test="\$has-changefreq">
+				<td class="changefreq" style="vertical-align:top;">
+					<xsl:value-of select="sitemap:changefreq" />
+				</td>
+			</xsl:if>
+			<xsl:if test="\$has-priority">
+				<td class="priority" style="vertical-align:top;">
+					<xsl:value-of select="sitemap:priority" />
+				</td>
+			</xsl:if>
+		</tr>
+	</xsl:template>
+
+	<xsl:template match="xhtml:link">
+		<li><small>
+			<xsl:variable name="altloc">
+				<xsl:value-of select="@href"/>
+			</xsl:variable>
+			<a href="\$altloc"><xsl:value-of select="@href"/></a>
+			<xsl:if test="@hreflang">
+				[<xsl:value-of select="@hreflang"/>]
+			</xsl:if>
+		</small></li>
 	</xsl:template>
 </xsl:stylesheet>
 EOF;
