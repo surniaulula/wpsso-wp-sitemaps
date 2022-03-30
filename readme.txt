@@ -10,7 +10,7 @@ Tags: xml sitemaps, xml sitemap, sitemaps, noindex, woocommerce, seo, google
 Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.5
-Tested Up To: 5.9.2
+Tested Up To: 5.9.3
 Stable Tag: 2.1.2
 
 Select post and taxonomy types added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.
