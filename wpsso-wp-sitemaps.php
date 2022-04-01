@@ -10,7 +10,7 @@
  * Author URI: https://wpsso.com/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Description: Select post and taxonomy types added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.
+ * Description: Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes "No Index" and redirected pages.
  * Requires PHP: 7.2
  * Requires At Least: 5.5
  * Tested Up To: 5.9.3
