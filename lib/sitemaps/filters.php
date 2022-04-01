@@ -435,7 +435,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$changefreq = esc_xml( __( 'Change Frequency' ) );
 			$priority   = esc_xml( __( 'Priority' ) );
 			$xhtml_link = esc_xml( __( 'xhtml:link' ) );
-	
+
 			$xsl_content = <<<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
@@ -505,7 +505,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			</tbody>
 		</table>
 	</xsl:template>
-    	
+
     	<xsl:template match="sitemap:url">
 		<tr>
 			<td class="loc">

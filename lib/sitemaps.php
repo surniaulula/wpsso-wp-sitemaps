@@ -25,21 +25,21 @@ if ( ! function_exists( 'wpssowpsm_get_server' ) ) {
 	function wpssowpsm_get_server() {
 
 		global $wp_sitemaps;
-	
+
 		if ( empty( $wp_sitemaps ) ) {
 
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps/sitemaps.php';
-	
+
 			if ( class_exists( 'WpssoWpsmSitemaps' ) ) {
-	
+
 				$wp_sitemaps = new WpssoWpsmSitemaps();
 
 				$wp_sitemaps->init();
-	
+
 				do_action( 'wp_sitemaps_init', $wp_sitemaps );
 			}
 		}
-	
+
 		return $wp_sitemaps;
 	}
 }

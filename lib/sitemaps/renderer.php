@@ -33,7 +33,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		 * and include debugging messages.
 		 */
 		public function render_sitemap( $url_list ) {
-	
+
 			$wpsso =& Wpsso::get_instance();
 
 			global $wp_query;
@@ -65,7 +65,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			header( 'Content-Length: ' . $length );
 
 			echo $content;
-			
+
 			flush();
 
 			sleep( 1 );
@@ -125,10 +125,10 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 				$this->add_items( $url_data, $url_items );
 			}
-	
+
 			return $data->asXML();
 		}
-		
+
 		protected function add_items( &$data, $items ) {
 
 			if ( ! is_array( $items ) ) {
@@ -162,7 +162,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				} elseif ( 'alternates' === $name && is_array( $val ) ) {
 
 					foreach ( $val as $num => $attrs ) {
-					
+
 						$link_data = $data->addChild( 'link', null, 'http://www.w3.org/1999/xhtml' );
 
 						$link_data->addAttribute( 'rel', 'alternate' );
@@ -177,7 +177,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				} elseif ( 'hreflang' === $name ) {
 
 					$data->addAttribute( 'hreflang', esc_xml( $val ) );
-						
+
 				} elseif ( 'loc' === $name ) {
 
 					$data->addChild( $name, esc_url( $val ) );

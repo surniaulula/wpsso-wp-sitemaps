@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) && class_exists( 'WP_Sitemaps' ) ) {
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps/renderer.php';
 
 			if ( class_exists( 'WpssoWpsmSitemapsRenderer' ) ) {
-		
+
 				$this->renderer = new WpssoWpsmSitemapsRenderer();
 			}
 		}
