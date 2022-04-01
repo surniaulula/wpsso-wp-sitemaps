@@ -13,21 +13,21 @@ Requires At Least: 5.5
 Tested Up To: 5.9.3
 Stable Tag: 2.1.2
 
-Select post and taxonomy types added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.
+Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes "No Index" and redirected pages.
 
 == Description ==
 
 <!-- about -->
 
-Select post and taxonomy types added to the WordPress sitemaps XML.
+Select post types and taxonomies added to the WordPress sitemaps XML.
 
-Include post type archive pages to the WordPress sitemap XML like the WooCommerce shop page and The Events Calendar events page.
+Includes post type archive pages in the WordPress sitemap XML, like the WooCommerce shop page and The Events Calendar events page.
 
-Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) from PolyLang and WMPL (WPSSO Core Premium edition required).
+Includes [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) from PolyLang and WMPL (WPSSO Core Premium edition required).
 
-Enhance the WordPress sitemaps XML with article modification times.
+Enhances the WordPress sitemaps XML with article modification times.
 
-Exclude "No Index" or redirected posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.
+Excludes "No Index" or redirected posts, pages, custom post types, taxonomy terms (categories, tags, etc.), and user profiles pages.
 
 <!-- /about -->
 
