@@ -539,7 +539,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			<xsl:variable name="altloc">
 				<xsl:value-of select="@href"/>
 			</xsl:variable>
-			<a href="\$altloc"><xsl:value-of select="@href"/></a>
+			<a href="{\$altloc}"><xsl:value-of select="@href"/></a>
 			<xsl:if test="@hreflang">
 				[<xsl:value-of select="@hreflang"/>]
 			</xsl:if>
