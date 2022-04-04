@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires PHP: 7.2
 Requires At Least: 5.5
 Tested Up To: 5.9.3
-Stable Tag: 2.1.2
+Stable Tag: 3.0.0
 
 Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes "No Index" and redirected pages.
 
