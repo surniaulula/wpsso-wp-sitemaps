@@ -79,7 +79,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 
 					$sitemaps_url = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
 
-					$table_rows[ 'wpsm_sitemaps_url' ] = '' . 
+					$table_rows[ 'wpsm_sitemaps_url' ] = '' .
 						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso' ) ) .
 						'<td>' . $this->form->get_no_input_clipboard( $sitemaps_url ) . '</td>';
 

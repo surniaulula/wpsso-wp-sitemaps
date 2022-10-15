@@ -210,7 +210,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * Since WPSSO WPSM v2.0.0.
 		 *
 		 * Recreates the functionality of the WP_Sitemaps_Posts->get_posts_query_args() protected method.
-		 * 
+		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function get_posts_query_args( $post_type ) {
@@ -282,7 +282,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 		/**
 		 * Exclude terms from the sitemap that are noindex or redirected.
-		 * 
+		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
 		public function wp_sitemaps_taxonomies_query_args( $args, $taxonomy ) {
