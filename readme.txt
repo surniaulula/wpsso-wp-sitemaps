@@ -8,6 +8,7 @@ License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
 Tags: xml sitemaps, xml sitemap, sitemaps, noindex, woocommerce, seo, google
 Contributors: jsmoriss
+Requires Plugins: wpsso
 Requires PHP: 7.2
 Requires At Least: 5.5
 Tested Up To: 6.1.0
