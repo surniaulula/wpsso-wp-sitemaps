@@ -73,6 +73,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 3.0.1-dev.1 (2022/10/24)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Added a notice in case WP sitemaps are disabled on a production site.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.5.
+	* WPSSO Core v13.6.3-dev.1.
+
 **Version 3.0.0 (2022/04/04)**
 
 * **New Features**
@@ -219,6 +234,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.8.0.
 
 == Upgrade Notice ==
+
+= 3.0.1-dev.1 =
+
+(2022/10/24) Added a notice in case WP sitemaps are disabled on a production site.
 
 = 3.0.0 =
 
