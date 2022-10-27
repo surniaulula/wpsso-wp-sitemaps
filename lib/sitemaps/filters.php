@@ -57,6 +57,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			add_filter( 'wp_sitemaps_taxonomies_entry', array( $this, 'wp_sitemaps_taxonomies_entry' ), 1000, 3 );
 
 			add_filter( 'wp_sitemaps_users_query_args', array( $this, 'wp_sitemaps_users_query_args' ), 1000, 1 );
+			add_filter( 'wp_sitemaps_users_entry', array( $this, 'wp_sitemaps_users_entry' ), 1000, 2 );
 
 			add_filter( 'wp_sitemaps_stylesheet_content', array( $this, 'wp_sitemaps_stylesheet_content'), 1000, 1 );
 		}
@@ -155,13 +156,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $post_type_archive_url = get_post_type_archive_link( $post_type ) ) {
 
-				$sitemap_entry = array( 'loc' => $post_type_archive_url );
+				$sitemaps_entry = array( 'loc' => $post_type_archive_url );
 
-				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_post_type_archive_entry', $sitemap_entry, $post_type );
+				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_post_type_archive_entry', $sitemaps_entry, $post_type );
 
-				if ( $sitemap_entry ) {	// Just in case.
+				if ( $sitemaps_entry ) {	// Just in case.
 
-					$url_list[] = $sitemap_entry;
+					$url_list[] = $sitemaps_entry;
 				}
 			}
 
@@ -175,31 +176,31 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				/**
 				 * Extract the data needed for home URL to add to the array.
 				 */
-				$sitemap_entry = array( 'loc' => home_url( '/' ) );
+				$sitemaps_entry = array( 'loc' => home_url( '/' ) );
 
 				/**
 				 * Filters the sitemap entry for the home page when the 'show_on_front' option equals 'posts'.
 				 */
-				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemap_entry );
+				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemaps_entry );
 
-				if ( $sitemap_entry ) {	// Just in case.
+				if ( $sitemaps_entry ) {	// Just in case.
 
-					$url_list[] = $sitemap_entry;
+					$url_list[] = $sitemaps_entry;
 				}
 			}
 
 			foreach ( $query->posts as $post ) {
 
-				$sitemap_entry = array( 'loc' => get_permalink( $post ) );
+				$sitemaps_entry = array( 'loc' => get_permalink( $post ) );
 
 				/**
 				 * Filters the sitemap entry for an individual post.
 				 */
-				$sitemap_entry = apply_filters( 'wp_sitemaps_posts_entry', $sitemap_entry, $post, $post_type );
+				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_entry', $sitemaps_entry, $post, $post_type );
 
-				if ( $sitemap_entry ) {	// Just in case.
+				if ( $sitemaps_entry ) {	// Just in case.
 
-					$url_list[] = $sitemap_entry;
+					$url_list[] = $sitemaps_entry;
 				}
 			}
 
@@ -239,11 +240,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
-		public function wp_sitemaps_posts_entry( $sitemap_entry, $post, $post_type ) {
+		public function wp_sitemaps_posts_entry( $sitemaps_entry, $post, $post_type ) {
 
 			if ( empty( $post->ID ) ) {	// Just in case.
 
-				return $sitemap_entry;
+				return $sitemaps_entry;
 			}
 
 			$mod     = $this->p->post->get_mod( $post->ID );
@@ -253,13 +254,18 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $mod[ 'post_modified_time' ] ) {
 
-					$sitemap_entry[ 'lastmod' ] = $mod[ 'post_modified_time' ];
+					$sitemaps_entry[ 'lastmod' ] = $mod[ 'post_modified_time' ];
 				}
 			}
 
-			$sitemap_entry[ 'alternates' ] = $this->p->util->get_link_rel_alternates( $mod );
+			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
-			return $sitemap_entry;
+			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
+
+				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+			}
+
+			return $sitemaps_entry;
 		}
 
 		/**
@@ -333,18 +339,23 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
-		public function wp_sitemaps_taxonomies_entry( $sitemap_entry, $term, $taxonomy ) {
+		public function wp_sitemaps_taxonomies_entry( $sitemaps_entry, $term, $taxonomy ) {
 
 			if ( empty( $term->term_id ) ) {	// Just in case.
 
-				return $sitemap_entry;
+				return $sitemaps_entry;
 			}
 
 			$mod = $this->p->term->get_mod( $term->term_id );
 
-			$sitemap_entry[ 'alternates' ] = $this->p->util->get_link_rel_alternates( $mod );
+			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
-			return $sitemap_entry;
+			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
+
+				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+			}
+
+			return $sitemaps_entry;
 		}
 
 		/**
@@ -408,6 +419,26 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/**
+		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-users.php.
+		 */
+		public function wp_sitemaps_users_entry( $sitemaps_entry, $user ) {
+
+			if ( empty( $user->ID ) ) {	// Just in case.
+
+				return $sitemaps_entry;
+			}
+
+			$mod = $this->p->user->get_mod( $user->ID );
+
+			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
+
+				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+			}
+
+			return $sitemaps_entry;
+		}
+
+		/**
 		 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php.
 		 */
 		public function wp_sitemaps_stylesheet_content( $xsl_content ) {
@@ -416,25 +447,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$title       = esc_xml( __( 'XML Sitemap' ) );
 			$desc        = esc_xml( __( 'This XML Sitemap is generated by WordPress to make your content more visible for search engines.' ) );
 			$plugin_name = $this->p->cf[ 'plugin' ][ 'wpssowpsm' ][ 'name' ];
-			$plugin_desc = esc_xml( sprintf( __( 'The default XML Sitemap generated by WordPress has been extended and customized by the %s plugin.', 'wpsso-wp-sitemaps' ), $plugin_name ) );
-			$learn_more  = sprintf(
-				'<a href="%s">%s</a>',
-				esc_url( __( 'https://www.sitemaps.org/' ) ),
-				esc_xml( __( 'Learn more about XML sitemaps.' ) )
-			);
-
-			$text = sprintf(
-				/* translators: %s: Number of URLs. */
-				esc_xml( __( 'Number of URLs in this XML Sitemap: %s.' ) ),
-				'<xsl:value-of select="count( sitemap:urlset/sitemap:url )" />'
-			);
-
-			$lang       = get_language_attributes( 'html' );
-			$url        = esc_xml( __( 'URL' ) );
-			$lastmod    = esc_xml( __( 'Last Modified' ) );
-			$changefreq = esc_xml( __( 'Change Frequency' ) );
-			$priority   = esc_xml( __( 'Priority' ) );
-			$xhtml_link = esc_xml( __( 'xhtml:link' ) );
+			$plugin_desc = esc_xml( sprintf( __( 'The default XML Sitemap generated by WordPress has been extended and customized by the %s plugin.',
+				'wpsso-wp-sitemaps' ), $plugin_name ) );
+			$learn_more  = sprintf( '<a href="%s">%s</a>', esc_url( __( 'https://www.sitemaps.org/' ) ), esc_xml( __( 'Learn more about XML sitemaps.' ) ) );
+			$number_urls = sprintf( esc_xml( __( 'Number of URLs in this XML Sitemap: %s.' ) ), '<xsl:value-of select="count( sitemap:urlset/sitemap:url )" />' );
+			$lang        = get_language_attributes( 'html' );
+			$url         = esc_xml( __( 'URL', 'wpsso-wp-sitemaps' ) );
+			$lastmod     = esc_xml( __( 'Last Modified', 'wpsso-wp-sitemaps' ) );
+			$changefreq  = esc_xml( __( 'Change Frequency', 'wpsso-wp-sitemaps' ) );
+			$priority    = esc_xml( __( 'Priority', 'wpsso-wp-sitemaps' ) );
+			$alternates  = esc_xml( __( 'Alternates', 'wpsso-wp-sitemaps' ) );
+			$images      = esc_xml( __( 'Images', 'wpsso-wp-sitemaps' ) );
 
 			$xsl_content = <<<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -443,6 +466,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
         	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 		exclude-result-prefixes="sitemap"
 		>
 
@@ -452,10 +476,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	  Set variables for whether lastmod, changefreq or priority occur for any url in the sitemap.
 	  We do this up front because it can be expensive in a large sitemap.
 	  -->
-	<xsl:variable name="has-lastmod"    select="count( /sitemap:urlset/sitemap:url/sitemap:lastmod )" />
-	<xsl:variable name="has-changefreq" select="count( /sitemap:urlset/sitemap:url/sitemap:changefreq )" />
-	<xsl:variable name="has-priority"   select="count( /sitemap:urlset/sitemap:url/sitemap:priority )" />
-	<xsl:variable name="has-xhtml-link" select="count( /sitemap:urlset/sitemap:url/xhtml:link )" />
+	<xsl:variable name="has-lastmod"     select="count( /sitemap:urlset/sitemap:url/sitemap:lastmod )" />
+	<xsl:variable name="has-changefreq"  select="count( /sitemap:urlset/sitemap:url/sitemap:changefreq )" />
+	<xsl:variable name="has-priority"    select="count( /sitemap:urlset/sitemap:url/sitemap:priority )" />
 
 	<xsl:template match="/">
 		<html {$lang}>
@@ -463,8 +486,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				<title>{$title}</title>
 				<style>
 					{$css}
+					#sitemap__table tr th { font-weight:500; }
 					#sitemap__table tr td { vertical-align:top; }
-					#sitemap__table tr td ul.xhtml-links { list-style:none; font-size:0.85em; }
+					#sitemap__table tr td ul { margin:10px 0; list-style:none; }
+					#sitemap__table tr td ul ul { margin:5px 0; font-size:0.85em; }
+					#sitemap__table tr td li.list-title { font-weight:500; }
 				</style>
 			</head>
 			<body>
@@ -476,7 +502,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						<p>{$learn_more}</p>
 					</div>
 					<div id="sitemap__content">
-						<p class="text">{$text}</p>
+						<p class="text">{$number_urls}</p>
                                 		<xsl:apply-templates select="sitemap:urlset"/>
 					</div>
 				</div>
@@ -510,9 +536,20 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		<tr>
 			<td class="loc">
 				<a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a>
-				<xsl:if test="\$has-xhtml-link">
-					<ul class="xhtml-links">
-                             			<xsl:apply-templates select="xhtml:link"/>
+				<xsl:if test="xhtml:link">
+					<ul class="alternates">
+						<li class="list-title">{$alternates}</li>
+						<ul>
+                             				<xsl:apply-templates select="xhtml:link"/>
+						</ul>
+					</ul>
+				</xsl:if>
+				<xsl:if test="image:image">
+					<ul class="images">
+						<li class="list-title">{$images}</li>
+						<ul>
+                             				<xsl:apply-templates select="image:image"/>
+						</ul>
 					</ul>
 				</xsl:if>
 			</td>
@@ -543,6 +580,15 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			<xsl:if test="@hreflang">
 				[<xsl:value-of select="@hreflang"/>]
 			</xsl:if>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="image:image">
+		<li>
+			<xsl:variable name="imgloc">
+				<xsl:value-of select="image:loc"/>
+			</xsl:variable>
+			<a href="{\$imgloc}"><xsl:value-of select="image:loc"/></a>
 		</li>
 	</xsl:template>
 </xsl:stylesheet>

@@ -47,6 +47,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 			if ( $wpsso->debug->enabled ) {
 
+				/**
+				 * Reformat the XML to make it human readable.
+				 */
 				$dom = new DOMDocument();
 
 				$dom->preserveWhiteSpace = true;
@@ -149,6 +152,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				'alternates' => '',
 				'href'       => '',
 				'hreflang'   => '',
+				'images'     => '',
+				'image:loc'  => '',
 			);
 
 			$items = array_merge( $allowed_tags, $items );	// Re-order the array.
@@ -170,13 +175,29 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 						$this->add_items( $link_data, $attrs );	// Recurse.
 					}
 
-				} elseif ( 'href' === $name ) {
+				} elseif ( 'href' === $name ) {	// Matched from 'alternates' recursion.
 
 					$data->addAttribute( 'href', esc_url( $val ) );
 
-				} elseif ( 'hreflang' === $name ) {
+				} elseif ( 'hreflang' === $name ) {	// Matched from 'alternates' recursion.
 
 					$data->addAttribute( 'hreflang', esc_xml( $val ) );
+
+				/**
+				 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
+				 */
+				} elseif ( 'images' === $name && is_array( $val ) ) {
+
+					foreach ( $val as $num => $attrs ) {
+					
+						$image_data = $data->addChild( 'image:image', null, 'http://www.google.com/schemas/sitemap-image/1.1' );
+						
+						$this->add_items( $image_data, $attrs );	// Recurse.
+					}
+
+				} elseif ( 'image:loc' === $name ) {	// Matched from 'images' recursion.
+
+					$data->addChild( $name, esc_url( $val ), 'http://www.google.com/schemas/sitemap-image/1.1' );
 
 				} elseif ( 'loc' === $name ) {
 
@@ -188,9 +209,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 				} else {
 
-					$error_msg = sprintf( __( '"%s" is not a recognized field name.', $name, 'wpsso-wp-sitemaps' ) ) . ' ';
+					$error_msg = sprintf( __( '"%s" is not a recognized field name.', 'wpsso-wp-sitemaps' ),
+						$name ) . ' ';
 
-					$error_msg .= sprintf( __( 'Fields other than %s are not currently supported for sitemaps.' ), implode( ',', $allowed_tags ) );
+					$error_msg .= sprintf( __( 'Fields other than %s are not currently supported for sitemaps.', 'wpsso-wp-sitemaps' ),
+						implode( ',', array_keys( $allowed_tags ) ) ) . ' ';
 
 					_doing_it_wrong( __METHOD__, $error_msg, '5.5.0' );
 				}

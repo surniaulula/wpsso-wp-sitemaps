@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoWpsmFilters' ) ) {
 		
 			if ( $this->p->notice->is_admin_pre_notices() ) {
 
-				if ( SucomUtilWP::sitemaps_disabled() ) {	// Nothing to do.
+				if ( SucomUtilWP::sitemaps_disabled() ) {
 
 					if ( $notice_msg = $this->p->msgs->wp_sitemaps_disabled( $is_notice = true ) ) {
 
