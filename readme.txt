@@ -73,11 +73,12 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 3.1.0-dev.2 (2022/10/25)**
+**Version 4.0.0-dev.3 (2022/10/27)**
 
 * **New Features**
 	* None.
 * **Improvements**
+	* Added a new "Add Schema Images" option in the SSO &gt; WP Sitemaps settings page.
 	* Added a notice in case WP sitemaps are disabled on a production site.
 * **Bugfixes**
 	* None.
@@ -86,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v13.7.0-dev.2.
+	* WPSSO Core v13.7.0-dev.3.
 
 **Version 3.0.0 (2022/04/04)**
 
@@ -235,9 +236,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 3.1.0-dev.2 =
+= 4.0.0-dev.3 =
 
-(2022/10/25) Added a notice in case WP sitemaps are disabled on a production site.
+(2022/10/27) Added a new "Add Schema Images" option in the SSO &gt; WP Sitemaps settings page. Added a notice in case WP sitemaps are disabled on a production site.
 
 = 3.0.0 =
 
