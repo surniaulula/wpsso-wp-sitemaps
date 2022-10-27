@@ -80,7 +80,8 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 					$sitemaps_url = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
 
 					$table_rows[ 'wpsm_sitemaps_url' ] = '' .
-						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso-wp-sitemaps' ) ) .
+						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_sitemaps_url' ) .
 						'<td>' . $this->form->get_no_input_clipboard( $sitemaps_url ) . '</td>';
 
 					$table_rows[ 'wpsm_sitemaps_for' ] = '' .
@@ -89,7 +90,8 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'wpsm_sitemaps_for' ) . '</td>';
 
 					$table_rows[ 'wpsm_schema_images' ] = '' .
-						$this->form->get_th_html( _x( 'Add Schema Images', 'option label', 'wpsso-wp-sitemaps' ) ) .
+						$this->form->get_th_html( _x( 'Add Schema Images', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_schema_images' ) .
 						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
 						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
 

@@ -47,40 +47,61 @@ msgid "WPSSO Core"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/filters-messages.php:49
+#: lib/filters-messages.php:50
 msgctxt "option label"
 msgid "No Index"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/filters-messages.php:55
+#: lib/filters-messages.php:56
 msgctxt "metabox tab"
 msgid "Edit Visibility"
 msgstr ""
 
-#: lib/filters-messages.php:57
+#: lib/filters-messages.php:58
 msgid ""
 "https://make.wordpress.org/core/2020/07/22/new-xml-sitemaps-functionality-in-"
 "wordpress-5-5/"
 msgstr ""
 
-#: lib/filters-messages.php:63
+#: lib/filters-messages.php:64
 msgid ""
 "The %1$s add-on extends the built-in WordPress sitemaps XML <a href=\"%2$s"
 "\">available since WordPress version 5.5</a>."
 msgstr ""
 
-#: lib/filters-messages.php:65
+#: lib/filters-messages.php:66
 msgid ""
 "These options allow you to customize the post and taxonomy types included in "
 "the WordPress sitemaps XML."
 msgstr ""
 
-#: lib/filters-messages.php:67
+#: lib/filters-messages.php:68
 msgid ""
 "To <strong>exclude</strong> individual posts, pages, custom post types, "
 "taxonomy terms, or user profile pages from the WordPress sitemaps XML, "
 "enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab."
+msgstr ""
+
+#: lib/filters-messages.php:92
+msgid ""
+"The WordPress sitemaps URL can be submitted in Google's search console and "
+"viewed in a web browser."
+msgstr ""
+
+#: lib/filters-messages.php:98
+msgid ""
+"Select the post types and taxonomies to include in the WordPress sitemaps."
+msgstr ""
+
+#: lib/filters-messages.php:104
+msgid "Add images from the Schema markup in the WordPress sitemaps."
+msgstr ""
+
+#: lib/filters-messages.php:106
+msgid ""
+"Google already reads image URLs and information from the Schema markup, so "
+"this option is not required."
 msgstr ""
 
 #: lib/sitemaps/filters.php:447
@@ -153,17 +174,17 @@ msgctxt "option label"
 msgid "WordPress Sitemaps URL"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:87
+#: lib/submenu/wpsm-general.php:88
 msgctxt "option label"
 msgid "Include in Sitemaps"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:92
+#: lib/submenu/wpsm-general.php:93
 msgctxt "option label"
 msgid "Add Schema Images"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:94
+#: lib/submenu/wpsm-general.php:96
 msgctxt "option comment"
 msgid "(not required)"
 msgstr ""

@@ -27,6 +27,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 			$this->p->util->add_plugin_filters( $this, array(
 				'messages_info'    => 2,
+				'messages_tooltip' => 2,
 			) );
 		}
 
@@ -72,6 +73,39 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					break;
 
+			}
+
+			return $text;
+		}
+
+		public function filter_messages_tooltip( $text, $msg_key ) {
+
+			if ( 0 !== strpos( $msg_key, 'tooltip-wpsm_' ) ) {
+
+				return $text;
+			}
+
+			switch ( $msg_key ) {
+
+				case 'tooltip-wpsm_sitemaps_url':
+
+					$text = __( 'The WordPress sitemaps URL can be submitted in Google\'s search console and viewed in a web browser.', 'wpsso-wp-sitemaps' );
+
+					break;
+
+				case 'tooltip-wpsm_sitemaps_for':
+
+					$text = __( 'Select the post types and taxonomies to include in the WordPress sitemaps.', 'wpsso-wp-sitemaps' );
+
+					break;
+
+				case 'tooltip-wpsm_schema_images':
+
+					$text = __( 'Add images from the Schema markup in the WordPress sitemaps.', 'wpsso-wp-sitemaps' ) . ' ';
+
+					$text .= __( 'Google already reads image URLs and information from the Schema markup, so this option is not required.', 'wpsso-wp-sitemaps' );
+
+					break;
 			}
 
 			return $text;
