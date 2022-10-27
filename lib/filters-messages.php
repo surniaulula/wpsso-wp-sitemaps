@@ -101,9 +101,9 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 				case 'tooltip-wpsm_schema_images':
 
-					$text = __( 'Add images from the Schema markup in the WordPress sitemaps.', 'wpsso-wp-sitemaps' ) . ' ';
+					$text = __( 'Add the images from Schema markup to the WordPress sitemaps.', 'wpsso-wp-sitemaps' ) . ' ';
 
-					$text .= __( 'Google already reads image URLs and information from the Schema markup, so this option is not required.', 'wpsso-wp-sitemaps' );
+					$text .= __( 'Google already reads image URLs and image information from the Schema markup, so this option is not required.', 'wpsso-wp-sitemaps' );
 
 					break;
 			}
