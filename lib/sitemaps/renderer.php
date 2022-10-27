@@ -16,21 +16,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide better render_sitemap() and get_sitemap_xml() methods.
 	 *
 	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
-	 *
-	 * You can use a sitemap to tell Google all of the language and region variants for each URL. To do so, add a <loc> element
-	 * specifying a single URL, with child <xhtml:link> entries listing every language/locale variant of the page including
-	 * itself. Therefore if you have 3 versions of a page, your sitemap will have 3 entries, each with 3 identical child
-	 * entries.
-	 *
 	 * See https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap.
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
 		/**
 		 * Since WPSSO WPSM v3.0.0.
-		 *
-		 * Replace the render_sitemap() method to clear the output buffer and if debugging is enabled, re-format the XML
-		 * and include debugging messages.
 		 */
 		public function render_sitemap( $url_list ) {
 
@@ -79,12 +70,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		/**
 		 * Since WPSSO WPSM v3.0.0.
 		 *
-		 * Replace the get_sitemap_xml() method to include additional namespaces and add support for alternate post and
-		 * term languages.
-		 *
-		 * Example:
-		 *
-		 * $url_list = array(
+		 * Example $url_list = array(
 		 *	array(
 		 *		'loc' => 'https://example.com/page-1/',
 		 *		'lastmod' => '2021-12-13T03:56:29+00:00',
@@ -115,6 +101,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
 				'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
 				'xmlns:xhtml="http://www.w3.org/1999/xhtml"',
+				'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
 				'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"',
 			);
 

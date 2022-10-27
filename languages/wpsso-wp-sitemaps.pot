@@ -156,11 +156,11 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
-#: lib/sitemaps/renderer.php:212
+#: lib/sitemaps/renderer.php:199
 msgid "\"%s\" is not a recognized field name."
 msgstr ""
 
-#: lib/sitemaps/renderer.php:215
+#: lib/sitemaps/renderer.php:202
 msgid "Fields other than %s are not currently supported for sitemaps."
 msgstr ""
 
