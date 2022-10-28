@@ -22,11 +22,11 @@ Select post types and taxonomies added to the WordPress sitemaps XML, includes l
 
 Select the post types and taxonomies added to the WordPress sitemaps XML.
 
-Enhances the WordPress sitemaps XML with article modification times and Schema images.
+Enhances the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.
 
 Includes missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
-Includes [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) from PolyLang and WMPL.
+Includes [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) (ie. alternate language URLs) from PolyLang and WMPL.
 
 Automatically exclude "No Index" and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages.
 
