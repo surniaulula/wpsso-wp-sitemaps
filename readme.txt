@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.0.0-rc.1 (2022/10/28)**
+**Version 4.0.0 (2022/10/28)**
 
 * **New Features**
 	* None.
@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v13.7.0-rc.1.
+	* WPSSO Core v13.7.0.
 
 **Version 3.0.0 (2022/04/04)**
 
@@ -236,7 +236,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 4.0.0-rc.1 =
+= 4.0.0 =
 
 (2022/10/28) Added a new "Add Schema Images" option in the SSO &gt; WP Sitemaps settings page. Added a notice in case WP sitemaps are disabled on a production site.
 
