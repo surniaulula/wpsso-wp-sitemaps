@@ -3,7 +3,7 @@
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO WP Sitemaps XML</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes &quot;No Index&quot; and redirecte</td></tr>
-<tr><th align="right" valign="top" nowrap>Stable Version</th><td>3.0.0</td></tr>
+<tr><th align="right" valign="top" nowrap>Stable Version</th><td>4.0.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.5 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WordPress</th><td>6.1.0</td></tr>
