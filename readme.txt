@@ -22,7 +22,7 @@ Select post types and taxonomies added to the WordPress sitemaps XML, includes l
 
 Select the post types and taxonomies added to the WordPress sitemaps XML.
 
-Enhances the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.
+Enhances the WordPress sitemaps XML with article modification times, alternate language URLs, and optional Schema images for Google rich results.
 
 Includes missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
