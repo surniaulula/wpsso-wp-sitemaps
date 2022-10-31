@@ -62,13 +62,27 @@ if ( ! function_exists( 'wpssowpsm_wp_query_handle_sitemap' ) ) {
 
 	function wpssowpsm_wp_query_handle_sitemap( $wp ) {
 
-		if( empty( $wp->query_vars[ 'sitemap' ] ) && empty( $wp->query_vars[ 'sitemap-stylesheet' ] ) ) {	// Nothing to do.
+		global $wp_query;
+
+		$wp_query->is_sitemap            = empty( $wp->query_vars['sitemap'] ) ? false : true;
+		$wp_query->is_sitemap_stylesheet = empty( $wp->query_vars['sitemap-stylesheet'] ) ? false : true;
+
+		if ( ! $wp_query->is_sitemap && ! $wp_query->is_sitemap_stylesheet ) {
 
 			return;
 		}
 
-		$GLOBALS[ 'wp_query' ]->query_vars = $wp->query_vars;
+		$saved_query_vars = $wp_query->query_vars;
+
+		$wp_query->query_vars = $wp->query_vars;
 
 		wp_sitemaps_get_server()->render_sitemaps();
+
+		/**
+		 * If the sitemap request was invalid, then undo the query changes. 
+		 */
+		$wp_query->is_sitemap            = false;
+		$wp_query->is_sitemap_stylesheet = false;
+		$wp_query->query_vars            = $saved_query_vars;
 	}
 }
