@@ -73,6 +73,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 4.1.0-dev.1 (2022/10/31)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.5.
+	* WPSSO Core v13.7.0.
+
 **Version 4.0.0 (2022/10/28)**
 
 * **New Features**
@@ -235,6 +250,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.8.0.
 
 == Upgrade Notice ==
+
+= 4.1.0-dev.1 =
+
+(2022/10/31) Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
 
 = 4.0.0 =
 
