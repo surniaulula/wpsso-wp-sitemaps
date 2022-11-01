@@ -106,6 +106,14 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 					$text .= __( 'Google already reads image URLs and image information from the Schema markup, so this option is not required.', 'wpsso-wp-sitemaps' );
 
 					break;
+
+				case 'tooltip-wpsm_max_urls':
+
+					$def_val = $this->p->opt->get_defaults( 'wpsm_max_urls' );
+
+					$text .= sprintf( __( 'The maximum number of URLs included in per sitemap (default is %s).', 'wpsso-wp-sitemaps' ), $def_val ) . ' ';
+
+					break;
 			}
 
 			return $text;

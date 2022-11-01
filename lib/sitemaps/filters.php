@@ -47,6 +47,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$this->stylesheet = new WP_Sitemaps_Stylesheet();
 
+			add_filter( 'wp_sitemaps_max_urls', array( $this, 'wp_sitemaps_max_urls' ), 1000, 2 );
+
 			add_filter( 'wp_sitemaps_post_types', array( $this, 'wp_sitemaps_post_types' ), 1000, 1 );
 			add_filter( 'wp_sitemaps_posts_query_args', array( $this, 'wp_sitemaps_posts_query_args' ), 1000, 2 );
 			add_filter( 'wp_sitemaps_posts_pre_url_list', array( $this, 'wp_sitemaps_posts_pre_url_list' ), 1000, 3 );
@@ -62,10 +64,30 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			add_filter( 'wp_sitemaps_stylesheet_content', array( $this, 'wp_sitemaps_stylesheet_content'), 1000, 1 );
 		}
 
+		public function wp_sitemaps_max_urls( $max_urls, $object_type = 'post' ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
+
+			if ( ! empty( $this->p->options[ 'wpsm_max_urls' ] ) && is_numeric( $this->p->options[ 'wpsm_max_urls' ] ) ) {
+
+				$max_urls = $this->p->options[ 'wpsm_max_urls' ];
+			}
+
+			return $max_urls;
+		}
+
 		/**
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_post_types( $post_types ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			$post_types = SucomUtil::get_post_types( $output = 'objects' );
 
@@ -86,6 +108,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_posts_query_args( $args, $post_type ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			/**
 			 * The published post status for attachments is 'inherit'.
@@ -145,6 +172,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_posts_pre_url_list( $url_list, $post_type, $page_num ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			$args = $this->get_posts_query_args( $post_type );
 
@@ -216,6 +248,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 */
 		public function get_posts_query_args( $post_type ) {
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
+
 			$args = apply_filters(
 				'wp_sitemaps_posts_query_args',
 				array(
@@ -242,12 +279,23 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 */
 		public function wp_sitemaps_posts_entry( $sitemaps_entry, $post, $post_type ) {
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
+
 			if ( empty( $post->ID ) ) {	// Just in case.
 
 				return $sitemaps_entry;
 			}
 
-			$mod     = $this->p->post->get_mod( $post->ID );
+			$mod = $this->p->post->get_mod( $post->ID );
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'getting modified time' );
+			}
+
 			$og_type = $this->p->og->get_mod_og_type_id( $mod );	// Since WPSSO Core v9.13.0.
 
 			if ( 'website' !== $og_type ) {
@@ -258,9 +306,19 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				}
 			}
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'getting sitemaps alternates' );
+			}
+
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'getting sitemaps images' );
+				}
 
 				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
 			}
@@ -272,6 +330,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
 		public function wp_sitemaps_taxonomies( $taxonomies ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			$taxonomies = SucomUtil::get_taxonomies( $output = 'objects' );
 
@@ -292,6 +355,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
 		public function wp_sitemaps_taxonomies_query_args( $args, $taxonomy ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			static $local_cache = array();	// Create the exclusion list only once.
 
@@ -341,6 +409,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 */
 		public function wp_sitemaps_taxonomies_entry( $sitemaps_entry, $term, $taxonomy ) {
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
+
 			if ( empty( $term->term_id ) ) {	// Just in case.
 
 				return $sitemaps_entry;
@@ -364,6 +437,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-users.php
 		 */
 		public function wp_sitemaps_users_query_args( $args ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			if ( empty( $this->p->options[ 'wpsm_sitemaps_for_user_page' ] ) ) {
 
@@ -423,6 +501,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 */
 		public function wp_sitemaps_users_entry( $sitemaps_entry, $user ) {
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
+
 			if ( empty( $user->ID ) ) {	// Just in case.
 
 				return $sitemaps_entry;
@@ -442,6 +525,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php.
 		 */
 		public function wp_sitemaps_stylesheet_content( $xsl_content ) {
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark();
+			}
 
 			$css         = $this->stylesheet->get_stylesheet_css();
 			$title       = esc_xml( __( 'XML Sitemap' ) );

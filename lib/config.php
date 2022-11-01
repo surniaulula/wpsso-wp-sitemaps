@@ -17,8 +17,8 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '4.1.0-dev.3',	// Plugin version.
-					'opt_version' => '3',		// Increment when changing default option values.
+					'version'     => '4.1.0-dev.4',	// Plugin version.
+					'opt_version' => '5',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
 					'desc'        => 'Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes "No Index" and redirected pages.',
@@ -95,7 +95,8 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tribe_events'           => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_user_page'              => 1,
-					'wpsm_schema_images'                       => 0,
+					'wpsm_schema_images'                       => 0,	// Add Schema Images.
+					'wpsm_max_urls'                            => 1000,	// Maximum URLs per Sitemap.
 				),
 			),
 		);

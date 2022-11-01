@@ -95,6 +95,11 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
 						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
 
+					$table_rows[ 'wpsm_max_urls' ] = '' .
+						$this->form->get_th_html( _x( 'Maximum URLs per Sitemap', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_max_urls' ) .
+						'<td>' . $this->form->get_input( 'wpsm_max_urls', $css_class = 'xshort' ) . '</td>';
+
 					break;
 			}
 
