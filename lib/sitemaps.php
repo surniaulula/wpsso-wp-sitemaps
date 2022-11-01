@@ -86,3 +86,37 @@ if ( ! function_exists( 'wpssowpsm_wp_query_handle_sitemap' ) ) {
 		$wp_query->query_vars            = $saved_query_vars;
 	}
 }
+
+if ( ! function_exists( 'is_sitemap' ) ) {
+
+	function is_sitemap() {
+
+		global $wp_query;
+
+		if ( ! isset( $wp_query ) ) {
+
+			_doing_it_wrong( __FUNCTION__, __( 'Conditional query tags do not work before the query is run. Before then, they always return false.' ), '3.1.0' );
+
+			return false;
+		}
+
+		return property_exists( $wp_query, 'is_sitemap' ) ? $wp_query->is_sitemap : false;
+	}
+}
+
+if ( ! function_exists( 'is_sitemap_stylesheet' ) ) {
+
+	function is_sitemap_stylesheet() {
+
+		global $wp_query;
+
+		if ( ! isset( $wp_query ) ) {
+
+			_doing_it_wrong( __FUNCTION__, __( 'Conditional query tags do not work before the query is run. Before then, they always return false.' ), '3.1.0' );
+
+			return false;
+		}
+
+		return property_exists( $wp_query, 'is_sitemap_stylesheet' ) ? $wp_query->is_sitemap_stylesheet : false;
+	}
+}
