@@ -73,11 +73,12 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.1.0-dev.3 (2022/11/01)**
+**Version 4.1.0-dev.4 (2022/11/01)**
 
 * **New Features**
 	* None.
 * **Improvements**
+	* Added a new "Maximum URLs per Sitemap" option (default is 1000).
 	* Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
 * **Bugfixes**
 	* None.
@@ -251,9 +252,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 4.1.0-dev.3 =
+= 4.1.0-dev.4 =
 
-(2022/11/01) Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
+(2022/11/01) Added a new "Maximum URLs per Sitemap" option (default is 1000). Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
 
 = 4.0.0 =
 
