@@ -293,7 +293,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->log( 'getting modified time' );
+				$this->p->debug->log( 'getting og type' );
 			}
 
 			$og_type = $this->p->og->get_mod_og_type_id( $mod );	// Since WPSSO Core v9.13.0.
@@ -302,8 +302,21 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $mod[ 'post_modified_time' ] ) {
 
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log( 'adding modified time' );
+					}
+
 					$sitemaps_entry[ 'lastmod' ] = $mod[ 'post_modified_time' ];
+
+				} elseif ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'no modified time' );
 				}
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping modified time' );
 			}
 
 			if ( $this->p->debug->enabled ) {
