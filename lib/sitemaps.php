@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( ! function_exists( 'wpssowpsm_get_server' ) ) {
 
-	add_action( 'init', 'wpssowpsm_get_server', -10 );
+	add_action( 'init', 'wpssowpsm_get_server', -100 );
 
 	function wpssowpsm_get_server() {
 
@@ -58,7 +58,7 @@ if ( ! function_exists( 'wpssowpsm_get_server' ) ) {
  */
 if ( ! function_exists( 'wpssowpsm_wp_query_handle_sitemap' ) ) {
 
-	add_action( 'parse_request', 'wpssowpsm_wp_query_handle_sitemap', -10, 1 );
+	add_action( 'parse_request', 'wpssowpsm_wp_query_handle_sitemap', -100, 1 );
 
 	function wpssowpsm_wp_query_handle_sitemap( $wp ) {
 
