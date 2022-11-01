@@ -82,7 +82,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* None.
+	* Added new `is_sitemap()` and `is_sitemap_stylesheet()` functions.
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
