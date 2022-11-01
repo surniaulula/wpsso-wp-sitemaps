@@ -96,7 +96,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_user_page'              => 1,
 					'wpsm_schema_images'                       => 0,	// Add Schema Images.
-					'wpsm_max_urls'                            => 2000,	// Maximum URLs per Sitemap.
+					'wpsm_max_urls'                            => 1000,	// Maximum URLs per Sitemap.
 				),
 			),
 		);
