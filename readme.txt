@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.1.0-dev.2 (2022/10/31)**
+**Version 4.1.0-dev.3 (2022/11/01)**
 
 * **New Features**
 	* None.
@@ -251,9 +251,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 4.1.0-dev.2 =
+= 4.1.0-dev.3 =
 
-(2022/10/31) Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
+(2022/11/01) Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
 
 = 4.0.0 =
 
