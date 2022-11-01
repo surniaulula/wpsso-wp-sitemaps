@@ -321,6 +321,10 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				}
 
 				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping sitemaps images' );
 			}
 
 			return $sitemaps_entry;
