@@ -222,6 +222,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			}
 
 			foreach ( $query->posts as $post ) {
+			
+				if ( $this->p->debug->enabled ) {
+			
+					$this->p->debug->log( 'getting sitemaps entry for post id ' . ( empty( $post->ID ) ? 0 : $post->ID ) );
+				}
 
 				$sitemaps_entry = array( 'loc' => get_permalink( $post ) );
 
