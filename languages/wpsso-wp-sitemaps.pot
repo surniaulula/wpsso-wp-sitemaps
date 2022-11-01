@@ -105,7 +105,7 @@ msgid ""
 msgstr ""
 
 #: lib/filters-messages.php:114
-msgid "The maximum number of URLs included in per sitemap (default is %s)."
+msgid "The maximum number of URLs to include in each sitemap (default is %s)."
 msgstr ""
 
 #: lib/sitemaps/filters.php:535

@@ -111,7 +111,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$def_val = $this->p->opt->get_defaults( 'wpsm_max_urls' );
 
-					$text .= sprintf( __( 'The maximum number of URLs included in per sitemap (default is %s).', 'wpsso-wp-sitemaps' ), $def_val ) . ' ';
+					$text .= sprintf( __( 'The maximum number of URLs to include in each sitemap (default is %s).', 'wpsso-wp-sitemaps' ), $def_val ) . ' ';
 
 					break;
 			}
