@@ -148,25 +148,31 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( ! empty( $query->posts ) ) {	// Just in case.
 
-					$redir_enabled = $this->p->util->is_redirect_enabled();
+					$robots_enabled = $this->p->util->robots->is_enabled();
+					$redir_enabled  = $this->p->util->is_redirect_enabled();
 
 					foreach ( $query->posts as $post_id ) {
 
-						if ( $this->p->debug->enabled ) {
+						if ( $robots_enabled ) {
 
-							$this->p->debug->log( 'checking post id ' . $post_id . ' for robots noindex' );
+							if ( $this->p->debug->enabled ) {
+	
+								$this->p->debug->log( 'checking post id ' . $post_id . ' for robots noindex' );
+							}
+	
+							if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
+	
+								if ( $this->p->debug->enabled ) {
+	
+									$this->p->debug->log( 'skipping post id ' . $post_id . ': noindex is true' );
+								}
+	
+								$local_cache[ $post_type ][] = $post_id;
+	
+								continue;
+							}
 						}
 
-						if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
-
-							$local_cache[ $post_type ][] = $post_id;
-
-							continue;
-						}
-
-						/**
-						 * If the redirect feature is enabled, then exclude this post if it is being redirected.
-						 */
 						if ( $redir_enabled ) {
 						
 							if ( $this->p->debug->enabled ) {
@@ -448,25 +454,31 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( ! empty( $query->terms ) ) {	// Just in case.
 
-					$redir_enabled = $this->p->util->is_redirect_enabled();
+					$robots_enabled = $this->p->util->robots->is_enabled();
+					$redir_enabled  = $this->p->util->is_redirect_enabled();
 
 					foreach ( $query->terms as $term_id ) {
 
-						if ( $this->p->debug->enabled ) {
+						if ( $robots_enabled ) {
 
-							$this->p->debug->log( 'checking term id ' . $term_id . ' for robots noindex' );
+							if ( $this->p->debug->enabled ) {
+	
+								$this->p->debug->log( 'checking term id ' . $term_id . ' for robots noindex' );
+							}
+	
+							if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
+	
+								if ( $this->p->debug->enabled ) {
+	
+									$this->p->debug->log( 'skipping term id ' . $term_id . ': noindex is true' );
+								}
+	
+								$local_cache[ $taxonomy ][] = $term_id;
+	
+								continue;
+							}
 						}
-
-						if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
-
-							$local_cache[ $taxonomy ][] = $term_id;
-
-							continue;
-						}
-
-						/**
-						 * If the redirect feature is enabled, then exclude this term if it is being redirected.
-						 */
+	
 						if ( $redir_enabled ) {
 						
 							if ( $this->p->debug->enabled ) {
@@ -580,25 +592,31 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					if ( ! empty( $users ) ) {	// Just in case.
 
-						$redir_enabled = $this->p->util->is_redirect_enabled();
+						$robots_enabled = $this->p->util->robots->is_enabled();
+						$redir_enabled  = $this->p->util->is_redirect_enabled();
 
 						foreach ( $users as $user_id ) {
 
-							if ( $this->p->debug->enabled ) {
+							if ( $robots_enabled ) {
 
-								$this->p->debug->log( 'checking user id ' . $user_id . ' for robots noindex' );
+								if ( $this->p->debug->enabled ) {
+	
+									$this->p->debug->log( 'checking user id ' . $user_id . ' for robots noindex' );
+								}
+	
+								if ( $this->p->util->robots->is_noindex( 'user', $user_id ) ) {
+	
+									if ( $this->p->debug->enabled ) {
+	
+										$this->p->debug->log( 'skipping user id ' . $user_id . ': noindex is true' );
+									}
+	
+									$local_cache[] = $user_id;
+	
+									continue;
+								}
 							}
 
-							if ( $this->p->util->robots->is_noindex( 'user', $user_id ) ) {
-
-								$local_cache[] = $user_id;
-
-								continue;
-							}
-
-							/**
-							 * If the redirect feature is enabled, then exclude this user if it is being redirected.
-							 */
 							if ( $redir_enabled ) {
 							
 								if ( $this->p->debug->enabled ) {
