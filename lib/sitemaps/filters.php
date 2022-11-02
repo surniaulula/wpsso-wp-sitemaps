@@ -161,10 +161,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 							$local_cache[ $post_type ][] = $post_id;
 
+							continue;
+						}
+
 						/**
 						 * If the redirect feature is enabled, then exclude this post if it is being redirected.
 						 */
-						} elseif ( $redir_enabled ) {
+						if ( $redir_enabled ) {
 						
 							if ( $this->p->debug->enabled ) {
 	
@@ -179,6 +182,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 								}
 	
 								$local_cache[ $post_type ][] = $post_id;
+
+								continue;
 							}
 						}
 					}
@@ -456,10 +461,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 							$local_cache[ $taxonomy ][] = $term_id;
 
+							continue;
+						}
+
 						/**
 						 * If the redirect feature is enabled, then exclude this term if it is being redirected.
 						 */
-						} elseif ( $redir_enabled ) {
+						if ( $redir_enabled ) {
 						
 							if ( $this->p->debug->enabled ) {
 	
@@ -474,6 +482,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 								}
 	
 								$local_cache[ $taxonomy ][] = $term_id;
+							
+								continue;
 							}
 						}
 					}
@@ -583,10 +593,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 								$local_cache[] = $user_id;
 
+								continue;
+							}
+
 							/**
 							 * If the redirect feature is enabled, then exclude this user if it is being redirected.
 							 */
-							} elseif ( $redir_enabled ) {
+							if ( $redir_enabled ) {
 							
 								if ( $this->p->debug->enabled ) {
 	
@@ -601,6 +614,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 									}
 	
 									$local_cache[] = $user_id;
+								
+									continue;
 								}
 							}
 						}

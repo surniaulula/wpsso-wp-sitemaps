@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '4.1.0-dev.8',	// Plugin version.
+					'version'     => '4.1.0-dev.9',	// Plugin version.
 					'opt_version' => '5',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '13.7.1-dev.8',
+							'min_version'   => '13.7.1-dev.9',
 						),
 					),
 
@@ -96,7 +96,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_user_page'              => 1,
 					'wpsm_schema_images'                       => 0,	// Add Schema Images.
-					'wpsm_max_urls'                            => 1000,	// Maximum URLs per Sitemap.
+					'wpsm_max_urls'                            => 2000,	// Maximum URLs per Sitemap.
 				),
 			),
 		);

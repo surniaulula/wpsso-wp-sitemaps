@@ -21,50 +21,76 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
 		/**
+		 * Since WPSSO WPSM v4.1.0.
+		 */
+		public function render_index( $sitemaps ) {
+
+			$xml = $this->get_sitemap_index_xml( $sitemaps );
+
+			$this->output_xml( $xml );
+		}
+
+		/**
 		 * Since WPSSO WPSM v3.0.0.
 		 */
 		public function render_sitemap( $url_list ) {
-
-			$wpsso =& Wpsso::get_instance();
 
 			global $wp_query;
 
 			$wp_query->is_404 = false;
 
-			ob_implicit_flush( true );
-			ob_end_flush();
+			$xml = $this->get_sitemap_xml( $url_list );
 
-			$content = $this->get_sitemap_xml( $url_list );
+			$this->output_xml( $xml );
+		}
+
+		private function output_xml( $xml ) {
+
+			$wpsso =& Wpsso::get_instance();
 
 			if ( $wpsso->debug->enabled ) {
 
-				/**
-				 * Reformat the XML to make it human readable.
-				 */
-				$dom = new DOMDocument();
-
-				$dom->preserveWhiteSpace = true;
-				$dom->formatOutput = true;
-				$dom->loadXML( $content );
-
-				$content = $dom->saveXML();
-
-				$content .= $wpsso->debug->get_html( null, 'debug log' );
+				$xml = $this->format_output( $xml );
 			}
 
-			$length = strlen( $content );
+			$length = strlen( $xml );
+
+			ob_implicit_flush( true );
+			ob_end_flush();
 
 			header( 'HTTP/1.1 200 OK' );
 			header( 'Content-type: application/xml; charset=UTF-8' );
 			header( 'Content-Length: ' . $length );
 
-			echo $content;
+			echo $xml;
 
 			flush();
 
 			sleep( 1 );
 
 			exit;
+		}
+
+		/**
+		 * Since WPSSO WPSM v4.1.0.
+		 *
+		 * Format the XML to make it human readable.
+		 */
+		private function format_output( $xml ) {
+
+			$wpsso =& Wpsso::get_instance();
+
+			$dom = new DOMDocument();
+
+			$dom->preserveWhiteSpace = true;
+			$dom->formatOutput = true;
+			$dom->loadXML( $xml );
+
+			$xml = $dom->saveXML();
+
+			$xml .= $wpsso->debug->get_html( null, 'debug log' );
+
+			return $xml;
 		}
 
 		/**
