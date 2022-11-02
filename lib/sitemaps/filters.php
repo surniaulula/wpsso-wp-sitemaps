@@ -162,7 +162,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 							$local_cache[ $post_type ][] = $post_id;
 
 						/**
-						 * If WPSSO is handling redirects, then exclude this post if it is being redirected.
+						 * If the redirect feature is enabled, then exclude this post if it is being redirected.
 						 */
 						} elseif ( $redir_enabled ) {
 						
@@ -173,6 +173,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	
 							if ( $this->p->util->get_redirect_url( 'post', $post_id ) ) {
 
+								if ( $this->p->debug->enabled ) {
+	
+									$this->p->debug->log( 'skipping post id ' . $post_id . ': has redirect URL' );
+								}
+	
 								$local_cache[ $post_type ][] = $post_id;
 							}
 						}
@@ -452,7 +457,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 							$local_cache[ $taxonomy ][] = $term_id;
 
 						/**
-						 * If WPSSO is handling redirects, then exclude this term if it is being redirected.
+						 * If the redirect feature is enabled, then exclude this term if it is being redirected.
 						 */
 						} elseif ( $redir_enabled ) {
 						
@@ -463,6 +468,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	
 							if ( $this->p->util->get_redirect_url( 'term', $term_id ) ) {
 
+								if ( $this->p->debug->enabled ) {
+	
+									$this->p->debug->log( 'skipping term id ' . $term_id . ': has redirect URL' );
+								}
+	
 								$local_cache[ $taxonomy ][] = $term_id;
 							}
 						}
@@ -574,7 +584,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 								$local_cache[] = $user_id;
 
 							/**
-							 * If WPSSO is handling redirects, then exclude this user if it is being redirected.
+							 * If the redirect feature is enabled, then exclude this user if it is being redirected.
 							 */
 							} elseif ( $redir_enabled ) {
 							
@@ -585,6 +595,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	
 								if ( $this->p->util->get_redirect_url( 'user', $user_id ) ) {
 
+									if ( $this->p->debug->enabled ) {
+	
+										$this->p->debug->log( 'skipping user id ' . $user_id . ': has redirect URL' );
+									}
+	
 									$local_cache[] = $user_id;
 								}
 							}
