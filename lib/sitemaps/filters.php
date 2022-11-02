@@ -111,7 +111,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->mark();
+				$this->p->debug->log_args( array(
+					'args'      => $args,
+					'post_type' => $post_type,
+				) );
+
+				$this->p->debug->mark( 'sitemaps posts query args' );	// Begin timer.
 			}
 
 			/**
@@ -128,17 +133,29 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $post_type ] = array();
 
-				$query = new WP_Query( array_merge( $args, array(
+				$args = array_merge( $args, array(
 					'fields'        => 'ids',
 					'no_found_rows' => true,
 					'post_type'     => $post_type,
-				) ) );
+				) );
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log_arr( 'WP_Query args', $args );
+				}
+
+				$query = new WP_Query( $args );
 
 				if ( ! empty( $query->posts ) ) {	// Just in case.
 
 					$redir_enabled = $this->p->util->is_redirect_enabled();
 
 					foreach ( $query->posts as $post_id ) {
+
+						if ( $this->p->debug->enabled ) {
+
+							$this->p->debug->log( 'checking post id ' . $post_id . ' for robots noindex' );
+						}
 
 						if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
 
@@ -147,9 +164,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						/**
 						 * If WPSSO is handling redirects, then exclude this post if it is being redirected.
 						 */
-						} elseif ( $redir_enabled && $this->p->util->get_redirect_url( 'post', $post_id ) ) {
+						} elseif ( $redir_enabled ) {
+						
+							if ( $this->p->debug->enabled ) {
+	
+								$this->p->debug->log( 'checking post id ' . $post_id . ' for redirect URL' );
+							}
+	
+							if ( $this->p->util->get_redirect_url( 'post', $post_id ) ) {
 
-							$local_cache[ $post_type ][] = $post_id;
+								$local_cache[ $post_type ][] = $post_id;
+							}
 						}
 					}
 				}
@@ -159,6 +184,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ? $local_cache[ $post_type ] :
 					array_merge( $args[ 'post__not_in' ], $local_cache[ $post_type ] );
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'sitemaps posts query args' );	// End timer.
 			}
 
 			return $args;
@@ -380,7 +410,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->mark();
+				$this->p->debug->log_args( array(
+					'args'     => $args,
+					'taxonomy' => $taxonomy,
+				) );
+
+				$this->p->debug->mark( 'sitemaps taxonomies query args' );	// Begin timer.
 			}
 
 			static $local_cache = array();	// Create the exclusion list only once.
@@ -389,16 +424,28 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $taxonomy ] = array();
 
-				$query = new WP_Term_Query( array_merge( $args, array(
+				$args = array_merge( $args, array(
 					'fields'        => 'ids',
 					'no_found_rows' => true,
-				) ) );
+				) );
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log_arr( 'WP_Term_Query args', $args );
+				}
+
+				$query = new WP_Term_Query( $args );
 
 				if ( ! empty( $query->terms ) ) {	// Just in case.
 
 					$redir_enabled = $this->p->util->is_redirect_enabled();
 
 					foreach ( $query->terms as $term_id ) {
+
+						if ( $this->p->debug->enabled ) {
+
+							$this->p->debug->log( 'checking term id ' . $term_id . ' for robots noindex' );
+						}
 
 						if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
 
@@ -407,9 +454,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						/**
 						 * If WPSSO is handling redirects, then exclude this term if it is being redirected.
 						 */
-						} elseif ( $redir_enabled && $this->p->util->get_redirect_url( 'term', $term_id ) ) {
+						} elseif ( $redir_enabled ) {
+						
+							if ( $this->p->debug->enabled ) {
+	
+								$this->p->debug->log( 'checking term id ' . $term_id . ' for redirect URL' );
+							}
+	
+							if ( $this->p->util->get_redirect_url( 'term', $term_id ) ) {
 
-							$local_cache[ $taxonomy ][] = $term_id;
+								$local_cache[ $taxonomy ][] = $term_id;
+							}
 						}
 					}
 				}
@@ -419,6 +474,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache[ $taxonomy ] :
 					array_merge( $args[ 'exclude' ], $local_cache[ $taxonomy ] );
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'sitemaps taxonomies query args' );	// End timer.
 			}
 
 			return $args;
@@ -462,7 +522,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->mark();
+				$this->p->debug->log_args( array(
+					'args' => $args,
+				) );
+
+				$this->p->debug->mark( 'sitemaps users query args' );	// Begin timer.
 			}
 
 			if ( empty( $this->p->options[ 'wpsm_sitemaps_for_user_page' ] ) ) {
@@ -480,10 +544,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					$local_cache = array();
 
-					$query = new WP_User_Query( array_merge( $args, array(
+					$args = array_merge( $args, array(
 						'fields'        => 'ids',
 						'no_found_rows' => true,
-					) ) );
+					) );
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log_arr( 'WP_User_Query args', $args );
+					}
+
+					$query = new WP_User_Query( $args );
 
 					$users = $query->get_results();
 
@@ -493,6 +564,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 						foreach ( $users as $user_id ) {
 
+							if ( $this->p->debug->enabled ) {
+
+								$this->p->debug->log( 'checking user id ' . $user_id . ' for robots noindex' );
+							}
+
 							if ( $this->p->util->robots->is_noindex( 'user', $user_id ) ) {
 
 								$local_cache[] = $user_id;
@@ -500,9 +576,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 							/**
 							 * If WPSSO is handling redirects, then exclude this user if it is being redirected.
 							 */
-							} elseif ( $redir_enabled && $this->p->util->get_redirect_url( 'user', $user_id ) ) {
+							} elseif ( $redir_enabled ) {
+							
+								if ( $this->p->debug->enabled ) {
+	
+									$this->p->debug->log( 'checking user id ' . $user_id . ' for redirect URL' );
+								}
+	
+								if ( $this->p->util->get_redirect_url( 'user', $user_id ) ) {
 
-								$local_cache[] = $user_id;
+									$local_cache[] = $user_id;
+								}
 							}
 						}
 					}
@@ -513,6 +597,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache :
 						array_merge( $args[ 'exclude' ], $local_cache );
 				}
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'sitemaps users query args' );	// End timer.
 			}
 
 			return $args;
