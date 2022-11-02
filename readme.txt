@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.1.0-dev.10 (2022/11/02)**
+**Version 4.1.0-dev.11 (2022/11/02)**
 
 * **New Features**
 	* None.
@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v13.7.1-dev.10.
+	* WPSSO Core v13.7.1-dev.11.
 
 **Version 4.0.0 (2022/10/28)**
 
@@ -252,7 +252,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 4.1.0-dev.10 =
+= 4.1.0-dev.11 =
 
 (2022/11/02) Added a new "Maximum URLs per Sitemap" option (default is 1000). Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
 
