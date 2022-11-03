@@ -73,21 +73,26 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 4.1.0-dev.11 (2022/11/02)**
+**Version 5.0.0-dev.12 (2022/11/02)**
 
 * **New Features**
 	* None.
 * **Improvements**
-	* Added a new "Maximum URLs per Sitemap" option (default is 1000).
-	* Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
+	* Improved performance when creating the sitemaps XML.
+	* Added a new "Maximum URLs per Sitemap" option (default is 2000).
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* Added new `is_sitemap()` and `is_sitemap_stylesheet()` functions.
+	* Added `is_sitemap()` and `is_sitemap_stylesheet()` functions.
+	* Added a 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
+	* Refactored the following methods to improve performance when excluding noindex and/or redirected posts:
+		* WpssoWpsmSitemapsFilters->wp_sitemaps_posts_query_args()
+		* WpssoWpsmSitemapsFilters->wp_sitemaps_taxonomies_query_args()
+		* WpssoWpsmSitemapsFilters->wp_sitemaps_users_query_args()
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v13.7.1-dev.11.
+	* WPSSO Core v13.7.1-dev.12.
 
 **Version 4.0.0 (2022/10/28)**
 
@@ -252,9 +257,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 4.1.0-dev.11 =
+= 5.0.0-dev.12 =
 
-(2022/11/02) Added a new "Maximum URLs per Sitemap" option (default is 1000). Added a new 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
+(2022/11/02) Improved performance when creating the sitemaps XML. Added a new "Maximum URLs per Sitemap" option (default is 2000).
 
 = 4.0.0 =
 
