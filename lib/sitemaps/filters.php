@@ -135,6 +135,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
 					'meta_query'     => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+					'post_type'      => $post_type,				// Just in case.
 					'fields'         => 'ids',
 					'posts_per_page' => -1,					// Get all excluded post ids.
 					'nopaging'       => true,
@@ -149,9 +150,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$exclude_query = new WP_Query( $exclude_args );
 
-				if ( ! empty( $exclude_query->posts ) ) {	// Just in case.
+				$local_cache[ $post_type ] = $exclude_query->posts;
 
-					$local_cache[ $post_type ] = $exclude_query->posts;
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log_arr( 'saved excluded post ids', $local_cache[ $post_type ] );
 				}
 			}
 
@@ -308,12 +311,16 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$local_cache = array(
 						'relation' => 'OR',
 						'noindex_clause' => array(
-							'key'   => $noindex_key,
-							'value' => 1,
+							'key'     => $noindex_key,
+							'value'   => 1,
+							'compare' => '=',
+							'type'    => 'NUMERIC',
 						),
 						'redirect_clause' => array(
-							'key'   => $redirect_key,
-							'value' => 1,
+							'key'     => $redirect_key,
+							'value'   => 1,
+							'compare' => '=',
+							'type'    => 'NUMERIC',
 						),
 					);
 				}
@@ -342,6 +349,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$mod = $this->p->post->get_mod( $post->ID );
 
+			/**
+			 * Get modified time.
+			 */
 			if ( $this->p->debug->enabled ) {
 
 				$this->p->debug->log( 'getting og type' );
@@ -355,21 +365,24 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					if ( $this->p->debug->enabled ) {
 
-						$this->p->debug->log( 'adding modified time' );
+						$this->p->debug->log( 'adding post modified time' );
 					}
 
 					$sitemaps_entry[ 'lastmod' ] = $mod[ 'post_modified_time' ];
 
 				} elseif ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log( 'no modified time' );
+					$this->p->debug->log( 'no post modified time' );
 				}
 
 			} elseif ( $this->p->debug->enabled ) {
 
-				$this->p->debug->log( 'skipping modified time' );
+				$this->p->debug->log( 'skipping post modified time' );
 			}
 
+			/**
+			 * Get alternates.
+			 */
 			if ( $this->p->debug->enabled ) {
 
 				$this->p->debug->log( 'getting sitemaps alternates' );
@@ -377,6 +390,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
+			/**
+			 * Get images.
+			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
 
 				if ( $this->p->debug->enabled ) {
@@ -384,7 +400,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$this->p->debug->log( 'getting sitemaps images' );
 				}
 
-				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+				if ( $this->p->util->robots->is_noimageindex( $mod ) ) {
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log( 'skipping sitemaps images: noimageindex is true' );
+					}
+
+				} else {
+
+					$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+				}
 
 			} elseif ( $this->p->debug->enabled ) {
 
@@ -441,11 +467,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$local_cache[ $taxonomy ] = array();
 
 				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
-					'meta_query'    => $this->get_exclude_meta_query(),	// Returns an empty string or array.
-					'fields'        => 'ids',
-					'number'        => '',					// Get all excluded taxonomy ids.
-					'offset'        => '',
-					'count'         => false,
+					'meta_query' => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+					'taxonomy'   => $taxonomy,				// Just in case.
+					'fields'     => 'ids',
+					'number'     => '',					// Get all excluded taxonomy ids.
+					'offset'     => '',
+					'count'      => false,
 				) );
 
 				if ( $this->p->debug->enabled ) {
@@ -455,9 +482,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$exclude_query = new WP_Term_Query( $exclude_args );
 
-				if ( ! empty( $exclude_query->terms ) ) {	// Just in case.
+				$local_cache[ $taxonomy ] = $exclude_query->terms;
 
-					$local_cache[ $taxonomy ] = $exclude_query->terms;
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log_arr( 'saved excluded taxonomy term ids', $local_cache[ $taxonomy ] );
 				}
 			}
 
@@ -548,12 +577,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$local_cache = array();
 
 					$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
-						'meta_query'    => $this->get_exclude_meta_query(),	// Returns an empty string or array.
-						'fields'        => 'ID',
-						'number'        => '',					// Get all excluded user ids.
-						'offset'        => '',
-						'paged'         => 1,
-						'count_total'   => false,
+						'meta_query'  => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+						'fields'      => 'ID',
+						'number'      => '',					// Get all excluded user ids.
+						'offset'      => '',
+						'paged'       => 1,
+						'count_total' => false,
 					) );
 
 					if ( $this->p->debug->enabled ) {
@@ -564,6 +593,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$exclude_query = new WP_User_Query( $exclude_args );
 
 					$local_cache = $exclude_query->get_results();	// Returns an array of user ids.
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log_arr( 'saved excluded user ids', $local_cache );
+					}
 				}
 
 				if ( empty( $local_cache ) ) {
