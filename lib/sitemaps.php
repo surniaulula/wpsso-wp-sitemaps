@@ -15,8 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * Run wpssowpsm_get_server() to set $wp_sitemaps before the WordPress wp_sitemaps_get_server() function does.
  *
- * Note that the 'init' action hook runs before the 'parse_request' action hooks.
- *
  * See wordpress/wp-includes/default-filters.php.
  * See wordpress/wp-includes/sitemaps.php.
  */
@@ -47,14 +45,7 @@ if ( ! function_exists( 'wpssowpsm_get_server' ) ) {
 }
 
 /**
- * Since WPSSO WPSM v4.1.0.
- *
- * Fix for sitemaps pagination bug.
- *
- * Executes before send_headers(), query_posts(), handle_404(), and register_globals().
- *
- * See https://wp-kama.com/note/wp-sitemap-bug-404-pagination.
- * See https://core.trac.wordpress.org/ticket/51912
+ * Since WPSSO WPSM v5.0.0.
  */
 if ( ! function_exists( 'wpssowpsm_wp_query_handle_sitemap' ) ) {
 
@@ -66,24 +57,6 @@ if ( ! function_exists( 'wpssowpsm_wp_query_handle_sitemap' ) ) {
 
 		$wp_query->is_sitemap            = empty( $wp->query_vars[ 'sitemap' ] ) ? false : true;
 		$wp_query->is_sitemap_stylesheet = empty( $wp->query_vars[ 'sitemap-stylesheet' ] ) ? false : true;
-
-		if ( ! $wp_query->is_sitemap && ! $wp_query->is_sitemap_stylesheet ) {
-
-			return;
-		}
-
-		$saved_query_vars = $wp_query->query_vars;
-
-		$wp_query->query_vars = $wp->query_vars;
-
-		wp_sitemaps_get_server()->render_sitemaps();
-
-		/**
-		 * If the sitemap request was invalid, then undo the query changes. 
-		 */
-		$wp_query->is_sitemap            = false;
-		$wp_query->is_sitemap_stylesheet = false;
-		$wp_query->query_vars            = $saved_query_vars;
 	}
 }
 

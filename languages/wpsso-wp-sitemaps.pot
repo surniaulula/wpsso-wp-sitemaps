@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO WP Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO WP Sitemaps XML 5.0.0-b.2\n"
+"Project-Id-Version: WPSSO WP Sitemaps XML 5.0.0-b.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2022-MO-DA HO:MI+ZONE\n"
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Fields other than %s are not currently supported for sitemaps."
 msgstr ""
 
-#: lib/sitemaps.php:98 lib/sitemaps.php:115
+#: lib/sitemaps.php:71 lib/sitemaps.php:88
 msgid ""
 "Conditional query tags do not work before the query is run. Before then, "
 "they always return false."
