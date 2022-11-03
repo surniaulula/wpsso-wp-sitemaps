@@ -135,7 +135,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
 					'meta_query'     => $this->get_exclude_meta_query(),	// Returns an empty string or array.
-					'post_type'      => $post_type,				// Just in case.
 					'fields'         => 'ids',
 					'posts_per_page' => -1,					// Get all excluded post ids.
 					'nopaging'       => true,
@@ -154,23 +153,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log_arr( 'saved excluded post ids', $local_cache[ $post_type ] );
+					$this->p->debug->log_arr( 'excluded post ids', $local_cache[ $post_type ] );
 				}
 			}
 
-			if ( empty( $local_cache[ $post_type ] ) ) {	// Add the cached exclusion list, if we have one.
-
-				if ( $this->p->debug->enabled ) {
-
-					$this->p->debug->log( 'no post ids to exclude' );
-				}
-
-			} else {
-
-				if ( $this->p->debug->enabled ) {
-
-					$this->p->debug->log_arr( 'excluding post ids', $local_cache[ $post_type ] );
-				}
+			if ( ! empty( $local_cache[ $post_type ] ) ) {	// Add the cached exclusion list, if we have one.
 
 				$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ? $local_cache[ $post_type ] :
 					array_merge( $args[ 'post__not_in' ], $local_cache[ $post_type ] );
@@ -468,7 +455,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
 					'meta_query' => $this->get_exclude_meta_query(),	// Returns an empty string or array.
-					'taxonomy'   => $taxonomy,				// Just in case.
 					'fields'     => 'ids',
 					'number'     => '',					// Get all excluded taxonomy ids.
 					'offset'     => '',
@@ -486,23 +472,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log_arr( 'saved excluded taxonomy term ids', $local_cache[ $taxonomy ] );
+					$this->p->debug->log_arr( 'excluded taxonomy term ids', $local_cache[ $taxonomy ] );
 				}
 			}
 
-			if ( empty( $local_cache[ $taxonomy ] ) ) {	// Add the cached exclusion list, if we have one.
-
-				if ( $this->p->debug->enabled ) {
-
-					$this->p->debug->log( 'no taxonomy term ids to exclude' );
-				}
-
-			} else {
-
-				if ( $this->p->debug->enabled ) {
-
-					$this->p->debug->log_arr( 'excluding taxonomy term ids', $local_cache[ $taxonomy ] );
-				}
+			if ( ! empty( $local_cache[ $taxonomy ] ) ) {	// Add the cached exclusion list, if we have one.
 
 				$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache[ $taxonomy ] :
 					array_merge( $args[ 'exclude' ], $local_cache[ $taxonomy ] );
@@ -596,23 +570,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					if ( $this->p->debug->enabled ) {
 
-						$this->p->debug->log_arr( 'saved excluded user ids', $local_cache );
+						$this->p->debug->log_arr( 'excluded user ids', $local_cache );
 					}
 				}
 
-				if ( empty( $local_cache ) ) {
-
-					if ( $this->p->debug->enabled ) {
-
-						$this->p->debug->log( 'no user ids to exclude' );
-					}
-
-				} else {
-
-					if ( $this->p->debug->enabled ) {
-
-						$this->p->debug->log_arr( 'excluding user ids', $local_cache );
-					}
+				if ( ! empty( $local_cache ) ) {	// Add the cached exclusion list, if we have one.
 
 					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache :
 						array_merge( $args[ 'exclude' ], $local_cache );
