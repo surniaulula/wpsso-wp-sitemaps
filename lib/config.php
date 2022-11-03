@@ -18,7 +18,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
 					'version'     => '5.0.0-b.2',	// Plugin version.
-					'opt_version' => '5',		// Increment when changing default option values.
+					'opt_version' => '6',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
 					'desc'        => 'Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes "No Index" and redirected pages.',
