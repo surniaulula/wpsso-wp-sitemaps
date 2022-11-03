@@ -301,13 +301,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 							'key'     => $noindex_key,
 							'value'   => '1',
 							'compare' => '=',
-							'type'    => 'NUMERIC',
 						),
 						'redirect_clause' => array(
 							'key'     => $redirect_key,
 							'value'   => '1',
 							'compare' => '=',
-							'type'    => 'NUMERIC',
 						),
 					);
 				}
