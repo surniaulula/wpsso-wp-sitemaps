@@ -116,7 +116,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					'post_type' => $post_type,
 				) );
 
-				$this->p->debug->mark( 'sitemaps posts query args' );	// Begin timer.
+				$this->p->debug->mark( 'sitemaps posts (' . $post_type . ') query args' );	// Begin timer.
 			}
 
 			/**
@@ -129,74 +129,43 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			static $local_cache = array();	// Create the exclusion list only once.
 
-			if ( ! isset( $local_cache[ $post_type ] ) ) {
+			if ( ! isset( $local_cache[ $post_type ] ) ) {	// Create exclusion list by post type.
 
 				$local_cache[ $post_type ] = array();
 
-				$args = array_merge( $args, array(
+				$exclude_args = array_merge( $args, array(
 					'fields'        => 'ids',
 					'no_found_rows' => true,
 					'post_type'     => $post_type,
+					'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
 				) );
 
 				if ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log_arr( 'WP_Query args', $args );
+					$this->p->debug->log_arr( 'WP_Query args', $exclude_args );
 				}
 
-				$query = new WP_Query( $args );
+				$exclude_query = new WP_Query( $exclude_args );
 
-				if ( ! empty( $query->posts ) ) {	// Just in case.
+				if ( ! empty( $exclude_query->posts ) ) {	// Just in case.
 
-					$robots_enabled = $this->p->util->robots->is_enabled();
-					$redir_enabled  = $this->p->util->is_redirect_enabled();
-
-					foreach ( $query->posts as $post_id ) {
-
-						if ( $robots_enabled ) {
-
-							if ( $this->p->debug->enabled ) {
-	
-								$this->p->debug->log( 'checking post id ' . $post_id . ' for robots noindex' );
-							}
-	
-							if ( $this->p->util->robots->is_noindex( 'post', $post_id ) ) {
-	
-								if ( $this->p->debug->enabled ) {
-	
-									$this->p->debug->log( 'skipping post id ' . $post_id . ': noindex is true' );
-								}
-	
-								$local_cache[ $post_type ][] = $post_id;
-	
-								continue;
-							}
-						}
-
-						if ( $redir_enabled ) {
-						
-							if ( $this->p->debug->enabled ) {
-	
-								$this->p->debug->log( 'checking post id ' . $post_id . ' for redirect URL' );
-							}
-	
-							if ( $this->p->util->get_redirect_url( 'post', $post_id ) ) {
-
-								if ( $this->p->debug->enabled ) {
-	
-									$this->p->debug->log( 'skipping post id ' . $post_id . ': has redirect URL' );
-								}
-	
-								$local_cache[ $post_type ][] = $post_id;
-
-								continue;
-							}
-						}
-					}
+					$local_cache[ $post_type ] = $exclude_query->posts;
 				}
 			}
 
-			if ( ! empty( $local_cache[ $post_type ] ) ) {
+			if ( empty( $local_cache[ $post_type ] ) ) {	// Add the cached exclusion list, if we have one.
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'no post ids to exclude' );
+				}
+
+			} else {
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log_arr( 'excluding post ids', $local_cache[ $post_type ] );
+				}
 
 				$args[ 'post__not_in' ] = empty( $args[ 'post__not_in' ] ) ? $local_cache[ $post_type ] :
 					array_merge( $args[ 'post__not_in' ], $local_cache[ $post_type ] );
@@ -204,7 +173,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->mark( 'sitemaps posts query args' );	// End timer.
+				$this->p->debug->mark( 'sitemaps posts (' . $post_type . ') query args' );	// End timer.
 			}
 
 			return $args;
@@ -322,6 +291,35 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $args;
 		}
 
+		public function get_meta_query() {
+
+			static $local_cache = null;
+
+			if ( null === $local_cache ) {
+
+				$local_cache  = '';	// Default WP_Query value is an empty string.
+				$noindex_key  = WpssoAbstractWpMeta::get_column_meta_keys( 'is_noindex' );
+				$redirect_key = WpssoAbstractWpMeta::get_column_meta_keys( 'is_redirect' );
+	
+				if ( $noindex_key && $redirect_key ) {	// Just in case.
+	
+					$local_cache = array(
+						'relation' => 'OR',
+						'noindex_clause' => array(
+							'key'   => $noindex_key,
+							'value' => 1,
+						),
+						'redirect_clause' => array(
+							'key'   => $redirect_key,
+							'value' => 1,
+						),
+					);
+				}
+			}
+
+			return $local_cache;	// Return an empty string or array.
+		}
+
 		/**
 		 * Add the modification time for Open Graph type non-website posts (ie. article, book, product, etc.), post
 		 * language, and alternate post languages.
@@ -431,78 +429,47 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					'taxonomy' => $taxonomy,
 				) );
 
-				$this->p->debug->mark( 'sitemaps taxonomies query args' );	// Begin timer.
+				$this->p->debug->mark( 'sitemaps taxonomies (' . $taxonomy . ') query args' );	// Begin timer.
 			}
 
 			static $local_cache = array();	// Create the exclusion list only once.
 
-			if ( ! isset( $local_cache[ $taxonomy ] ) ) {
+			if ( ! isset( $local_cache[ $taxonomy ] ) ) {	// Create exclusion list by taxonomy.
 
 				$local_cache[ $taxonomy ] = array();
 
-				$args = array_merge( $args, array(
+				$exclude_args = array_merge( $args, array(
 					'fields'        => 'ids',
 					'no_found_rows' => true,
+					'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
 				) );
 
 				if ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log_arr( 'WP_Term_Query args', $args );
+					$this->p->debug->log_arr( 'WP_Term_Query args', $exclude_args );
 				}
 
-				$query = new WP_Term_Query( $args );
+				$exclude_query = new WP_Term_Query( $exclude_args );
 
-				if ( ! empty( $query->terms ) ) {	// Just in case.
+				if ( ! empty( $exclude_query->terms ) ) {	// Just in case.
 
-					$robots_enabled = $this->p->util->robots->is_enabled();
-					$redir_enabled  = $this->p->util->is_redirect_enabled();
-
-					foreach ( $query->terms as $term_id ) {
-
-						if ( $robots_enabled ) {
-
-							if ( $this->p->debug->enabled ) {
-	
-								$this->p->debug->log( 'checking term id ' . $term_id . ' for robots noindex' );
-							}
-	
-							if ( $this->p->util->robots->is_noindex( 'term', $term_id ) ) {
-	
-								if ( $this->p->debug->enabled ) {
-	
-									$this->p->debug->log( 'skipping term id ' . $term_id . ': noindex is true' );
-								}
-	
-								$local_cache[ $taxonomy ][] = $term_id;
-	
-								continue;
-							}
-						}
-	
-						if ( $redir_enabled ) {
-						
-							if ( $this->p->debug->enabled ) {
-	
-								$this->p->debug->log( 'checking term id ' . $term_id . ' for redirect URL' );
-							}
-	
-							if ( $this->p->util->get_redirect_url( 'term', $term_id ) ) {
-
-								if ( $this->p->debug->enabled ) {
-	
-									$this->p->debug->log( 'skipping term id ' . $term_id . ': has redirect URL' );
-								}
-	
-								$local_cache[ $taxonomy ][] = $term_id;
-							
-								continue;
-							}
-						}
-					}
+					$local_cache[ $taxonomy ][] = $exclude_query->terms;
 				}
 			}
 
-			if ( ! empty( $local_cache[ $taxonomy ] ) ) {
+			if ( empty( $local_cache[ $taxonomy ] ) ) {	// Add the cached exclusion list, if we have one.
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'no taxonomy term ids to exclude' );
+				}
+
+			} else {
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log_arr( 'excluding taxonomy term ids', $local_cache[ $taxonomy ] );
+				}
 
 				$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache[ $taxonomy ] :
 					array_merge( $args[ 'exclude' ], $local_cache[ $taxonomy ] );
@@ -510,7 +477,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->mark( 'sitemaps taxonomies query args' );	// End timer.
+				$this->p->debug->mark( 'sitemaps taxonomies (' . $taxonomy . ') query args' );	// End timer.
 			}
 
 			return $args;
@@ -576,71 +543,35 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					$local_cache = array();
 
-					$args = array_merge( $args, array(
+					$exclude_args = array_merge( $args, array(
 						'fields'        => 'ids',
 						'no_found_rows' => true,
+						'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
 					) );
 
 					if ( $this->p->debug->enabled ) {
 
-						$this->p->debug->log_arr( 'WP_User_Query args', $args );
+						$this->p->debug->log_arr( 'WP_User_Query args', $exclude_args );
 					}
 
-					$query = new WP_User_Query( $args );
+					$exclude_query = new WP_User_Query( $exclude_args );
 
-					$users = $query->get_results();
-
-					if ( ! empty( $users ) ) {	// Just in case.
-
-						$robots_enabled = $this->p->util->robots->is_enabled();
-						$redir_enabled  = $this->p->util->is_redirect_enabled();
-
-						foreach ( $users as $user_id ) {
-
-							if ( $robots_enabled ) {
-
-								if ( $this->p->debug->enabled ) {
-	
-									$this->p->debug->log( 'checking user id ' . $user_id . ' for robots noindex' );
-								}
-	
-								if ( $this->p->util->robots->is_noindex( 'user', $user_id ) ) {
-	
-									if ( $this->p->debug->enabled ) {
-	
-										$this->p->debug->log( 'skipping user id ' . $user_id . ': noindex is true' );
-									}
-	
-									$local_cache[] = $user_id;
-	
-									continue;
-								}
-							}
-
-							if ( $redir_enabled ) {
-							
-								if ( $this->p->debug->enabled ) {
-	
-									$this->p->debug->log( 'checking user id ' . $user_id . ' for redirect URL' );
-								}
-	
-								if ( $this->p->util->get_redirect_url( 'user', $user_id ) ) {
-
-									if ( $this->p->debug->enabled ) {
-	
-										$this->p->debug->log( 'skipping user id ' . $user_id . ': has redirect URL' );
-									}
-	
-									$local_cache[] = $user_id;
-								
-									continue;
-								}
-							}
-						}
-					}
+					$local_cache = $exclude_query->get_results();
 				}
 
-				if ( ! empty( $local_cache ) ) {
+				if ( empty( $local_cache ) ) {
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log( 'no user ids to exclude' );
+					}
+
+				} else {
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log_arr( 'excluding user ids', $local_cache );
+					}
 
 					$args[ 'exclude' ] = empty( $args[ 'exclude' ] ) ? $local_cache :
 						array_merge( $args[ 'exclude' ], $local_cache );
