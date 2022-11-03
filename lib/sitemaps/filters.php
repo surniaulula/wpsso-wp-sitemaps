@@ -133,11 +133,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $post_type ] = array();
 
-				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
-					'fields'        => 'ids',
-					'no_found_rows' => true,
-					'post_type'     => $post_type,
-					'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
+				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
+					'meta_query'     => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+					'fields'         => 'ids',
+					'posts_per_page' => -1,					// Get all excluded post ids.
+					'nopaging'       => true,
+					'paged'          => '',
+					'no_found_rows'  => true,
 				) );
 
 				if ( $this->p->debug->enabled ) {
@@ -291,7 +293,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $args;
 		}
 
-		public function get_meta_query() {
+		public function get_exclude_meta_query() {
 
 			static $local_cache = null;
 
@@ -438,10 +440,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $taxonomy ] = array();
 
-				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
+				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
+					'meta_query'    => $this->get_exclude_meta_query(),	// Returns an empty string or array.
 					'fields'        => 'ids',
-					'no_found_rows' => true,
-					'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
+					'number'        => '',					// Get all excluded taxonomy ids.
+					'offset'        => '',
+					'count'         => false,
 				) );
 
 				if ( $this->p->debug->enabled ) {
@@ -543,10 +547,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					$local_cache = array();
 
-					$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
-						'fields'        => 'ids',
-						'no_found_rows' => true,
-						'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
+					$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
+						'meta_query'    => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+						'fields'        => 'ID',
+						'number'        => '',					// Get all excluded user ids.
+						'offset'        => '',
+						'paged'         => 1,
+						'count_total'   => false,
 					) );
 
 					if ( $this->p->debug->enabled ) {
