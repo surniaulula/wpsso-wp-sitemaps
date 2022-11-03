@@ -84,7 +84,6 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 * **Developer Notes**
 	* Added `is_sitemap()` and `is_sitemap_stylesheet()` functions.
-	* Added a 'parse_request' action hook to render sitemaps earlier in the WordPress load process.
 	* Refactored the following methods to improve performance when excluding noindex and/or redirected posts:
 		* WpssoWpsmSitemapsFilters->wp_sitemaps_posts_query_args()
 		* WpssoWpsmSitemapsFilters->wp_sitemaps_taxonomies_query_args()
