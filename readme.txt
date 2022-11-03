@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.0.0-dev.12 (2022/11/02)**
+**Version 5.0.0-dev.13 (2022/11/02)**
 
 * **New Features**
 	* None.
@@ -92,7 +92,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v13.7.1-dev.12.
+	* WPSSO Core v13.7.1-dev.13.
 
 **Version 4.0.0 (2022/10/28)**
 
@@ -257,7 +257,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 5.0.0-dev.12 =
+= 5.0.0-dev.13 =
 
 (2022/11/02) Improved performance when creating the sitemaps XML. Added a new "Maximum URLs per Sitemap" option (default is 2000).
 
