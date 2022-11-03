@@ -153,7 +153,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log_arr( 'excluded post ids', $local_cache[ $post_type ] );
+					$this->p->debug->log_arr( 'excluded post (' . $post_type . ') ids', $local_cache[ $post_type ] );
 				}
 			}
 
@@ -299,13 +299,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						'relation' => 'OR',
 						'noindex_clause' => array(
 							'key'     => $noindex_key,
-							'value'   => 1,
+							'value'   => '1',
 							'compare' => '=',
 							'type'    => 'NUMERIC',
 						),
 						'redirect_clause' => array(
 							'key'     => $redirect_key,
-							'value'   => 1,
+							'value'   => '1',
 							'compare' => '=',
 							'type'    => 'NUMERIC',
 						),
@@ -472,7 +472,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log_arr( 'excluded taxonomy term ids', $local_cache[ $taxonomy ] );
+					$this->p->debug->log_arr( 'excluded taxonomy (' . $taxonomy . ') term ids', $local_cache[ $taxonomy ] );
 				}
 			}
 
