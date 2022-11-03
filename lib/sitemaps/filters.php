@@ -133,7 +133,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $post_type ] = array();
 
-				$exclude_args = array_merge( $args, array(
+				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
 					'fields'        => 'ids',
 					'no_found_rows' => true,
 					'post_type'     => $post_type,
@@ -438,7 +438,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $taxonomy ] = array();
 
-				$exclude_args = array_merge( $args, array(
+				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
 					'fields'        => 'ids',
 					'no_found_rows' => true,
 					'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
@@ -453,7 +453,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( ! empty( $exclude_query->terms ) ) {	// Just in case.
 
-					$local_cache[ $taxonomy ][] = $exclude_query->terms;
+					$local_cache[ $taxonomy ] = $exclude_query->terms;
 				}
 			}
 
@@ -543,7 +543,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					$local_cache = array();
 
-					$exclude_args = array_merge( $args, array(
+					$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
 						'fields'        => 'ids',
 						'no_found_rows' => true,
 						'meta_query'    => $this->get_meta_query(),	// Returns an empty string or array.
@@ -556,7 +556,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					$exclude_query = new WP_User_Query( $exclude_args );
 
-					$local_cache = $exclude_query->get_results();
+					$local_cache = $exclude_query->get_results();	// Returns an array of user ids.
 				}
 
 				if ( empty( $local_cache ) ) {
