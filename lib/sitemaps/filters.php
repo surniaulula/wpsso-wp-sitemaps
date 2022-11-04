@@ -218,7 +218,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$sitemaps_entry = array( 'loc' => home_url( '/' ) );
 
 				/**
-				 * Filters the sitemap entry for the home page when the 'show_on_front' option equals 'posts'.
+				 * Filters the sitemaps entry for the home page when the 'show_on_front' option equals 'posts'.
 				 */
 				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemaps_entry );
 
@@ -238,7 +238,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$sitemaps_entry = array( 'loc' => get_permalink( $post ) );
 
 				/**
-				 * Filters the sitemap entry for an individual post.
+				 * Filters the sitemaps entry for an individual post.
 				 */
 				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_entry', $sitemaps_entry, $post, $post_type );
 
@@ -300,12 +300,10 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						'noindex_clause' => array(
 							'key'     => $noindex_key,
 							'value'   => '1',
-							'compare' => '=',
 						),
 						'redirect_clause' => array(
 							'key'     => $redirect_key,
 							'value'   => '1',
-							'compare' => '=',
 						),
 					);
 				}
@@ -330,6 +328,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			if ( empty( $post->ID ) ) {	// Just in case.
 
 				return $sitemaps_entry;
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// Begin timer.
 			}
 
 			$mod = $this->p->post->get_mod( $post->ID );
@@ -400,6 +403,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			} elseif ( $this->p->debug->enabled ) {
 
 				$this->p->debug->log( 'skipping sitemaps images' );
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// Begin timer.
 			}
 
 			return $sitemaps_entry;
@@ -505,13 +513,53 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				return $sitemaps_entry;
 			}
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting term id ' . $term->term_id . ' sitemaps entry' );	// Begin timer.
+			}
+
 			$mod = $this->p->term->get_mod( $term->term_id );
+
+			/**
+			 * Get alternates.
+			 */
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'getting sitemaps alternates' );
+			}
 
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
+			/**
+			 * Get images.
+			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
 
-				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'getting sitemaps images' );
+				}
+
+				if ( $this->p->util->robots->is_noimageindex( $mod ) ) {
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log( 'skipping sitemaps images: noimageindex is true' );
+					}
+
+				} else {
+
+					$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+				}
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping sitemaps images' );
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting term id ' . $term->term_id . ' sitemaps entry' );	// End timer.
 			}
 
 			return $sitemaps_entry;
@@ -602,11 +650,43 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				return $sitemaps_entry;
 			}
 
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting user id ' . $user->ID . ' sitemaps entry' );	// Begin timer.
+			}
+
 			$mod = $this->p->user->get_mod( $user->ID );
 
+			/**
+			 * Get images.
+			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
 
-				$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'getting sitemaps images' );
+				}
+
+				if ( $this->p->util->robots->is_noimageindex( $mod ) ) {
+
+					if ( $this->p->debug->enabled ) {
+
+						$this->p->debug->log( 'skipping sitemaps images: noimageindex is true' );
+					}
+
+				} else {
+
+					$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+				}
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping sitemaps images' );
+			}
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting user id ' . $user->ID . ' sitemaps entry' );	// End timer.
 			}
 
 			return $sitemaps_entry;
