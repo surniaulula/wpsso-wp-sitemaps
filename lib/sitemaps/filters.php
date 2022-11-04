@@ -342,10 +342,15 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			 */
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->log( 'getting og type' );
+				$this->p->debug->mark( 'getting og type' );	// Begin timer.
 			}
 
 			$og_type = $this->p->og->get_mod_og_type_id( $mod );	// Since WPSSO Core v9.13.0.
+
+			if ( $this->p->debug->enabled ) {
+
+				$this->p->debug->mark( 'getting og type' );	// End timer.
+			}
 
 			if ( 'website' !== $og_type ) {
 
