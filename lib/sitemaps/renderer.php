@@ -55,20 +55,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 			$length = strlen( $xml );
 
-			ob_implicit_flush( true );
-			ob_end_flush();
-
 			header( 'HTTP/1.1 200 OK' );
 			header( 'Content-type: application/xml; charset=UTF-8' );
 			header( 'Content-Length: ' . $length );
 
 			echo $xml;
-
-			flush();
-
-			sleep( 1 );
-
-			exit;
 		}
 
 		/**
