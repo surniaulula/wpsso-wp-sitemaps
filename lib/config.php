@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '5.0.0-rc.1',	// Plugin version.
+					'version'     => '5.0.0',	// Plugin version.
 					'opt_version' => '6',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
