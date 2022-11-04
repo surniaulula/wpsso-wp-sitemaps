@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.0.0-b.6 (2022/11/03)**
+**Version 5.0.0-b.6 (2022/11/04)**
 
 * **New Features**
 	* None.
@@ -258,7 +258,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 5.0.0-b.6 =
 
-(2022/11/03) Improved performance when creating the sitemaps XML. Added a new "Maximum URLs per Sitemap" option (default is 2000).
+(2022/11/04) Improved performance when creating the sitemaps XML. Added a new "Maximum URLs per Sitemap" option (default is 2000).
 
 = 4.0.0 =
 
