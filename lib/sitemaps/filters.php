@@ -229,9 +229,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			}
 
 			foreach ( $query->posts as $post ) {
-			
+
 				if ( $this->p->debug->enabled ) {
-			
+
 					$this->p->debug->log( 'getting sitemaps entry for post id ' . ( empty( $post->ID ) ? 0 : $post->ID ) );
 				}
 
@@ -292,9 +292,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$local_cache  = '';	// Default WP_Query value is an empty string.
 				$noindex_key  = WpssoAbstractWpMeta::get_column_meta_keys( 'is_noindex' );
 				$redirect_key = WpssoAbstractWpMeta::get_column_meta_keys( 'is_redirect' );
-	
+
 				if ( $noindex_key && $redirect_key ) {	// Just in case.
-	
+
 					$local_cache = array(
 						'relation' => 'OR',
 						'noindex_clause' => array(

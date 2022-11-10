@@ -46,7 +46,7 @@ if ( ! class_exists( 'WpssoWpsmFilters' ) ) {
 
 				$this->msgs = new WpssoWpsmFiltersMessages( $plugin, $addon );
 			}
-		
+
 			if ( $this->p->notice->is_admin_pre_notices() ) {
 
 				if ( SucomUtilWP::sitemaps_disabled() ) {

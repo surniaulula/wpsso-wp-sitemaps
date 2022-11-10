@@ -193,9 +193,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				} elseif ( 'images' === $name && is_array( $val ) ) {
 
 					foreach ( $val as $num => $attrs ) {
-					
+
 						$image_data = $data->addChild( 'image:image', null, 'http://www.google.com/schemas/sitemap-image/1.1' );
-						
+
 						$this->add_items( $image_data, $attrs );	// Recurse.
 					}
 
