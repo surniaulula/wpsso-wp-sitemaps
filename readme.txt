@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires Plugins: wpsso
 Requires PHP: 7.2
 Requires At Least: 5.5
-Tested Up To: 6.1.0
+Tested Up To: 6.1.1
 Stable Tag: 5.0.0
 
 Select post types and taxonomies added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.
