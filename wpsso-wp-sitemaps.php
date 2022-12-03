@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WPSSO WP Sitemaps XML
+ * Plugin Name: WPSSO Better WordPress Sitemaps XML
  * Plugin Slug: wpsso-wp-sitemaps
  * Text Domain: wpsso-wp-sitemaps
  * Domain Path: /languages
@@ -10,7 +10,7 @@
  * Author URI: https://wpsso.com/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Description: Select post types and taxonomies added to the WordPress sitemaps XML, includes localized pages for Google, excludes "No Index" and redirected pages.
+ * Description: Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
  * Requires Plugins: wpsso
  * Requires PHP: 7.2
  * Requires At Least: 5.5
