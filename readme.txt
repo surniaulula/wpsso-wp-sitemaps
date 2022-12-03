@@ -1,5 +1,5 @@
-=== WPSSO WP Sitemaps XML ===
-Plugin Name: WPSSO WP Sitemaps XML
+=== WPSSO Better WordPress Sitemaps XML ===
+Plugin Name: WPSSO Better WordPress Sitemaps XML
 Plugin Slug: wpsso-wp-sitemaps
 Text Domain: wpsso-wp-sitemaps
 Domain Path: /languages
@@ -14,7 +14,7 @@ Requires At Least: 5.5
 Tested Up To: 6.1.1
 Stable Tag: 5.0.0
 
-Select post types and taxonomies added to the WordPress sitemaps XML, include localized pages for Google, exclude "No Index" and redirected pages.
+Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
 
 == Description ==
 
@@ -34,14 +34,14 @@ Exclude "No Index" and redirected posts, pages, custom post types, taxonomies (c
 
 <h3>WPSSO Core Required</h3>
 
-WPSSO WP Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
+WPSSO Better WordPress Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/).
 
 == Installation ==
 
 <h3 class="top">Install and Uninstall</h3>
 
-* [Install the WPSSO WP Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/install-the-plugin/).
-* [Uninstall the WPSSO WP Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/uninstall-the-plugin/).
+* [Install the WPSSO Better WordPress Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/install-the-plugin/).
+* [Uninstall the WPSSO Better WordPress Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/uninstall-the-plugin/).
 
 == Frequently Asked Questions ==
 
