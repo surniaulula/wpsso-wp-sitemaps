@@ -20,9 +20,9 @@ Include Schema images, alternate language URLs, post type archive pages, select 
 
 <!-- about -->
 
-Select the post types and taxonomies added to the WordPress sitemaps XML.
-
 Enhance the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.
+
+Select the post types and taxonomies added to the WordPress sitemaps XML.
 
 Include missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
