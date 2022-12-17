@@ -20,15 +20,15 @@ Include Schema images, alternate language URLs, post type archive pages, select 
 
 <!-- about -->
 
-*Improves the WordPress sitemaps XML* with article modification times, alternate language URLs, and Schema images for Google rich results.
+**Improves the WordPress sitemaps XML** with article modification times, alternate language URLs, and Schema images for Google rich results.
 
-*Include missing post type archive pages* in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
+**Include missing post type archive pages** in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
-*Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap)* (ie. alternate language URLs) from PolyLang and WMPL.
+**Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap)** (ie. alternate language URLs) from PolyLang and WMPL.
 
-*Select the post types and taxonomies* included in the WordPress sitemaps XML.
+**Select the post types and taxonomies** included in the WordPress sitemaps XML.
 
-*Exclude "No Index" and redirected* posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.
+**Exclude "No Index" and redirected** posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.
 
 <!-- /about -->
 
