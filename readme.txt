@@ -73,6 +73,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 5.1.0-dev.1 (2022/12/28)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Refactored and renamed the public `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` method to a private `WpssoWpsmSitemapsFilters::get_exclude_meta_query()` static method.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.5.
+	* WPSSO Core v14.0.0.
+
 **Version 5.0.0 (2022/11/04)**
 
 * **New Features**
@@ -255,6 +270,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v9.8.0.
 
 == Upgrade Notice ==
+
+= 5.1.0-dev.1 =
+
+(2022/12/28) Refactored and renamed the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` method.
 
 = 5.0.0 =
 
