@@ -73,7 +73,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.1.0-dev.1 (2022/12/28)**
+**Version 5.1.0-dev.2 (2022/12/28)**
 
 * **New Features**
 	* None.
@@ -271,7 +271,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 5.1.0-dev.1 =
+= 5.1.0-dev.2 =
 
 (2022/12/28) Refactored and renamed the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` method.
 
