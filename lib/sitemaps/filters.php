@@ -133,10 +133,10 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $post_type ] = array();
 
-				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
-					'meta_query'     => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
+					'meta_query'     => self::get_exclude_meta_query(),
 					'fields'         => 'ids',
-					'posts_per_page' => -1,					// Get all excluded post ids.
+					'posts_per_page' => -1,	// Get all excluded post ids.
 					'nopaging'       => true,
 					'paged'          => '',
 					'no_found_rows'  => true,
@@ -281,35 +281,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			);
 
 			return $args;
-		}
-
-		public function get_exclude_meta_query() {
-
-			static $local_cache = null;
-
-			if ( null === $local_cache ) {
-
-				$local_cache  = '';	// Default WP_Query value is an empty string.
-				$noindex_key  = WpssoAbstractWpMeta::get_column_meta_keys( 'is_noindex' );
-				$redirect_key = WpssoAbstractWpMeta::get_column_meta_keys( 'is_redirect' );
-
-				if ( $noindex_key && $redirect_key ) {	// Just in case.
-
-					$local_cache = array(
-						'relation' => 'OR',
-						'noindex_clause' => array(
-							'key'     => $noindex_key,
-							'value'   => '1',
-						),
-						'redirect_clause' => array(
-							'key'     => $redirect_key,
-							'value'   => '1',
-						),
-					);
-				}
-			}
-
-			return $local_cache;	// Return an empty string or array.
 		}
 
 		/**
@@ -464,10 +435,10 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$local_cache[ $taxonomy ] = array();
 
-				$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
-					'meta_query' => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
+					'meta_query' => self::get_exclude_meta_query(),
 					'fields'     => 'ids',
-					'number'     => '',					// Get all excluded taxonomy ids.
+					'number'     => '',	// Get all excluded taxonomy ids.
 					'offset'     => '',
 					'count'      => false,
 				) );
@@ -601,10 +572,10 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 					$local_cache = array();
 
-					$exclude_args = array_merge( $args, array(			// Avoid variable name conflict with $args.
-						'meta_query'  => $this->get_exclude_meta_query(),	// Returns an empty string or array.
+					$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
+						'meta_query'  => self::get_exclude_meta_query(),
 						'fields'      => 'ID',
-						'number'      => '',					// Get all excluded user ids.
+						'number'      => '',	// Get all excluded user ids.
 						'offset'      => '',
 						'paged'       => 1,
 						'count_total' => false,
@@ -859,6 +830,36 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 EOF;
 
 			return $xsl_content;
+		}
+
+		/**
+		 * See https://developer.wordpress.org/reference/classes/wp_meta_query/.
+		 */
+		static private function get_exclude_meta_query() {
+
+			static $local_cache = null;
+
+			if ( null === $local_cache ) {
+
+				$noindex_key  = WpssoAbstractWpMeta::get_column_meta_keys( 'is_noindex' );
+				$redirect_key = WpssoAbstractWpMeta::get_column_meta_keys( 'is_redirect' );
+
+				$local_cache = array(
+					'relation' => 'OR',
+					'noindex_clause' => array(
+						'key'     => $noindex_key,
+						'compare' => '=',
+						'value'   => '1',
+					),
+					'redirect_clause' => array(
+						'key'     => $redirect_key,
+						'compare' => '=',
+						'value'   => '1',
+					),
+				);
+			}
+
+			return $local_cache;	// Return an empty string or array.
 		}
 	}
 }
