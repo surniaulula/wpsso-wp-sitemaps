@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '5.1.0-dev.2',	// Plugin version.
+					'version'     => '5.1.0-dev.3',	// Plugin version.
 					'opt_version' => '6',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO Better WordPress Sitemaps XML',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '14.1.0-dev.2',
+							'min_version'   => '14.1.0-dev.3',
 						),
 					),
 
@@ -170,12 +170,15 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			return $var_const;
 		}
 
+		/**
+		 * Require library files with functions or static methods in require_libs().
+		 *
+		 * Require and instantiate library files with dynamic methods in init_objects().
+		 */
 		public static function require_libs( $plugin_file ) {
 
-			require_once WPSSOWPSM_PLUGINDIR . 'lib/filters.php';
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/register.php';
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps.php';
-			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps/filters.php';
 
 			add_filter( 'wpssowpsm_load_lib', array( __CLASS__, 'load_lib' ), 10, 3 );
 		}

@@ -16,7 +16,7 @@
  * Requires At Least: 5.5
  * Tested Up To: 6.1.1
  * WC Tested Up To: 7.2.2
- * Version: 5.1.0-dev.2
+ * Version: 5.1.0-dev.3
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -42,6 +42,9 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 
 	class WpssoWpsm extends WpssoAbstractAddOn {
 
+		public $filters;	// WpssoWpsmFilters class object.
+		public $sm_filters;	// WpssoWpsmSitemapsFilters class object.
+
 		protected $p;		// Wpsso class object.
 
 		private static $instance = null;	// WpssoWpsm class object.
@@ -66,6 +69,11 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 			load_plugin_textdomain( 'wpsso-wp-sitemaps', false, 'wpsso-wp-sitemaps/languages/' );
 		}
 
+		/**
+		 * Require library files with functions or static methods in require_libs().
+		 *
+		 * Require and instantiate library files with dynamic methods in init_objects().
+		 */
 		public function init_objects() {
 
 			$this->p =& Wpsso::get_instance();
@@ -80,8 +88,13 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 				return;	// Stop here.
 			}
 
-			new WpssoWpsmFilters( $this->p, $this );
-			new WpssoWpsmSitemapsFilters( $this->p, $this );
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/filters.php';
+
+			$this->filters = new WpssoWpsmFilters( $this->p, $this );
+
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps/filters.php';
+
+			$this->sm_filters = new WpssoWpsmSitemapsFilters( $this->p, $this );
 		}
 	}
 
