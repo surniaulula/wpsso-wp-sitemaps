@@ -846,15 +846,17 @@ EOF;
 
 				$local_cache = array(
 					'relation' => 'OR',
-					'noindex_clause' => array(
+					array(
 						'key'     => $noindex_key,
-						'compare' => '=',
 						'value'   => '1',
+						'compare' => '=',
+						'type'    => 'CHAR',
 					),
-					'redirect_clause' => array(
+					array(
 						'key'     => $redirect_key,
-						'compare' => '=',
 						'value'   => '1',
+						'compare' => '=',
+						'type'    => 'CHAR',
 					),
 				);
 			}
