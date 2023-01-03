@@ -16,15 +16,25 @@
 
 <!-- about -->
 
-<p><strong>Improves the WordPress sitemaps XML</strong> with article modification times, alternate language URLs, and Schema images for Google rich results.</p>
+<h4>Extends the WordPress Sitemaps XML</h4>
 
-<p><strong>Include missing post type archive pages</strong> in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).</p>
+<p>Improve the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.</p>
 
-<p><strong>Include <a href="https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap">localized pages for Google</a></strong> (ie. alternate language URLs) from PolyLang and WMPL.</p>
+<h4>Include Missing Post Type Archive Pages</h4>
 
-<p><strong>Select the post types and taxonomies</strong> included in the WordPress sitemaps XML.</p>
+<p>Include missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).</p>
 
-<p><strong>Exclude "No Index" and redirected</strong> posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.</p>
+<h4>Alternate Language URLs for Google</h4>
+
+<p>Include <a href="https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap">localized pages for Google</a> (ie. alternate language URLs) from PolyLang and WMPL.</p>
+
+<h4>Select Post Types and Taxonomies</h4>
+
+<p>Include or exclude post types and taxonomies from the WordPress sitemaps XML.</p>
+
+<h4>Exclude Noindex and Redirected URLs</h4>
+
+<p>Exclude noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.</p>
 
 <!-- /about -->
 
