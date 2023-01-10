@@ -18,23 +18,23 @@
 
 <h3>Extends the WordPress Sitemaps XML</h3>
 
-<p>Improve the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.</p>
+<p>Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.</p>
 
-<h3>Include Missing Post Type Archive Pages</h3>
+<h3>Includes Post Type Archive Pages</h3>
 
-<p>Include missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).</p>
+<p>Includes missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).</p>
 
-<h3>Alternate Language URLs for Google</h3>
+<h3>INcludes Alternate Languages</h3>
 
-<p>Include <a href="https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap">localized pages for Google</a> (ie. alternate language URLs) from PolyLang and WMPL.</p>
+<p>Includes <a href="https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap">localized pages for Google</a> (ie. alternate language URLs) from PolyLang and WMPL.</p>
 
 <h3>Select Post Types and Taxonomies</h3>
 
-<p>Include or exclude post types and taxonomies from the WordPress sitemaps XML.</p>
+<p>Optionally include or exclude post types and taxonomies from the WordPress sitemaps XML.</p>
 
-<h3>Exclude Noindex and Redirected URLs</h3>
+<h3>Excludes Noindex and Redirected URLs</h3>
 
-<p>Exclude noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.</p>
+<p>Excludes noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.</p>
 
 <!-- /about -->
 
