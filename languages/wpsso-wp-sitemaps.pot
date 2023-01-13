@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Better WordPress Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 5.1.0\n"
+"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 5.2.0-b.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
@@ -173,32 +173,32 @@ msgid ""
 "they always return false."
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:38
+#: lib/submenu/wpsm-general.php:58
 msgctxt "metabox title"
 msgid "WordPress Sitemaps"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:83
+#: lib/submenu/wpsm-general.php:103
 msgctxt "option label"
 msgid "WordPress Sitemaps URL"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:88
+#: lib/submenu/wpsm-general.php:108
 msgctxt "option label"
 msgid "Include in Sitemaps"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:93
+#: lib/submenu/wpsm-general.php:113
 msgctxt "option label"
 msgid "Add Schema Images"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:96
+#: lib/submenu/wpsm-general.php:116
 msgctxt "option comment"
 msgid "(not required)"
 msgstr ""
 
-#: lib/submenu/wpsm-general.php:99
+#: lib/submenu/wpsm-general.php:119
 msgctxt "option label"
 msgid "Maximum URLs per Sitemap"
 msgstr ""
