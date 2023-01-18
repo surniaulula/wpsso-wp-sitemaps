@@ -83,7 +83,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.2.0-b.8 (2023/01/17)**
+**Version 5.2.0-rc.1 (2023/01/18)**
 
 * **New Features**
 	* None.
@@ -96,7 +96,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.5.
-	* WPSSO Core v14.5.0-b.8.
+	* WPSSO Core v14.5.0-rc.1.
 
 **Version 5.1.0 (2022/12/29)**
 
@@ -296,9 +296,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 5.2.0-b.8 =
+= 5.2.0-rc.1 =
 
-(2023/01/17) Removed the "Change to View" button from the WP Sitemaps settings page.
+(2023/01/18) Removed the "Change to View" button from the WP Sitemaps settings page.
 
 = 5.1.0 =
 
