@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Plugin Name: WPSSO Better WordPress Sitemaps XML
  * Plugin Slug: wpsso-wp-sitemaps
  * Text Domain: wpsso-wp-sitemaps
@@ -16,7 +16,7 @@
  * Requires At Least: 5.5
  * Tested Up To: 6.1.1
  * WC Tested Up To: 7.3.0
- * Version: 5.2.0-rc.1
+ * Version: 5.2.0-rc.2
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -69,7 +69,7 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 			load_plugin_textdomain( 'wpsso-wp-sitemaps', false, 'wpsso-wp-sitemaps/languages/' );
 		}
 
-		/**
+		/*
 		 * Require library files with functions or static methods in require_libs().
 		 *
 		 * Require and instantiate library files with dynamic methods in init_objects().

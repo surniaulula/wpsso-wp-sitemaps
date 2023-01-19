@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2014-2022 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '5.2.0-rc.1',	// Plugin version.
+					'version'     => '5.2.0-rc.2',	// Plugin version.
 					'opt_version' => '6',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO Better WordPress Sitemaps XML',
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'text_domain' => 'wpsso-wp-sitemaps',
 					'domain_path' => '/languages',
 
-					/**
+					/*
 					 * Required plugin and its version.
 					 */
 					'req' => array(
@@ -37,16 +37,16 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '14.5.0-rc.1',
+							'min_version'   => '14.5.0-rc.2',
 						),
 					),
 
-					/**
+					/*
 					 * URLs or relative paths to plugin banners and icons.
 					 */
 					'assets' => array(
 
-						/**
+						/*
 						 * Icon image array keys are '1x' and '2x'.
 						 */
 						'icons' => array(
@@ -55,7 +55,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 						),
 					),
 
-					/**
+					/*
 					 * Library files loaded and instantiated by WPSSO.
 					 */
 					'lib' => array(
@@ -68,7 +68,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			'opt' => array(
 				'defaults' => array(
 
-					/**
+					/*
 					 * Advanced Settings > WordPress Sitemaps metabox.
 					 */
 					'wpsm_sitemaps_for_article'                => 1,
@@ -117,7 +117,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 
 			$info =& self::$cf[ 'plugin' ][ 'wpssowpsm' ];
 
-			/**
+			/*
 			 * Define fixed constants.
 			 */
 			define( 'WPSSOWPSM_FILEPATH', $plugin_file );
@@ -127,7 +127,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			define( 'WPSSOWPSM_URLPATH', trailingslashit( plugins_url( '', $plugin_file ) ) );
 			define( 'WPSSOWPSM_VERSION', $info[ 'version' ] );
 
-			/**
+			/*
 			 * Define variable constants.
 			 */
 			self::set_variable_constants();
@@ -140,7 +140,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 				$var_const = (array) self::get_variable_constants();
 			}
 
-			/**
+			/*
 			 * Define the variable constants, if not already defined.
 			 */
 			foreach ( $var_const as $name => $value ) {
@@ -156,7 +156,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 
 			$var_const = array();
 
-			/**
+			/*
 			 * Maybe override the default constant value with a pre-defined constant value.
 			 */
 			foreach ( $var_const as $name => $value ) {
@@ -170,7 +170,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 			return $var_const;
 		}
 
-		/**
+		/*
 		 * Require library files with functions or static methods in require_libs().
 		 *
 		 * Require and instantiate library files with dynamic methods in init_objects().
