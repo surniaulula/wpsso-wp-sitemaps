@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2021-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 		private $p;	// Wpsso class object.
 		private $a;	// WpssoWpsm class object.
 
-		/**
+		/*
 		 * Instantiated by WpssoWpsmFilters->__construct().
 		 */
 		public function __construct( &$plugin, &$addon ) {
@@ -46,7 +46,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 			return $opt_prefixes;
 		}
 
-		/**
+		/*
 		 * Return the sanitation type for a given option key.
 		 */
 		public function filter_option_type( $type, $base_key ) {

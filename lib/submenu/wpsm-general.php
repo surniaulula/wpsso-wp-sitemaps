@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2021-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -36,7 +36,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 			) );
 		}
 
-		/**
+		/*
 		 * Remove the "Change to View" button from this settings page.
 		 */
 		public function filter_form_button_rows( $form_button_rows ) {
@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 			return $form_button_rows;
 		}
 
-		/**
+		/*
 		 * Called by the extended WpssoAdmin class.
 		 */
 		protected function add_meta_boxes() {

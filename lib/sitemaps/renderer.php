@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2021-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps_Renderer' ) ) {
 
-	/**
+	/*
 	 * WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer to provide better render_sitemap() and get_sitemap_xml() methods.
 	 *
 	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-renderer.php.
@@ -20,7 +20,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
-		/**
+		/*
 		 * Since WPSSO WPSM v4.1.0.
 		 */
 		public function render_index( $sitemaps ) {
@@ -30,7 +30,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			$this->output_xml( $xml );
 		}
 
-		/**
+		/*
 		 * Since WPSSO WPSM v3.0.0.
 		 */
 		public function render_sitemap( $url_list ) {
@@ -62,7 +62,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			echo $xml;
 		}
 
-		/**
+		/*
 		 * Since WPSSO WPSM v4.1.0.
 		 *
 		 * Format the XML to make it human readable.
@@ -84,7 +84,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			return $xml;
 		}
 
-		/**
+		/*
 		 * Since WPSSO WPSM v3.0.0.
 		 *
 		 * Example $url_list = array(
@@ -143,7 +143,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				return;
 			}
 
-			/**
+			/*
 			 * Standard sitemap tags array used for re-ordering the $item array with 'loc' as the first element.
 			 *
 			 * See https://www.sitemaps.org/protocol.html.
@@ -187,7 +187,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 					$data->addAttribute( 'hreflang', esc_xml( $val ) );
 
-				/**
+				/*
 				 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 				 */
 				} elseif ( 'images' === $name && is_array( $val ) ) {

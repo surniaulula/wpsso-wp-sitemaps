@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2021-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'These aren\'t the droids you\'re looking for.' );
 }
 
-/**
+/*
  * Since WPSSO WPSM v3.0.0.
  *
  * Run wpssowpsm_get_server() to set $wp_sitemaps before the WordPress wp_sitemaps_get_server() function does.
@@ -44,7 +44,7 @@ if ( ! function_exists( 'wpssowpsm_get_server' ) ) {
 	}
 }
 
-/**
+/*
  * Since WPSSO WPSM v5.0.0.
  */
 if ( ! function_exists( 'wpssowpsm_wp_query_handle_sitemap' ) ) {

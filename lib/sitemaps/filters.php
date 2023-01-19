@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2021-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -18,7 +18,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		private $a;		// WpssoWpsm class object.
 		private $stylesheet;	// WP_Sitemaps_Stylesheet class object.
 
-		/**
+		/*
 		 * Instantiated by WpssoWpsm->init_objects().
 		 */
 		public function __construct( &$plugin, &$addon ) {
@@ -79,7 +79,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $max_urls;
 		}
 
-		/**
+		/*
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
 		 */
 		public function wp_sitemaps_post_types( $post_types ) {
@@ -102,7 +102,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $post_types;
 		}
 
-		/**
+		/*
 		 * Exclude posts from the sitemap that are noindex or redirected.
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
@@ -119,7 +119,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$this->p->debug->mark( 'sitemaps posts (' . $post_type . ') query args' );	// Begin timer.
 			}
 
-			/**
+			/*
 			 * The published post status for attachments is 'inherit'.
 			 */
 			if ( 'attachment' === $post_type ) {
@@ -171,7 +171,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $args;
 		}
 
-		/**
+		/*
 		 * Since WPSSO WPSM v2.0.0.
 		 *
 		 * Include post type archive pages without a post ID.
@@ -205,19 +205,19 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				}
 			}
 
-			/**
+			/*
 			 * Add a URL for the homepage in the pages sitemap.
 			 *
 			 * Shows only on the first page if the reading settings are set to display latest posts.
 			 */
 			if ( 'page' === $post_type && 1 === $page_num && 'posts' === get_option( 'show_on_front' ) ) {
 
-				/**
+				/*
 				 * Extract the data needed for home URL to add to the array.
 				 */
 				$sitemaps_entry = array( 'loc' => home_url( '/' ) );
 
-				/**
+				/*
 				 * Filters the sitemaps entry for the home page when the 'show_on_front' option equals 'posts'.
 				 */
 				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_show_on_front_entry', $sitemaps_entry );
@@ -237,7 +237,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$sitemaps_entry = array( 'loc' => get_permalink( $post ) );
 
-				/**
+				/*
 				 * Filters the sitemaps entry for an individual post.
 				 */
 				$sitemaps_entry = apply_filters( 'wp_sitemaps_posts_entry', $sitemaps_entry, $post, $post_type );
@@ -251,7 +251,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $url_list;
 		}
 
-		/**
+		/*
 		 * Since WPSSO WPSM v2.0.0.
 		 *
 		 * Recreates the functionality of the WP_Sitemaps_Posts->get_posts_query_args() protected method.
@@ -283,7 +283,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $args;
 		}
 
-		/**
+		/*
 		 * Add the modification time for Open Graph type non-website posts (ie. article, book, product, etc.), post
 		 * language, and alternate post languages.
 		 *
@@ -308,7 +308,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$mod = $this->p->post->get_mod( $post->ID );
 
-			/**
+			/*
 			 * Get modified time.
 			 */
 			if ( $this->p->debug->enabled ) {
@@ -344,7 +344,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$this->p->debug->log( 'skipping post modified time' );
 			}
 
-			/**
+			/*
 			 * Get alternates.
 			 */
 			if ( $this->p->debug->enabled ) {
@@ -354,7 +354,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
-			/**
+			/*
 			 * Get images.
 			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
@@ -389,7 +389,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $sitemaps_entry;
 		}
 
-		/**
+		/*
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
 		 */
 		public function wp_sitemaps_taxonomies( $taxonomies ) {
@@ -412,7 +412,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $taxonomies;
 		}
 
-		/**
+		/*
 		 * Exclude terms from the sitemap that are noindex or redirected.
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
@@ -472,7 +472,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $args;
 		}
 
-		/**
+		/*
 		 * Add the term language and alternate term languages.
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-taxonomies.php.
@@ -496,7 +496,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$mod = $this->p->term->get_mod( $term->term_id );
 
-			/**
+			/*
 			 * Get alternates.
 			 */
 			if ( $this->p->debug->enabled ) {
@@ -506,7 +506,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
-			/**
+			/*
 			 * Get images.
 			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
@@ -541,7 +541,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $sitemaps_entry;
 		}
 
-		/**
+		/*
 		 * Exclude users from the sitemap that are noindex or redirected.
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-users.php
@@ -559,7 +559,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			if ( empty( $this->p->options[ 'wpsm_sitemaps_for_user_page' ] ) ) {
 
-				/**
+				/*
 				 * Exclude all users by including only user ID 0 (which does not exist).
 				 */
 				$args[ 'include' ] = array( 0 );
@@ -611,7 +611,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $args;
 		}
 
-		/**
+		/*
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-users.php.
 		 */
 		public function wp_sitemaps_users_entry( $sitemaps_entry, $user ) {
@@ -633,7 +633,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			$mod = $this->p->user->get_mod( $user->ID );
 
-			/**
+			/*
 			 * Get images.
 			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
@@ -668,7 +668,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			return $sitemaps_entry;
 		}
 
-		/**
+		/*
 		 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps-stylesheet.php.
 		 */
 		public function wp_sitemaps_stylesheet_content( $xsl_content ) {
@@ -832,7 +832,7 @@ EOF;
 			return $xsl_content;
 		}
 
-		/**
+		/*
 		 * See https://developer.wordpress.org/reference/classes/wp_meta_query/.
 		 */
 		static private function get_exclude_meta_query() {

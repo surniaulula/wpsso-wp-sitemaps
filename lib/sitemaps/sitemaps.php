@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Copyright 2021-2023 Jean-Sebastien Morisset (https://wpsso.com/)
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'WpssoWpsmSitemaps' ) && class_exists( 'WP_Sitemaps' ) ) {
 
-	/**
+	/*
 	 * Since WPSSO WPSM v3.0.0.
 	 *
 	 * WpssoWpsmSitemaps extends WP_Sitemaps to set a different rederer class.
