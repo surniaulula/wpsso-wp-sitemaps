@@ -12,6 +12,7 @@ Requires Plugins: wpsso
 Requires PHP: 7.2
 Requires At Least: 5.5
 Tested Up To: 6.1.1
+WC Tested Up To: 7.3.0
 Stable Tag: 5.2.0
 
 Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
@@ -92,7 +93,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* Updated the `WpssoAbstractAddOn` class.
+	* Updated the `WpssoAbstractAddOn` library class.
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.2.
@@ -313,7 +314,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 5.2.1-dev.2 =
 
-(2023/01/24) Added compatibility declaration for WooCommerce HPOS.
+(2023/01/24) Added compatibility declaration for WooCommerce HPOS. Updated the `WpssoAbstractAddOn` library class.
 
 = 5.2.0 =
 
