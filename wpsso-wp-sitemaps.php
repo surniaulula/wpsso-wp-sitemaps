@@ -16,7 +16,7 @@
  * Requires At Least: 5.5
  * Tested Up To: 6.1.1
  * WC Tested Up To: 7.3.0
- * Version: 5.2.1-dev.2
+ * Version: 5.2.1-dev.3
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -42,6 +42,7 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 
 	class WpssoWpsm extends WpssoAbstractAddOn {
 
+		public $conflict;	// WpssoWpsmConflict class object.
 		public $filters;	// WpssoWpsmFilters class object.
 		public $sm_filters;	// WpssoWpsmSitemapsFilters class object.
 
@@ -87,6 +88,10 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 
 				return;	// Stop here.
 			}
+
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/conflict.php';
+
+			$this->conflict = new WpssoWpsmConflict( $this->p, $this );
 
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/filters.php';
 

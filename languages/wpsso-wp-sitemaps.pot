@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Better WordPress Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 5.2.1-dev.2\n"
+"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 5.2.1-dev.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
@@ -43,6 +43,38 @@ msgstr ""
 #: gettext/gettext-lib-config.php:8
 msgctxt "plugin name"
 msgid "WPSSO Core"
+msgstr ""
+
+#: lib/conflict-seo.php:38
+msgid "Plugin conflict detected:"
+msgstr ""
+
+#: lib/conflict-seo.php:53
+msgid "Yoast SEO"
+msgstr ""
+
+#. translators: Please ignore - translation uses a different text domain.
+#: lib/conflict-seo.php:64
+msgid "XML sitemaps"
+msgstr ""
+
+#. translators: Please ignore - translation uses a different text domain.
+#: lib/conflict-seo.php:68
+msgid "Settings"
+msgstr ""
+
+#. translators: Please ignore - translation uses a different text domain.
+#: lib/conflict-seo.php:70
+msgid "Site features"
+msgstr ""
+
+#. translators: Please ignore - translation uses a different text domain.
+#: lib/conflict-seo.php:72
+msgid "APIs"
+msgstr ""
+
+#: lib/conflict-seo.php:79
+msgid "Please disable the %1$s option in the %2$s settings."
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
