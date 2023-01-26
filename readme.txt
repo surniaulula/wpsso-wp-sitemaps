@@ -13,7 +13,7 @@ Requires PHP: 7.2
 Requires At Least: 5.5
 Tested Up To: 6.1.1
 WC Tested Up To: 7.3.0
-Stable Tag: 5.2.0
+Stable Tag: 5.2.1
 
 Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
 
