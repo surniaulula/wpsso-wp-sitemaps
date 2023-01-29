@@ -33,7 +33,7 @@ if ( ! class_exists( 'WpssoWpsmConflictSeo' ) ) {
 
 				return;
 			}
-			
+
 			$this->log_pre    = 'seo plugin conflict detected - ';
 			$this->notice_pre =  __( 'Plugin conflict detected:', 'wpsso' ) . ' ';
 
@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoWpsmConflictSeo' ) ) {
 
 				return;
 			}
-			
+
 			$plugin_name = __( 'Yoast SEO', 'wpsso' );
 			$opts        = get_option( 'wpseo' );
 
@@ -72,14 +72,14 @@ if ( ! class_exists( 'WpssoWpsmConflictSeo' ) ) {
 						__( 'APIs', 'wordpress-seo' ) . '</a>';
 
 					if ( $this->p->debug->enabled ) {
-	
+
 						$this->p->debug->log( $this->log_pre . 'wpseo xml sitemaps option is enabled' );
 					}
-	
+
 					$notice_msg = __( 'Please disable the %1$s option in the %2$s settings.', 'wpsso' );
 					$notice_msg = sprintf( $notice_msg, $label_transl, $settings_link );
 					$notice_key = 'wpseo-xml-sitemaps-option-enabled';
-	
+
 					$this->p->notice->err( $this->notice_pre . $notice_msg, null, $notice_key );
 				}
 			}

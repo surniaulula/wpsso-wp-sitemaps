@@ -51,7 +51,7 @@ if ( ! class_exists( 'WpssoWpsmConflict' ) ) {
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/conflict-seo.php';
 
 			$this->seo = new WpssoWpsmConflictSeo( $this->p, $this->a );
-			
+
 			$this->seo->conflict_checks();
 		}
 	}
