@@ -136,8 +136,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
 					'meta_query'     => self::get_exclude_meta_query(),
 					'fields'         => 'ids',
-					'posts_per_page' => -1,	// Get all excluded post ids.
-					'nopaging'       => true,
+					'posts_per_page' => -1,		// Get all excluded post ids.
+					'nopaging'       => true,	// Get all posts.
 					'paged'          => '',
 					'no_found_rows'  => true,
 				) );
