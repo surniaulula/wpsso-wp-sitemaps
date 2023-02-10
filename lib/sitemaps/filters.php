@@ -306,6 +306,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// Begin timer.
 			}
 
+			$this->p->post->md_cache_disable();	// Save memory by disabling the local cache.
+
 			$mod = $this->p->post->get_mod( $post->ID );
 
 			/*
@@ -494,6 +496,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$this->p->debug->mark( 'getting term id ' . $term->term_id . ' sitemaps entry' );	// Begin timer.
 			}
 
+			$this->p->term->md_cache_disable();	// Save memory by disabling the local cache.
+
 			$mod = $this->p->term->get_mod( $term->term_id );
 
 			/*
@@ -630,6 +634,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				$this->p->debug->mark( 'getting user id ' . $user->ID . ' sitemaps entry' );	// Begin timer.
 			}
+
+			$this->p->user->md_cache_disable();	// Save memory by disabling the local cache.
 
 			$mod = $this->p->user->get_mod( $user->ID );
 
