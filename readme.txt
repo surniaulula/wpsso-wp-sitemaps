@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.3.0-dev.2 (2023/02/10)**
+**Version 5.3.0-dev.3 (2023/02/10)**
 
 * **New Features**
 	* None.
@@ -100,7 +100,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.4.
-	* WPSSO Core v15.2.0-dev.2.
+	* WPSSO Core v15.2.0-dev.3.
 
 **Version 5.2.1 (2023/01/26)**
 
@@ -334,7 +334,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 5.3.0-dev.2 =
+= 5.3.0-dev.3 =
 
 (2023/02/10) Added support for metadata cache disabling in WPSSO Core v15.2.0 when creating the sitemaps XML.
 
