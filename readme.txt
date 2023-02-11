@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.3.0-b.1 (2023/02/11)**
+**Version 5.3.0 (2023/02/11)**
 
 Maintenance release.
 
@@ -102,7 +102,7 @@ Maintenance release.
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.4.
-	* WPSSO Core v15.2.0-b.1.
+	* WPSSO Core v15.2.0.
 
 **Version 5.2.1 (2023/01/26)**
 
@@ -336,7 +336,7 @@ Maintenance release.
 
 == Upgrade Notice ==
 
-= 5.3.0-b.1 =
+= 5.3.0 =
 
 (2023/02/11) Maintenance release.
 
