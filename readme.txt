@@ -87,7 +87,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 5.3.0-dev.4 (2023/02/10)**
+**Version 5.3.0-dev.5 (2023/02/11)**
+
+Maintenance release.
 
 * **New Features**
 	* None.
@@ -100,7 +102,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.
 	* WordPress v5.4.
-	* WPSSO Core v15.2.0-dev.4.
+	* WPSSO Core v15.2.0-dev.5.
 
 **Version 5.2.1 (2023/01/26)**
 
@@ -334,9 +336,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 5.3.0-dev.4 =
+= 5.3.0-dev.5 =
 
-(2023/02/10) None.
+(2023/02/11) Maintenance release.
 
 = 5.2.1 =
 
