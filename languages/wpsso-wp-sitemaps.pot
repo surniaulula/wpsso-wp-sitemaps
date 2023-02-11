@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Better WordPress Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 5.3.0-dev.5\n"
+"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 5.3.0-dev.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
