@@ -87,6 +87,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 5.4.0-dev.4 (2023/04/11)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Replaced the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` private method by the new `WpssoAbstractWpMeta::get_column_meta_query_exclude()` public method in WPSSO Core v15.8.0.
+* **Requires At Least**
+	* PHP v7.2.
+	* WordPress v5.4.
+	* WPSSO Core v15.8.0-dev.4.
+
 **Version 5.3.0 (2023/02/11)**
 
 Maintenance release.
@@ -174,6 +189,10 @@ Maintenance release.
 	* WPSSO Core v13.8.0.
 
 == Upgrade Notice ==
+
+= 5.4.0-dev.4 =
+
+(2023/04/11) Replaced the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` private method by a new public method in WPSSO Core v15.8.0.
 
 = 5.3.0 =
 
