@@ -134,7 +134,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$local_cache[ $post_type ] = array();
 
 				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
-					'meta_query'     => self::get_exclude_meta_query(),
+					'meta_query'     => WpssoAbstractWpMeta::get_column_meta_query_exclude(),
 					'fields'         => 'ids',
 					'posts_per_page' => -1,		// Get all excluded post ids.
 					'nopaging'       => true,	// Get all posts.
@@ -436,7 +436,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$local_cache[ $taxonomy ] = array();
 
 				$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
-					'meta_query' => self::get_exclude_meta_query(),
+					'meta_query' => WpssoAbstractWpMeta::get_column_meta_query_exclude(),
 					'fields'     => 'ids',
 					'number'     => '',	// Get all excluded taxonomy ids.
 					'offset'     => '',
@@ -573,7 +573,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					$local_cache = array();
 
 					$exclude_args = array_merge( $args, array(	// Avoid variable name conflict with $args.
-						'meta_query'  => self::get_exclude_meta_query(),
+						'meta_query'  => WpssoAbstractWpMeta::get_column_meta_query_exclude(),
 						'fields'      => 'ID',
 						'number'      => '',	// Get all excluded user ids.
 						'offset'      => '',
@@ -830,38 +830,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 EOF;
 
 			return $xsl_content;
-		}
-
-		/*
-		 * See https://developer.wordpress.org/reference/classes/wp_meta_query/.
-		 */
-		static private function get_exclude_meta_query() {
-
-			static $local_cache = null;
-
-			if ( null === $local_cache ) {
-
-				$noindex_key  = WpssoAbstractWpMeta::get_column_meta_keys( 'is_noindex' );
-				$redirect_key = WpssoAbstractWpMeta::get_column_meta_keys( 'is_redirect' );
-
-				$local_cache = array(
-					'relation' => 'OR',
-					array(
-						'key'     => $noindex_key,
-						'value'   => '1',
-						'compare' => '=',
-						'type'    => 'CHAR',
-					),
-					array(
-						'key'     => $redirect_key,
-						'value'   => '1',
-						'compare' => '=',
-						'type'    => 'CHAR',
-					),
-				);
-			}
-
-			return $local_cache;	// Return an empty string or array.
 		}
 	}
 }
