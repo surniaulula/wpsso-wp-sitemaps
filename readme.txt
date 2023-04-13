@@ -99,7 +99,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Replaced the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` private method by the new `WpssoAbstractWpMeta::get_column_meta_query_exclude()` public method in WPSSO Core v15.8.0.
 * **Requires At Least**
 	* PHP v7.2.
-	* WordPress v5.4.
+	* WordPress v5.5.
 	* WPSSO Core v15.8.0-rc.2.
 
 **Version 5.3.0 (2023/02/11)**
