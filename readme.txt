@@ -9,7 +9,7 @@ Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
 Tags: xml sitemaps, sitemap, schema, noindex, woocommerce, seo, google
 Contributors: jsmoriss
 Requires Plugins: wpsso
-Requires PHP: 7.2
+Requires PHP: 7.2.5
 Requires At Least: 5.5
 Tested Up To: 6.2.0
 WC Tested Up To: 7.6.0
@@ -98,7 +98,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Developer Notes**
 	* Replaced the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` private method by the new `WpssoAbstractWpMeta::get_column_meta_query_exclude()` public method in WPSSO Core v15.8.0.
 * **Requires At Least**
-	* PHP v7.2.
+	* PHP v7.2.5.
 	* WordPress v5.5.
 	* WPSSO Core v15.8.0.
 

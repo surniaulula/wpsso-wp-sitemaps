@@ -4,7 +4,7 @@
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Better WordPress Sitemaps XML</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude &quot;No Index&quot; and redirected</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>5.4.0</td></tr>
-<tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2 or newer</td></tr>
+<tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2.5 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.5 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WordPress</th><td>6.2.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WooCommerce</th><td>7.6.0</td></tr>
