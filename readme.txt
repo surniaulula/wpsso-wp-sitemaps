@@ -116,7 +116,7 @@ Maintenance release.
 	* None.
 * **Requires At Least**
 	* PHP v7.2.
-	* WordPress v5.4.
+	* WordPress v5.5.
 	* WPSSO Core v15.2.0.
 
 **Version 5.2.1 (2023/01/26)**
@@ -126,7 +126,7 @@ Maintenance release.
 * **Improvements**
 	* Added compatibility declaration for WooCommerce HPOS.
 	* Added an XML sitemaps conflict notice for Yoast SEO v20.0.
-	* Updated the minimum WordPress version from v5.2 to v5.4.
+	* Updated the minimum WordPress version from v5.2 to v5.5.
 * **Bugfixes**
 	* None.
 * **Developer Notes**
@@ -135,7 +135,7 @@ Maintenance release.
 	* Updated the `WpssoAbstractAddOn` library class.
 * **Requires At Least**
 	* PHP v7.2.
-	* WordPress v5.4.
+	* WordPress v5.5.
 	* WPSSO Core v14.7.0.
 
 **Version 5.2.0 (2023/01/20)**
@@ -200,7 +200,7 @@ Maintenance release.
 
 = 5.2.1 =
 
-(2023/01/26) Added compatibility declaration for WooCommerce HPOS. Updated the minimum WordPress version from v5.2 to v5.4.
+(2023/01/26) Added compatibility declaration for WooCommerce HPOS. Updated the minimum WordPress version from v5.2 to v5.5.
 
 = 5.2.0 =
 
