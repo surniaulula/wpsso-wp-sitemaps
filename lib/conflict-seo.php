@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoWpsmConflictSeo' ) ) {
 	class WpssoWpsmConflictSeo {
 
 		private $p;	// Wpsso class object.
-		private $a;     // WpssoWpsm class object.
+		private $a;	// WpssoWpsm class object.
 
 		/*
 		 * Instantiated by WpssoWpsmConflict->__construct().
