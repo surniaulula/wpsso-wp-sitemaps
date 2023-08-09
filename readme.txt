@@ -12,7 +12,7 @@ Requires Plugins: wpsso
 Requires PHP: 7.2.34
 Requires At Least: 5.5
 Tested Up To: 6.3.0
-WC Tested Up To: 7.9.0
+WC Tested Up To: 8.0.0
 Stable Tag: 5.4.0
 
 Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
