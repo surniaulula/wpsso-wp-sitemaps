@@ -62,12 +62,16 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 
 			switch ( $base_key ) {
 
-				case 'wpsm_schema_images':
+				case 'wpsm_schema_images':	// Include Images in Sitemaps.
 				case ( 0 === strpos( $base_key, 'wpsm_sitemaps_for_' ) ? true : false ):
 
 					return 'checkbox';
 
-				case 'wpsm_max_urls':
+				case 'wpsm_news_post_type':	// Post Type for News Sitemaps.
+
+					return 'not_blank';
+
+				case 'wpsm_max_urls':	// Maximum URLs per Sitemap.
 
 					return 'pos_int';
 			}

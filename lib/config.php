@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '5.4.0',	// Plugin version.
+					'version'     => '6.0.0-dev.1',	// Plugin version.
 					'opt_version' => '6',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO Better WordPress Sitemaps XML',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '15.8.0',
+							'min_version'   => '16.3.0-dev.1',
 						),
 					),
 
@@ -104,8 +104,9 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tribe_events'           => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_user_page'              => 1,
-					'wpsm_schema_images'                       => 0,	// Add Schema Images.
-					'wpsm_max_urls'                            => 2000,	// Maximum URLs per Sitemap.
+					'wpsm_schema_images'                       => 0,	// Include Images in Sitemaps.
+					'wpsm_news_post_type'                      => 'none',	// Post Type for News Sitemaps.
+					'wpsm_max_urls'                            => 1000,	// Maximum URLs per Sitemap.
 				),
 			),
 		);
@@ -164,6 +165,8 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static function get_variable_constants() {
 
 			$var_const = array();
+
+			$var_const[ 'WPSSO_NEWS_PUB_MAX_TIME' ] = 2 * DAY_IN_SECONDS;
 
 			/*
 			 * Maybe override the default constant value with a pre-defined constant value.

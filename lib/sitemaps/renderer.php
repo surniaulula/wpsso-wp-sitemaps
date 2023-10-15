@@ -119,6 +119,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
 				'xmlns:xhtml="http://www.w3.org/1999/xhtml"',
 				'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
+				'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"',
 				'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"',
 			);
 
@@ -149,15 +150,21 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			 * See https://www.sitemaps.org/protocol.html.
 			 */
 			$allowed_tags = array(
-				'loc'        => '',
-				'lastmod'    => '',
-				'changefreq' => '',
-				'priority'   => '',
-				'alternates' => '',
-				'href'       => '',
-				'hreflang'   => '',
-				'images'     => '',
-				'image:loc'  => '',
+				'loc'                   => '',
+				'lastmod'               => '',
+				'changefreq'            => '',
+				'priority'              => '',
+				'alternates'            => '',
+				'href'                  => '',
+				'hreflang'              => '',
+				'image:image'           => '',
+				'image:loc'             => '',
+				'news:language'         => '',
+				'news:name'             => '',
+				'news:news'             => '',
+				'news:publication'      => '',
+				'news:publication_date' => '',
+				'news:title'            => '',
 			);
 
 			$items = array_merge( $allowed_tags, $items );	// Re-order the array.
@@ -167,8 +174,22 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				if ( '' === $val ) {
 
 					continue;
+				}
 
-				} elseif ( 'alternates' === $name && is_array( $val ) ) {
+				/*
+				 * See https://www.php.net/manual/en/simplexmlelement.addchild.php.
+				 */
+				if ( 0 === strpos( $name, 'image' ) ) {
+
+					$namespace = 'http://www.google.com/schemas/sitemap-image/1.1';
+				
+				} elseif ( 0 === strpos( $name, 'news' ) ) {
+
+					$namespace = 'http://www.google.com/schemas/sitemap-news/0.9';
+
+				} else $namespace = null;
+
+				if ( 'alternates' === $name && is_array( $val ) ) {
 
 					foreach ( $val as $num => $attrs ) {
 
@@ -187,34 +208,33 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 					$data->addAttribute( 'hreflang', esc_xml( $val ) );
 
-				/*
-				 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
-				 */
-				} elseif ( 'images' === $name && is_array( $val ) ) {
+				} elseif ( 'loc' === $name || false !== strpos( $name, ':loc' ) ) {
 
-					foreach ( $val as $num => $attrs ) {
+					$data->addChild( $name, esc_url( $val ), $namespace );
 
-						$image_data = $data->addChild( 'image:image', null, 'http://www.google.com/schemas/sitemap-image/1.1' );
+				} elseif ( isset( $allowed_tags[ $name ] ) ) {
+				
+					/*
+					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
+					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
+					 */
+					if ( is_array( $val ) ) {
 
-						$this->add_items( $image_data, $attrs );	// Recurse.
+						foreach ( $val as $num => $attrs ) {
+
+							$child_data = $data->addChild( $name, null, $namespace );
+
+							$this->add_items( $child_data, $attrs );	// Recurse.
+						}
+
+					} elseif ( is_string( $val ) ) {
+
+						$data->addChild( $name, esc_xml( $val ), $namespace );
 					}
-
-				} elseif ( 'image:loc' === $name ) {	// Matched from 'images' recursion.
-
-					$data->addChild( $name, esc_url( $val ), 'http://www.google.com/schemas/sitemap-image/1.1' );
-
-				} elseif ( 'loc' === $name ) {
-
-					$data->addChild( $name, esc_url( $val ) );
-
-				} elseif ( isset( $allowed_tags[ $name ] ) && is_string( $val ) ) {
-
-					$data->addChild( $name, esc_xml( $val ) );
 
 				} else {
 
-					$error_msg = sprintf( __( '"%s" is not a recognized field name.', 'wpsso-wp-sitemaps' ),
-						$name ) . ' ';
+					$error_msg = sprintf( __( '"%s" is not a recognized field name.', 'wpsso-wp-sitemaps' ), $name ) . ' ';
 
 					$error_msg .= sprintf( __( 'Fields other than %s are not currently supported for sitemaps.', 'wpsso-wp-sitemaps' ),
 						implode( ',', array_keys( $allowed_tags ) ) ) . ' ';

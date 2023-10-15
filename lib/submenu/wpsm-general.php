@@ -97,7 +97,8 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						return $this->p->msgs->get_wp_sitemaps_disabled_rows( $table_rows );
 					}
 
-					$sitemaps_url = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
+					$sitemaps_url    = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
+					$post_type_names = SucomUtil::get_post_types( $output = 'names', $sort = true );
 
 					$table_rows[ 'wpsm_sitemaps_url' ] = '' .
 						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso-wp-sitemaps' ),
@@ -105,15 +106,25 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_no_input_clipboard( $sitemaps_url ) . '</td>';
 
 					$table_rows[ 'wpsm_sitemaps_for' ] = '' .
-						$this->form->get_th_html( _x( 'Include in Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+						$this->form->get_th_html( _x( 'Include in WP Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_sitemaps_for' ) .
 						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'wpsm_sitemaps_for' ) . '</td>';
 
 					$table_rows[ 'wpsm_schema_images' ] = '' .
-						$this->form->get_th_html( _x( 'Add Schema Images', 'option label', 'wpsso-wp-sitemaps' ),
+						$this->form->get_th_html( _x( 'Include Images in Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_schema_images' ) .
 						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
 						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
+
+					$table_rows[ 'wpsm_news_post_type' ] = '' .
+						$this->form->get_th_html( _x( 'Post Type for News Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_news_post_type' ) .
+						'<td>' . $this->form->get_select_none( 'wpsm_news_post_type', $post_type_names ) . '</td>';
+
+					$table_rows[ 'wpsm_news_pub_max_time' ] = '' .
+						$this->form->get_th_html( _x( 'News Publication Cut-Off', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_news_pub_max_time' ) .
+						'<td>' . $this->form->get_no_input_holder( human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME ) ) . '</td>';
 
 					$table_rows[ 'wpsm_max_urls' ] = '' .
 						$this->form->get_th_html( _x( 'Maximum URLs per Sitemap', 'option label', 'wpsso-wp-sitemaps' ),

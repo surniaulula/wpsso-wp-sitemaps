@@ -373,7 +373,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				} else {
 
-					$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+					$sitemaps_entry[ 'image:image' ] = $this->p->util->get_sitemaps_images( $mod );
 				}
 
 			} elseif ( $this->p->debug->enabled ) {
@@ -381,9 +381,29 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$this->p->debug->log( 'skipping sitemaps images' );
 			}
 
+			/*
+			 * Get news tags.
+			 */
+			if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] && $mod[ 'post_type' ] === $this->p->options[ 'wpsm_news_post_type' ] ) {
+
+				$schema_title = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
+				$schema_lang  = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
+
+				$sitemaps_entry[ 'news:news' ][] = array(
+					'news:title'            => $schema_title,
+					'news:publication_date' => $mod[ 'post_time' ],
+					'news:publication'      => array(
+						array(
+							'news:name'     => 'PUBLICATION NAME',
+							'news:language' => $schema_lang,
+						),
+					),
+				);
+			}
+
 			if ( $this->p->debug->enabled ) {
 
-				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// Begin timer.
+				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// End timer.
 			}
 
 			return $sitemaps_entry;
@@ -525,7 +545,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				} else {
 
-					$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+					$sitemaps_entry[ 'image:image' ] = $this->p->util->get_sitemaps_images( $mod );
 				}
 
 			} elseif ( $this->p->debug->enabled ) {
@@ -652,7 +672,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				} else {
 
-					$sitemaps_entry[ 'images' ] = $this->p->util->get_sitemaps_images( $mod );
+					$sitemaps_entry[ 'image:image' ] = $this->p->util->get_sitemaps_images( $mod );
 				}
 
 			} elseif ( $this->p->debug->enabled ) {
@@ -702,6 +722,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
         	xmlns:xhtml="http://www.w3.org/1999/xhtml"
 		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+		xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
 		exclude-result-prefixes="sitemap"
 		>
 

@@ -61,11 +61,10 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$text .= '<p>';
 
-					$text .= sprintf( __( 'The %1$s add-on extends the built-in WordPress sitemaps XML <a href="%2$s">available since WordPress version 5.5</a>.', 'wpsso-wp-sitemaps' ), $addon_name, $about_wp55 ) . ' ';
+					$text .= __( 'These options allow you to customize the post and taxonomy types included in the WordPress sitemaps XML.',
+						'wpsso-wp-sitemaps' ) . ' ';
 
-					$text .= __( 'These options allow you to customize the post and taxonomy types included in the WordPress sitemaps XML.', 'wpsso-wp-sitemaps' ) . ' ';
-
-					$text .= sprintf( __( 'To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML, enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab.', 'wpsso-wp-sitemaps' ), $no_index_label, $metabox_title, $visibility ) . ' ';
+					$text .= sprintf( __( 'To <strong>exclude</strong> individual posts, pages, custom post types, taxonomy terms, or user profile pages from the sitemaps XML, enable the <strong>%1$s</strong> option under the %2$s &gt; %3$s metabox tab.', 'wpsso-wp-sitemaps' ), $no_index_label, $metabox_title, $visibility ) . ' ';
 
 					$text .= '</p>';
 
@@ -89,7 +88,8 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 				case 'tooltip-wpsm_sitemaps_url':
 
-					$text = __( 'The WordPress sitemaps URL can be submitted in Google\'s search console and viewed in a web browser.', 'wpsso-wp-sitemaps' );
+					$text = __( 'The WordPress sitemaps URL can be submitted in Google\'s search console and viewed in a web browser.',
+						'wpsso-wp-sitemaps' );
 
 					break;
 
@@ -99,19 +99,43 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					break;
 
-				case 'tooltip-wpsm_schema_images':
+				case 'tooltip-wpsm_schema_images':	// Include Images in Sitemaps.
 
-					$text = __( 'Add the images from Schema markup to the WordPress sitemaps.', 'wpsso-wp-sitemaps' ) . ' ';
+					$text = __( 'Include images from the webpage Schema markup in the WordPress sitemaps.',
+						'wpsso-wp-sitemaps' ) . ' ';
 
-					$text .= __( 'Google already reads image URLs and image information from the Schema markup, so this option is not required.', 'wpsso-wp-sitemaps' );
+					$text .= __( 'Google already reads image URLs and image information from the webpage Schema markup, so this option is not required.',
+						'wpsso-wp-sitemaps' );
 
 					break;
 
-				case 'tooltip-wpsm_max_urls':
+				case 'tooltip-wpsm_news_post_type':	// Post Type for News Sitemaps.
+
+					$def_val = $this->p->opt->get_defaults( 'wpsm_news_post_type' );
+
+					$text .= sprintf( __( 'If you are a news publisher, you may select a post type for your news articles (default is %s).',
+						'wpsso-wp-sitemaps' ), $def_val ) . ' ';
+
+					$text .= __( 'News tags in sitemaps will be added automatically for articles that are newer than two days.', 'wpsso-wp-sitemaps' );
+
+					break;
+
+				case 'tooltip-wpsm_news_pub_max_time':	// News Publication Cut-Off.
+
+					$text .= __( 'Google only allows news tags in sitemaps for articles that were published in the last two days.',
+						'wpsso-wp-sitemaps' ) . ' ';
+
+					break;
+
+				case 'tooltip-wpsm_max_urls':	// Maximum URLs per Sitemap.
 
 					$def_val = $this->p->opt->get_defaults( 'wpsm_max_urls' );
 
-					$text .= sprintf( __( 'The maximum number of URLs to include in each sitemap (default is %s).', 'wpsso-wp-sitemaps' ), $def_val ) . ' ';
+					$text .= sprintf( __( 'The maximum number of URLs to include in each sitemap (default is %s).',
+						'wpsso-wp-sitemaps' ), $def_val ) . ' ';
+
+					$text .= sprintf( __( 'The WordPress default is %1$s URLs per sitemap, but Google only allows %2$s news tags in sitemaps.',
+						'wpsso-wp-sitemaps' ), 2000, 1000 ) . ' ';
 
 					break;
 			}
