@@ -23,7 +23,7 @@ Include Schema images, alternate language URLs, post type archive pages, select 
 
 **Extends the Built-in WordPress Sitemaps XML:**
 
-Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.
+Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and images (aka image sitemaps) for Google rich results.
 
 <!-- /about -->
 
@@ -86,6 +86,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 <p><strong>WPSSO Core Standard edition users (ie. the plugin hosted on WordPress.org) have access to <a href="https://wordpress.org/plugins/wpsso-wp-sitemaps/advanced/">the latest development version under the Advanced Options section</a>.</strong></p>
 
 <h3>Changelog / Release Notes</h3>
+
+**Version 6.0.0-dev.1 (TBD)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.5.
+	* WPSSO Core v16.3.0-dev.1.
 
 **Version 5.4.0 (2023/04/13)**
 
@@ -189,6 +204,10 @@ Maintenance release.
 	* WPSSO Core v13.8.0.
 
 == Upgrade Notice ==
+
+= 6.0.0-dev.1 =
+
+(TBD) None.
 
 = 5.4.0 =
 

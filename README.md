@@ -19,7 +19,7 @@
 
 <p><strong>Extends the Built-in WordPress Sitemaps XML:</strong></p>
 
-<p>Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and Schema images for Google rich results.</p>
+<p>Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and images (aka image sitemaps) for Google rich results.</p>
 
 <!-- /about -->
 
