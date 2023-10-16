@@ -745,8 +745,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$changefreq    = esc_xml( __( 'Change Frequency', 'wpsso-wp-sitemaps' ) );
 			$priority      = esc_xml( __( 'Priority', 'wpsso-wp-sitemaps' ) );
 			$alternates    = esc_xml( __( 'Alternates', 'wpsso-wp-sitemaps' ) );
-			$image_sitemap = esc_xml( __( 'Images Sitemap', 'wpsso-wp-sitemaps' ) );
-			$news_sitemap  = esc_xml( __( 'News Sitemap', 'wpsso-wp-sitemaps' ) );
+			$image_sitemap = esc_xml( __( 'Images', 'wpsso-wp-sitemaps' ) );
+			$news_sitemap  = esc_xml( __( 'News', 'wpsso-wp-sitemaps' ) );
 
 			$xsl_content = <<<EOF
 <?xml version="1.0" encoding="UTF-8"?>
