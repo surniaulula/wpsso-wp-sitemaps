@@ -113,7 +113,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'wpsm_sitemaps_for' ) . '</td>';
 
 					$table_rows[ 'wpsm_schema_images' ] = '' .
-						$this->form->get_th_html( _x( 'Include Image Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+						$this->form->get_th_html( _x( 'Include Images Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_schema_images' ) .
 						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
 						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
