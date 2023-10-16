@@ -58,9 +58,6 @@ WPSSO Better WordPress Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Cor
 
 == Screenshots ==
 
-01. The WPSSO WPSM settings page provides options to customize the post and taxonomy types added to the WordPress sitemaps XML.
-02. The "No Index" option under the Document SSO &gt; Edit Visibility tab can be used to exclude individual posts, pages, custom post types, taxonomy terms, or user profile pages from the WordPress sitemaps XML.
-
 == Changelog ==
 
 <h3 class="top">Version Numbering</h3>
