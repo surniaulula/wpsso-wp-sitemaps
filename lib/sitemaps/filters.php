@@ -356,6 +356,8 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			/*
 			 * Get images.
+			 *
+			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
 
@@ -383,21 +385,24 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			/*
 			 * Get news tags.
+			 *
+			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
 			 */
 			if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] && $mod[ 'post_type' ] === $this->p->options[ 'wpsm_news_post_type' ] ) {
 
-				$schema_title = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
-				$schema_lang  = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
+				$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name();
+				$schema_lang   = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
+				$schema_title  = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
 
 				$sitemaps_entry[ 'news:news' ][] = array(
-					'news:title'            => $schema_title,
-					'news:publication_date' => $mod[ 'post_time' ],
 					'news:publication'      => array(
 						array(
-							'news:name'     => 'PUBLICATION NAME',
+							'news:name'     => $news_pub_name,
 							'news:language' => $schema_lang,
 						),
 					),
+					'news:title'            => $schema_title,
+					'news:publication_date' => $mod[ 'post_time' ],
 				);
 			}
 

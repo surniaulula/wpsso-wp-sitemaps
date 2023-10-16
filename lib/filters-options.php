@@ -71,7 +71,11 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 
 					return 'not_blank';
 
-				case 'wpsm_max_urls':	// Maximum URLs per Sitemap.
+				case 'wpsm_news_pub_name':	// New Publication Name.
+
+					return 'ok_blank';
+
+				case 'wpsm_max_urls':		// Maximum URLs per Sitemap.
 
 					return 'pos_int';
 			}

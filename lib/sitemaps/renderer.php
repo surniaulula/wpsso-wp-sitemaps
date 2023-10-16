@@ -217,6 +217,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 					/*
 					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
+					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps.
 					 */
 					if ( is_array( $val ) ) {
 

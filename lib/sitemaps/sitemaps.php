@@ -32,5 +32,33 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) && class_exists( 'WP_Sitemaps' ) ) {
 				$this->renderer = new WpssoWpsmSitemapsRenderer();
 			}
 		}
+
+		/*
+		 * The name of the news publication. It must exactly match the name as it appears on your articles on
+		 * news.google.com, omitting anything in parentheses. 
+		 *
+		 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
+		 */
+		public static function get_news_pub_name() {
+
+			$wpsso =& Wpsso::get_instance();
+
+			$news_pub_name = empty( $wpsso->options[ 'wpsm_news_pub_name' ] ) ? self::get_default_news_pub_name() : $wpsso->options[ 'wpsm_news_pub_name' ];
+
+			$news_pub_name = preg_replace( '/ *\(.*\) */', ' ', $news_pub_name );
+
+			return trim( $news_pub_name );
+		}
+
+		public static function get_default_news_pub_name() {
+
+			$wpsso =& Wpsso::get_instance();
+
+			$news_pub_name = SucomUtil::get_site_name( $wpsso->options, 'default' );
+			
+			$news_pub_name = preg_replace( '/ *\(.*\) */', ' ', $news_pub_name );
+
+			return trim( $news_pub_name );
+		}
 	}
 }
