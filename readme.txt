@@ -87,16 +87,22 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 6.0.0-dev.2 (TBD)**
+**Version 6.0.0-dev.2 (2023/10/15)**
 
 * **New Features**
 	* None.
 * **Improvements**
-	* None.
+	* Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps:
+		* Post Type for News Sitemaps
+		* News Publication Cut-Off
+		* News Publication Name
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* None.
+	* Added a `WpssoWpsmSitemaps::get_news_pub_name()` method.
+	* Added a `WpssoWpsmSitemaps::get_default_news_pub_name()` method.
+	* Refactored `WpssoWpsmSitemapsFilters->wp_sitemaps_posts_entry` to add news sitemap XML tags.
+	* Refactored `WpssoWpsmSitemapsRenderer->add_items` to add support for the 'news:language', 'news:name', 'news:news', 'news:publication', 'news:publication_date', and 'news:title' tags.
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
@@ -207,7 +213,7 @@ Maintenance release.
 
 = 6.0.0-dev.2 =
 
-(TBD) None.
+(2023/10/15) Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps.
 
 = 5.4.0 =
 
