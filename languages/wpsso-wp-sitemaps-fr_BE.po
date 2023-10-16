@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WPSSO Better WordPress Sitemaps XML 6.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-10-16 13:05-0700\n"
+"PO-Revision-Date: 2023-10-16 13:43-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -33,8 +33,8 @@ msgstr "WPSSO Meilleur XML plans de site WordPress"
 
 #: gettext/gettext-lib-config.php:7
 msgctxt "plugin description"
-msgid "Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude \"No Index\" and redirected pages."
-msgstr "Inclut les images de Schéma, URL de langue alternative, pages d'archives d'article, types d'article et les taxonomies sélectionnés, exclut les pages \"Pas d'index\" et redirigées."
+msgid "Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more."
+msgstr "Améliore le XML des plans de site WordPress avec les temps de modification d'articles, URL de langues alternatives, plans de site d'images et d'actualités, et plus encore."
 
 #: gettext/gettext-lib-config.php:8
 msgctxt "plugin name"
@@ -268,8 +268,8 @@ msgid "https://wpsso.com/extend/plugins/wpsso-wp-sitemaps/"
 msgstr "https://wpsso.com/extend/plugins/wpsso-wp-sitemaps/"
 
 #. Description of the plugin/theme
-msgid "Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude \"No Index\" and redirected pages."
-msgstr "Inclut les images de Schéma, URL de langue alternative, pages d'archives d'article, types d'article et les taxonomies sélectionnés, exclut les pages \"Pas d'index\" et redirigées."
+msgid "Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more."
+msgstr "Améliore le XML des plans de site WordPress avec les temps de modification d'articles, URL de langues alternatives, plans de site d'images et d'actualités, et plus encore."
 
 #. Author of the plugin/theme
 msgid "JS Morisset"
