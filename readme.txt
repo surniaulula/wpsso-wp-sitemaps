@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
-Tags: product sitemap, image sitemap, news sitemap, woocommerce, google news
+Tags: xml sitemap, image sitemap, news sitemap, woocommerce, google news
 Contributors: jsmoriss
 Requires Plugins: wpsso
 Requires PHP: 7.2.34
