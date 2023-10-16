@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 6.0.0-rc.1 (2023/10/16)**
+**Version 6.0.0-rc.2 (2023/10/16)**
 
 * **New Features**
 	* None.
@@ -106,7 +106,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v16.3.0-rc.1.
+	* WPSSO Core v16.3.0-rc.2.
 
 **Version 5.4.0 (2023/04/13)**
 
@@ -211,7 +211,7 @@ Maintenance release.
 
 == Upgrade Notice ==
 
-= 6.0.0-rc.1 =
+= 6.0.0-rc.2 =
 
 (2023/10/16) Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps.
 
