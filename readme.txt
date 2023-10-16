@@ -21,7 +21,7 @@ Improves the WordPress sitemaps XML with article modification times, alternate l
 
 <!-- about -->
 
-**Extends the Built-in WordPress Sitemaps XML:**
+**Extends the WordPress Sitemaps XML:**
 
 Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
 
