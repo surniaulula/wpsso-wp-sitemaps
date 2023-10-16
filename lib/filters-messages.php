@@ -116,7 +116,8 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 					$text = sprintf( __( 'If you are a news publisher, you may select a post type for your news articles (default is %s).',
 						'wpsso-wp-sitemaps' ), $def_val ) . ' ';
 
-					$text .= __( 'News tags in sitemaps will be added automatically for articles that are newer than two days.', 'wpsso-wp-sitemaps' );
+					$text .= __( 'When enabled, news tags in sitemaps will be added to news articles that are newer than two days.',
+						'wpsso-wp-sitemaps' );
 
 					break;
 
@@ -145,6 +146,9 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$text .= sprintf( __( 'The WordPress default is %1$s URLs per sitemap, but Google only allows %2$s news tags in sitemaps.',
 						'wpsso-wp-sitemaps' ), 2000, 1000 ) . ' ';
+
+					$text .= sprintf( __( 'If news sitemaps are enabled, sitemaps for post objects will be limited to %s URLs automatically.',
+						'wpsso-wp-sitemaps' ), 1000 ) . ' ';
 
 					break;
 			}

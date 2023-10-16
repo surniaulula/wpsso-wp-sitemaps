@@ -83,6 +83,19 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				if ( is_numeric( $this->p->options[ 'wpsm_max_urls' ] ) ) {
 
 					$max_urls = $this->p->options[ 'wpsm_max_urls' ];
+
+					/*
+					 * The WordPress default is 2000 URLs per sitemap, but Google only allows 1000 news tags in sitemaps.
+					 *
+					 * If news sitemaps are enabled, then limit the post sitemaps to 1000 URLs.
+					 */
+					if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] ) {
+
+						if ( $max_urls > 1000 && 'post' === $object_type ) {
+
+							$max_urls = 1000;
+						}
+					}
 				}
 			}
 
@@ -400,20 +413,25 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			 */
 			if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] && $mod[ 'post_type' ] === $this->p->options[ 'wpsm_news_post_type' ] ) {
 
-				$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name();
-				$schema_lang   = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
-				$schema_title  = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
+				$is_recent = $mod[ 'post_timestamp' ] > time() - WPSSO_NEWS_PUB_MAX_TIME ? true : false;
 
-				$sitemaps_entry[ 'news:news' ][] = array(
-					'news:publication'      => array(
-						array(
-							'news:name'     => $news_pub_name,
-							'news:language' => $schema_lang,
+				if ( $is_recent ) {
+
+					$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name();
+					$schema_lang   = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
+					$schema_title  = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
+
+					$sitemaps_entry[ 'news:news' ][] = array(
+						'news:publication'      => array(
+							array(
+								'news:name'     => $news_pub_name,
+								'news:language' => $schema_lang,
+							),
 						),
-					),
-					'news:title'            => $schema_title,
-					'news:publication_date' => $mod[ 'post_time' ],
-				);
+						'news:title'            => $schema_title,
+						'news:publication_date' => $mod[ 'post_time' ],
+					);
+				}
 			}
 
 			if ( $this->p->debug->enabled ) {
