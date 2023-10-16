@@ -2,7 +2,7 @@
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Better WordPress Sitemaps XML</td></tr>
-<tr><th align="right" valign="top" nowrap>Summary</th><td>Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude &quot;No Index&quot; and redirected</td></tr>
+<tr><th align="right" valign="top" nowrap>Summary</th><td>Include alternate language URLs, images sitemaps, news sitemaps, select post types and taxonomies, exclude &quot;No Index&quot; and redirected pages.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>6.0.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2.34 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.5 or newer</td></tr>
@@ -10,7 +10,7 @@
 <tr><th align="right" valign="top" nowrap>Tested Up To WooCommerce</th><td>8.2.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>
 <tr><th align="right" valign="top" nowrap>License</th><td><a href="https://www.gnu.org/licenses/gpl.txt">GPLv3</a></td></tr>
-<tr><th align="right" valign="top" nowrap>Tags / Keywords</th><td>sitemap, image sitemap, news sitemap, woocommerce, google news</td></tr>
+<tr><th align="right" valign="top" nowrap>Tags / Keywords</th><td>product sitemap, image sitemap, news sitemap, woocommerce, google news</td></tr>
 </table>
 
 <h2>Description</h2>
@@ -19,7 +19,7 @@
 
 <p><strong>Extends the Built-in WordPress Sitemaps XML:</strong></p>
 
-<p>Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and images (aka image sitemaps) for Google rich results.</p>
+<p>Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.</p>
 
 <!-- /about -->
 

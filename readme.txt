@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
-Tags: sitemap, image sitemap, news sitemap, woocommerce, google news
+Tags: product sitemap, image sitemap, news sitemap, woocommerce, google news
 Contributors: jsmoriss
 Requires Plugins: wpsso
 Requires PHP: 7.2.34
@@ -15,7 +15,7 @@ Tested Up To: 6.3.2
 WC Tested Up To: 8.2.0
 Stable Tag: 6.0.0
 
-Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
+Include alternate language URLs, images sitemaps, news sitemaps, select post types and taxonomies, exclude "No Index" and redirected pages.
 
 == Description ==
 
@@ -23,7 +23,7 @@ Include Schema images, alternate language URLs, post type archive pages, select 
 
 **Extends the Built-in WordPress Sitemaps XML:**
 
-Improves the WordPress sitemaps XML with article modification times, alternate language URLs, and images (aka image sitemaps) for Google rich results.
+Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
 
 <!-- /about -->
 
