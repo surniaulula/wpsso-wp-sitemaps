@@ -36,8 +36,8 @@ msgstr ""
 #: gettext/gettext-lib-config.php:7
 msgctxt "plugin description"
 msgid ""
-"Include Schema images, alternate language URLs, post type archive pages, "
-"select post types and taxonomies, exclude \"No Index\" and redirected pages."
+"Improves the WordPress sitemaps XML with article modification times, "
+"alternate language URLs, images sitemaps, news sitemaps and more."
 msgstr ""
 
 #: gettext/gettext-lib-config.php:8
@@ -304,8 +304,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Include Schema images, alternate language URLs, post type archive pages, "
-"select post types and taxonomies, exclude \"No Index\" and redirected pages."
+"Improves the WordPress sitemaps XML with article modification times, "
+"alternate language URLs, images sitemaps, news sitemaps and more."
 msgstr ""
 
 #. Author of the plugin/theme
