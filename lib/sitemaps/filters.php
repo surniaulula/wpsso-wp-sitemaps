@@ -64,6 +64,13 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			add_filter( 'wp_sitemaps_stylesheet_content', array( $this, 'wp_sitemaps_stylesheet_content'), 1000, 1 );
 		}
 
+		/*
+		 * $max_urls = The maximum number of URLs included in a sitemap.
+		 *
+		 * $object_type = Object type for sitemap to be filtered (e.g. 'post', 'term', 'user').
+		 *
+		 * See https://developer.wordpress.org/reference/hooks/wp_sitemaps_max_urls/.
+		 */
 		public function wp_sitemaps_max_urls( $max_urls, $object_type = 'post' ) {
 
 			if ( $this->p->debug->enabled ) {
@@ -71,9 +78,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				$this->p->debug->mark();
 			}
 
-			if ( ! empty( $this->p->options[ 'wpsm_max_urls' ] ) && is_numeric( $this->p->options[ 'wpsm_max_urls' ] ) ) {
+			if ( ! empty( $this->p->options[ 'wpsm_max_urls' ] ) ) {
+			
+				if ( is_numeric( $this->p->options[ 'wpsm_max_urls' ] ) ) {
 
-				$max_urls = $this->p->options[ 'wpsm_max_urls' ];
+					$max_urls = $this->p->options[ 'wpsm_max_urls' ];
+				}
 			}
 
 			return $max_urls;

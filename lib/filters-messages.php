@@ -113,7 +113,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$def_val = $this->p->opt->get_defaults( 'wpsm_news_post_type' );
 
-					$text .= sprintf( __( 'If you are a news publisher, you may select a post type for your news articles (default is %s).',
+					$text = sprintf( __( 'If you are a news publisher, you may select a post type for your news articles (default is %s).',
 						'wpsso-wp-sitemaps' ), $def_val ) . ' ';
 
 					$text .= __( 'News tags in sitemaps will be added automatically for articles that are newer than two days.', 'wpsso-wp-sitemaps' );
@@ -122,8 +122,17 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 				case 'tooltip-wpsm_news_pub_max_time':	// News Publication Cut-Off.
 
-					$text .= __( 'Google only allows news tags in sitemaps for articles that were published in the last two days.',
+					$text = __( 'Google only allows news tags in sitemaps for articles that were published in the last two days.',
 						'wpsso-wp-sitemaps' ) . ' ';
+
+					break;
+
+				case 'tooltip-wpsm_news_pub_name':	// News Publication Name.
+
+					$text = __( 'The name of the news publication.', 'wpsso-wp-sitemaps' ) . ' ';
+
+					$text .= sprintf( __( 'It must exactly match the name as it appears on your articles on %s, omitting anything in parentheses.',
+						'wpsso-wp-sitemaps' ), '<a href="https://news.google.com/">news.google.com</a>' ) . ' ';
 
 					break;
 

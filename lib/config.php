@@ -106,8 +106,8 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_user_page'              => 1,
 					'wpsm_schema_images'                       => 0,	// Include Images in Sitemaps.
 					'wpsm_news_post_type'                      => 'none',	// Post Type for News Sitemaps.
-					'wpsm_site_name'                           => '',	// New Publication Name.
-					'wpsm_max_urls'                            => 1000,	// Maximum URLs per Sitemap.
+					'wpsm_site_name'                           => '',	// News Publication Name.
+					'wpsm_max_urls'                            => 2000,	// Maximum URLs per Sitemap.
 				),
 			),
 		);

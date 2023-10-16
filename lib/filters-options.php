@@ -71,7 +71,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 
 					return 'not_blank';
 
-				case 'wpsm_news_pub_name':	// New Publication Name.
+				case 'wpsm_news_pub_name':	// News Publication Name.
 
 					return 'ok_blank';
 

@@ -128,7 +128,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_no_input_holder( human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME ) ) . '</td>';
 
 					$table_rows[ 'wpsm_news_pub_name' ] = '' .
-						$this->form->get_th_html( _x( 'New Publication Name', 'option label', 'wpsso' ),
+						$this->form->get_th_html( _x( 'News Publication Name', 'option label', 'wpsso' ),
 							$css_class = '', $css_id = 'wpsm_news_pub_name' ) .
 						'<td>' . $this->form->get_input( 'wpsm_news_pub_name', $css_class = '', $css_id = '',
 							$len = 0, $def_news_pub_name ) . '</td>';
