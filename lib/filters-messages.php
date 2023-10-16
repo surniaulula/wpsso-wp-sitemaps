@@ -111,20 +111,23 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 				case 'tooltip-wpsm_news_post_type':	// Post Type for News Sitemaps.
 
-					$def_val = $this->p->opt->get_defaults( 'wpsm_news_post_type' );
+					$def_val           = $this->p->opt->get_defaults( 'wpsm_news_post_type' );
+					$news_pub_max_time = human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME );
 
 					$text = sprintf( __( 'If you are a news publisher, you may select a post type for your news articles (default is %s).',
 						'wpsso-wp-sitemaps' ), $def_val ) . ' ';
 
-					$text .= __( 'When enabled, news tags in sitemaps will be added to news articles that are newer than two days.',
-						'wpsso-wp-sitemaps' );
+					$text .= sprintf( __( 'When this option is enabled, news tags in sitemaps are added to news articles that are less than %s old.',
+						'wpsso-wp-sitemaps' ), $news_pub_max_time );
 
 					break;
 
 				case 'tooltip-wpsm_news_pub_max_time':	// News Publication Cut-Off.
 
-					$text = __( 'Google only allows news tags in sitemaps for articles that were published in the last two days.',
-						'wpsso-wp-sitemaps' ) . ' ';
+					$news_pub_max_time = human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME );
+
+					$text = sprintf( __( 'Google only allows news tags in sitemaps for articles that were published in the last %s.',
+						'wpsso-wp-sitemaps' ), $news_pub_max_time ) . ' ';
 
 					break;
 

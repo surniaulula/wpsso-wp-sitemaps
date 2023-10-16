@@ -98,7 +98,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 					}
 
 					$sitemaps_url      = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
-					$post_type_names   = SucomUtil::get_post_types( $output = 'names', $sort = true );
+					$post_types        = SucomUtil::get_post_type_labels();
 					$def_news_pub_name = WpssoWpsmSitemaps::get_default_news_pub_name();
 					$news_pub_max_time = human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME );
 
@@ -121,7 +121,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 					$table_rows[ 'wpsm_news_post_type' ] = '' .
 						$this->form->get_th_html( _x( 'Post Type for News Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_news_post_type' ) .
-						'<td>' . $this->form->get_select_none( 'wpsm_news_post_type', $post_type_names ) . '</td>';
+						'<td>' . $this->form->get_select_none( 'wpsm_news_post_type', $post_types ) . '</td>';
 
 					$table_rows[ 'wpsm_news_pub_max_time' ] = '' .
 						$this->form->get_th_html( _x( 'News Publication Cut-Off', 'option label', 'wpsso-wp-sitemaps' ),
@@ -129,7 +129,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_no_input_holder( $news_pub_max_time ) . '</td>';
 
 					$table_rows[ 'wpsm_news_pub_name' ] = '' .
-						$this->form->get_th_html( _x( 'News Publication Name', 'option label', 'wpsso' ),
+						$this->form->get_th_html( _x( 'News Publication Name', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_news_pub_name' ) .
 						'<td>' . $this->form->get_input( 'wpsm_news_pub_name', $css_class = 'long_name', $css_id = '',
 							$len = 0, $def_news_pub_name ) . '</td>';
