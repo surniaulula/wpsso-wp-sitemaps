@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
-Tags: sitemap, image sitemap, woocommerce, google
+Tags: sitemap, image sitemap, news sitemap, woocommerce, google news
 Contributors: jsmoriss
 Requires Plugins: wpsso
 Requires PHP: 7.2.34
@@ -87,7 +87,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 6.0.0-rc.2 (2023/10/16)**
+**Version 6.0.0 (2023/10/17)**
 
 * **New Features**
 	* None.
@@ -106,7 +106,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v16.3.0-rc.2.
+	* WPSSO Core v16.3.0.
 
 **Version 5.4.0 (2023/04/13)**
 
@@ -211,9 +211,9 @@ Maintenance release.
 
 == Upgrade Notice ==
 
-= 6.0.0-rc.2 =
+= 6.0.0 =
 
-(2023/10/16) Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps.
+(2023/10/17) Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps.
 
 = 5.4.0 =
 
