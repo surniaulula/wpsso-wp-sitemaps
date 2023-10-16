@@ -15,7 +15,7 @@ Tested Up To: 6.3.2
 WC Tested Up To: 8.2.0
 Stable Tag: 6.0.0
 
-Include alternate language URLs, images sitemaps, news sitemaps, select post types and taxonomies, exclude "No Index" and redirected pages.
+Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
 
 == Description ==
 
