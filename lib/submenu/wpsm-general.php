@@ -113,7 +113,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'wpsm_sitemaps_for' ) . '</td>';
 
 					$table_rows[ 'wpsm_schema_images' ] = '' .
-						$this->form->get_th_html( _x( 'Include Images in Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+						$this->form->get_th_html( _x( 'Include Image Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_schema_images' ) .
 						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
 						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
@@ -129,9 +129,9 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_no_input_holder( $news_pub_max_time ) . '</td>';
 
 					$table_rows[ 'wpsm_news_pub_name' ] = '' .
-						$this->form->get_th_html( _x( 'News Publication Name', 'option label', 'wpsso-wp-sitemaps' ),
+						$this->form->get_th_html_locale( _x( 'News Publication Name', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_news_pub_name' ) .
-						'<td>' . $this->form->get_input( 'wpsm_news_pub_name', $css_class = 'long_name', $css_id = '',
+						'<td>' . $this->form->get_input_locale( 'wpsm_news_pub_name', $css_class = 'long_name', $css_id = '',
 							$len = 0, $def_news_pub_name ) . '</td>';
 
 					$table_rows[ 'wpsm_max_urls' ] = '' .

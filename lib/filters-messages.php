@@ -99,7 +99,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					break;
 
-				case 'tooltip-wpsm_schema_images':	// Include Images in Sitemaps.
+				case 'tooltip-wpsm_schema_images':	// Include Image Sitemaps.
 
 					$text = __( 'Include images from the webpage Schema markup in the WordPress sitemaps.',
 						'wpsso-wp-sitemaps' ) . ' ';

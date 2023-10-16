@@ -62,7 +62,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersOptions' ) ) {
 
 			switch ( $base_key ) {
 
-				case 'wpsm_schema_images':	// Include Images in Sitemaps.
+				case 'wpsm_schema_images':	// Include Image Sitemaps.
 				case ( 0 === strpos( $base_key, 'wpsm_sitemaps_for_' ) ? true : false ):
 
 					return 'checkbox';

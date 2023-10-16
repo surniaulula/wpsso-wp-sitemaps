@@ -417,7 +417,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 				if ( $is_recent ) {
 
-					$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name();
+					$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name( $mod );
 					$schema_lang   = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
 					$schema_title  = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
 
@@ -746,6 +746,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$priority    = esc_xml( __( 'Priority', 'wpsso-wp-sitemaps' ) );
 			$alternates  = esc_xml( __( 'Alternates', 'wpsso-wp-sitemaps' ) );
 			$images      = esc_xml( __( 'Images', 'wpsso-wp-sitemaps' ) );
+			$news        = esc_xml( __( 'News', 'wpsso-wp-sitemaps' ) );
 
 			$xsl_content = <<<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -841,6 +842,14 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						</ul>
 					</ul>
 				</xsl:if>
+				<xsl:if test="news:news">
+					<ul class="news">
+						<li class="list-title">{$news}</li>
+						<ul>
+                             				<xsl:apply-templates select="news:news"/>
+						</ul>
+					</ul>
+				</xsl:if>
 			</td>
 			<xsl:if test="\$has-lastmod">
 				<td class="lastmod">
@@ -880,6 +889,20 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			<a href="{\$imgloc}"><xsl:value-of select="image:loc"/></a>
 		</li>
 	</xsl:template>
+
+	<xsl:template match="news:publication">
+		<li>
+			<xsl:value-of select="news:name"/> (<xsl:value-of select="news:language"/>)
+		</li>
+	</xsl:template>
+
+	<xsl:template match="news:news">
+		<xsl:apply-templates select="news:publication"/>
+		<li>
+			<xsl:value-of select="news:title"/> (<xsl:value-of select="news:publication_date"/>)
+		</li>
+	</xsl:template>
+
 </xsl:stylesheet>
 EOF;
 

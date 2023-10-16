@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Better WordPress Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 6.0.0-b.1\n"
+"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 6.0.0-rc.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
@@ -226,6 +226,10 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
+#: lib/sitemaps/filters.php:749
+msgid "News"
+msgstr ""
+
 #: lib/sitemaps/renderer.php:238
 msgid "\"%s\" is not a recognized field name."
 msgstr ""
@@ -257,7 +261,7 @@ msgstr ""
 
 #: lib/submenu/wpsm-general.php:116
 msgctxt "option label"
-msgid "Include Images in Sitemaps"
+msgid "Include Image Sitemaps"
 msgstr ""
 
 #: lib/submenu/wpsm-general.php:119
