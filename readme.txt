@@ -13,7 +13,7 @@ Requires PHP: 7.2.34
 Requires At Least: 5.5
 Tested Up To: 6.3.2
 WC Tested Up To: 8.2.0
-Stable Tag: 5.4.0
+Stable Tag: 6.0.0
 
 Include Schema images, alternate language URLs, post type archive pages, select post types and taxonomies, exclude "No Index" and redirected pages.
 
@@ -108,134 +108,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WordPress v5.5.
 	* WPSSO Core v16.3.0.
 
-**Version 5.4.0 (2023/04/13)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Replaced the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` private method by the new `WpssoAbstractWpMeta::get_column_meta_query_exclude()` public method in WPSSO Core v15.8.0.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.5.
-	* WPSSO Core v15.8.0.
-
-**Version 5.3.0 (2023/02/11)**
-
-Maintenance release.
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.2.
-	* WordPress v5.5.
-	* WPSSO Core v15.2.0.
-
-**Version 5.2.1 (2023/01/26)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Added compatibility declaration for WooCommerce HPOS.
-	* Added an XML sitemaps conflict notice for Yoast SEO v20.0.
-	* Updated the minimum WordPress version from v5.2 to v5.5.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Added a new `WpssoWpsmConflict` library class.
-	* Added a new `WpssoWpsmConflictSeo` library class.
-	* Updated the `WpssoAbstractAddOn` library class.
-* **Requires At Least**
-	* PHP v7.2.
-	* WordPress v5.5.
-	* WPSSO Core v14.7.0.
-
-**Version 5.2.0 (2023/01/20)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Removed the "Change to View" button from the WP Sitemaps settings page.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Updated the `SucomAbstractAddOn` common library class.
-* **Requires At Least**
-	* PHP v7.2.
-	* WordPress v5.5.
-	* WPSSO Core v14.5.0.
-
-**Version 5.1.0 (2022/12/29)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Refactored and changed the public `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` method to a private static method.
-* **Requires At Least**
-	* PHP v7.2.
-	* WordPress v5.5.
-	* WPSSO Core v14.1.0.
-
-**Version 5.0.0 (2022/11/04)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Improved performance when creating the sitemaps XML.
-	* Added a new "Maximum URLs per Sitemap" option (default is 2000).
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Added `is_sitemap()` and `is_sitemap_stylesheet()` functions.
-	* Refactored the following methods to improve performance when excluding noindex and/or redirected posts:
-		* WpssoWpsmSitemapsFilters->wp_sitemaps_posts_query_args()
-		* WpssoWpsmSitemapsFilters->wp_sitemaps_taxonomies_query_args()
-		* WpssoWpsmSitemapsFilters->wp_sitemaps_users_query_args()
-* **Requires At Least**
-	* PHP v7.2.
-	* WordPress v5.5.
-	* WPSSO Core v13.8.0.
-
 == Upgrade Notice ==
 
 = 6.0.0 =
 
 (2023/10/17) Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps.
-
-= 5.4.0 =
-
-(2023/04/13) Replaced the `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` private method by a new public method in WPSSO Core v15.8.0.
-
-= 5.3.0 =
-
-(2023/02/11) Maintenance release.
-
-= 5.2.1 =
-
-(2023/01/26) Added compatibility declaration for WooCommerce HPOS. Updated the minimum WordPress version from v5.2 to v5.5.
-
-= 5.2.0 =
-
-(2023/01/20) Removed the "Change to View" button from the WP Sitemaps settings page.
-
-= 5.1.0 =
-
-(2022/12/29) Refactored and changed the public `WpssoWpsmSitemapsFilters->get_exclude_meta_query()` method to a private static method.
-
-= 5.0.0 =
-
-(2022/11/04) Improved performance when creating the sitemaps XML. Added a new "Maximum URLs per Sitemap" option (default is 2000).
 
