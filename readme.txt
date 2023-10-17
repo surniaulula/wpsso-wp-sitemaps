@@ -12,7 +12,7 @@ Requires Plugins: wpsso
 Requires PHP: 7.2.34
 Requires At Least: 5.5
 Tested Up To: 6.3.2
-WC Tested Up To: 8.2.0
+WC Tested Up To: 8.2.1
 Stable Tag: 6.0.0
 
 Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
