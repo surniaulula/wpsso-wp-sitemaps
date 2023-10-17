@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WPSSO Better WordPress Sitemaps XML 6.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-10-16 13:49-0700\n"
+"PO-Revision-Date: 2023-10-17 06:55-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -207,7 +207,7 @@ msgstr "Les champs autres que %s ne sont pas supportés par les plans de sites p
 
 #: lib/sitemaps.php:71 lib/sitemaps.php:88
 msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
-msgstr "Les balises de requête conditionnelle ne fonctionnent pas avant le lancement de la requête. Avant cela, elles renvoient toujours le booléen <code>false</code>."
+msgstr "Les balises de requête conditionnelle ne fonctionnent pas avant le lancement de la requête. Avant cela, elles renvoient toujours le booléen false."
 
 #: lib/submenu/wpsm-general.php:58
 msgctxt "metabox title"
