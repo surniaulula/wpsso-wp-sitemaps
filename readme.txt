@@ -23,17 +23,17 @@ Improves the WordPress sitemaps XML with article modification times, alternate l
 
 **Extends the WordPress Sitemaps XML:**
 
-Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
+Improve the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
 
 <!-- /about -->
 
 **Includes Post Type Archives:**
 
-Includes post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
+Include post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
 **Includes Alternate Languages:**
 
-Includes [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) (ie. alternate language URLs) from PolyLang and WMPL.
+Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) (ie. alternate language URLs) from PolyLang and WMPL.
 
 **Select Post Types and Taxonomies:**
 
