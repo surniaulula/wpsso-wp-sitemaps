@@ -27,9 +27,9 @@ Improves the WordPress sitemaps XML with article modification times, alternate l
 
 <!-- /about -->
 
-**Includes Post Type Archive Pages:**
+**Includes Post Type Archives:**
 
-Includes missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
+Includes post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
 **Includes Alternate Languages:**
 
@@ -41,7 +41,7 @@ Optionally include or exclude post types and taxonomies from the WordPress sitem
 
 **Excludes Noindex and Redirected URLs:**
 
-Excludes noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.
+Exclude noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.
 
 <h3>WPSSO Core Required</h3>
 

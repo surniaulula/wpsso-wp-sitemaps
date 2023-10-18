@@ -23,9 +23,9 @@
 
 <!-- /about -->
 
-<p><strong>Includes Post Type Archive Pages:</strong></p>
+<p><strong>Includes Post Type Archives:</strong></p>
 
-<p>Includes missing post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).</p>
+<p>Includes post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).</p>
 
 <p><strong>Includes Alternate Languages:</strong></p>
 
@@ -37,7 +37,7 @@
 
 <p><strong>Excludes Noindex and Redirected URLs:</strong></p>
 
-<p>Excludes noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.</p>
+<p>Exclude noindex and redirected posts, pages, custom post types, taxonomies (categories, tags, etc.), and user profiles pages from the WordPress sitemaps XML.</p>
 
 <h3>WPSSO Core Required</h3>
 
