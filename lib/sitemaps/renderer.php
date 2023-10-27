@@ -118,8 +118,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
 				'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
 				'xmlns:xhtml="http://www.w3.org/1999/xhtml"',
-				'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
 				'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"',
+				'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
+				'xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"',
 				'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.w3.org/1999/xhtml http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"',
 			);
 
@@ -150,21 +151,50 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			 * See https://www.sitemaps.org/protocol.html.
 			 */
 			$allowed_tags = array(
-				'loc'                   => '',
-				'lastmod'               => '',
-				'changefreq'            => '',
-				'priority'              => '',
-				'alternates'            => '',
-				'href'                  => '',
-				'hreflang'              => '',
-				'image:image'           => '',
-				'image:loc'             => '',
+				'loc'        => '',
+				'lastmod'    => '',
+				'changefreq' => '',
+				'priority'   => '',
+				'alternates' => '',
+				'href'       => '',
+				'hreflang'   => '',
+
+				/*
+				 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
+				 */
+				'image:image' => '',
+				'image:loc'   => '',
+
+				/*
+				 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
+				 */
 				'news:language'         => '',
 				'news:name'             => '',
 				'news:news'             => '',
 				'news:publication'      => '',
 				'news:publication_date' => '',
 				'news:title'            => '',
+
+				/*
+				 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps.
+				 */
+				'video:content_loc'           => '',
+				'video:description'           => '',
+				'video:duration'              => '',
+				'video:expiration_date'       => '',
+				'video:family_friendly'       => '',
+				'video:live'                  => '',
+				'video:player_loc'            => '',
+				'video:price'                 => '',
+				'video:publication_date'      => '',
+				'video:rating'                => '',
+				'video:requires_subscription' => '',
+				'video:restriction_allow'     => '',
+				'video:thumbnail_loc'         => '',
+				'video:title'                 => '',
+				'video:uploader'              => '',
+				'video:video'                 => '',
+				'video:view_count'            => '',
 			);
 
 			$items = array_merge( $allowed_tags, $items );	// Re-order the array.
@@ -179,13 +209,17 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 				/*
 				 * See https://www.php.net/manual/en/simplexmlelement.addchild.php.
 				 */
-				if ( 0 === strpos( $name, 'image' ) ) {
+				if ( 0 === strpos( $name, 'image:' ) ) {
 
 					$namespace = 'http://www.google.com/schemas/sitemap-image/1.1';
-				
-				} elseif ( 0 === strpos( $name, 'news' ) ) {
+
+				} elseif ( 0 === strpos( $name, 'news:' ) ) {
 
 					$namespace = 'http://www.google.com/schemas/sitemap-news/0.9';
+
+				} elseif ( 0 === strpos( $name, 'video:' ) ) {
+
+					$namespace = 'http://www.google.com/schemas/sitemap-video/1.1';
 
 				} else $namespace = null;
 
@@ -208,12 +242,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 
 					$data->addAttribute( 'hreflang', esc_xml( $val ) );
 
-				} elseif ( 'loc' === $name || false !== strpos( $name, ':loc' ) ) {
+				} elseif ( 'loc' === $name || false !== strpos( $name, ':loc' ) || false !== strpos( $name, '_loc' ) ) {
 
 					$data->addChild( $name, esc_url( $val ), $namespace );
 
 				} elseif ( isset( $allowed_tags[ $name ] ) ) {
-				
+
 					/*
 					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 					 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.

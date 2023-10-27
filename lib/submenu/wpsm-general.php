@@ -100,7 +100,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 					$sitemaps_url      = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
 					$post_types        = SucomUtil::get_post_type_labels();
 					$def_news_pub_name = WpssoWpsmSitemaps::get_default_news_pub_name();
-					$news_pub_max_time = human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME );
+					$news_pub_max_time = human_time_diff( 0, WPSSOWPSM_NEWS_PUB_MAX_TIME );
 
 					$table_rows[ 'wpsm_sitemaps_url' ] = '' .
 						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso-wp-sitemaps' ),
@@ -117,6 +117,11 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 							$css_class = '', $css_id = 'wpsm_schema_images' ) .
 						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
 						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
+
+					$table_rows[ 'wpsm_schema_videos' ] = '' .
+						$this->form->get_th_html( _x( 'Include Videos Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_schema_videos' ) .
+						'<td>' . $this->form->get_checkbox( 'wpsm_schema_videos' ) . '</td>';
 
 					$table_rows[ 'wpsm_news_post_type' ] = '' .
 						$this->form->get_th_html( _x( 'Post Type for News Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),

@@ -112,7 +112,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 				case 'tooltip-wpsm_news_post_type':	// Post Type for News Sitemaps.
 
 					$def_val           = $this->p->opt->get_defaults( 'wpsm_news_post_type' );
-					$news_pub_max_time = human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME );
+					$news_pub_max_time = human_time_diff( 0, WPSSOWPSM_NEWS_PUB_MAX_TIME );
 
 					$text = sprintf( __( 'If you are a news publisher, you may select a post type for your news articles (default is %s).',
 						'wpsso-wp-sitemaps' ), $def_val ) . ' ';
@@ -124,7 +124,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 				case 'tooltip-wpsm_news_pub_max_time':	// News Publication Cut-Off.
 
-					$news_pub_max_time = human_time_diff( 0, WPSSO_NEWS_PUB_MAX_TIME );
+					$news_pub_max_time = human_time_diff( 0, WPSSOWPSM_NEWS_PUB_MAX_TIME );
 
 					$text = sprintf( __( 'Google only allows news tags in sitemaps for articles that were published in the last %s.',
 						'wpsso-wp-sitemaps' ), $news_pub_max_time ) . ' ';

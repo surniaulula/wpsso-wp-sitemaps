@@ -79,7 +79,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			}
 
 			if ( ! empty( $this->p->options[ 'wpsm_max_urls' ] ) ) {
-			
+
 				if ( is_numeric( $this->p->options[ 'wpsm_max_urls' ] ) ) {
 
 					$max_urls = $this->p->options[ 'wpsm_max_urls' ];
@@ -324,6 +324,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				return $sitemaps_entry;
 			}
 
+			/*
+			 * Begin debug timer.
+			 */
 			if ( $this->p->debug->enabled ) {
 
 				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// Begin timer.
@@ -378,7 +381,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
 			/*
-			 * Get images.
+			 * Get image tags.
 			 *
 			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 			 */
@@ -413,27 +416,43 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			 */
 			if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] && $mod[ 'post_type' ] === $this->p->options[ 'wpsm_news_post_type' ] ) {
 
-				$is_recent = $mod[ 'post_timestamp' ] > time() - WPSSO_NEWS_PUB_MAX_TIME ? true : false;
+				if ( $this->p->debug->enabled ) {
 
-				if ( $is_recent ) {
-
-					$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name( $mod );
-					$schema_lang   = $this->p->schema->get_schema_lang( $mod, $prime_lang = true );
-					$schema_title  = $this->p->page->get_title( $mod, $md_key = 'schema_title', $max_len = 'schema_title' );
-
-					$sitemaps_entry[ 'news:news' ][] = array(
-						'news:publication'      => array(
-							array(
-								'news:name'     => $news_pub_name,
-								'news:language' => $schema_lang,
-							),
-						),
-						'news:title'            => $schema_title,
-						'news:publication_date' => $mod[ 'post_time' ],
-					);
+					$this->p->debug->log( 'getting sitemaps news' );
 				}
+
+				$news_pub_time = WPSSOWPSM_NEWS_PUB_MAX_TIME;
+				$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name( $mod );
+
+				$sitemaps_entry[ 'news:news' ] = $this->p->util->get_sitemaps_news( $mod, $news_pub_time, $news_pub_name );
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping sitemaps news' );
 			}
 
+			/*
+			 * Get video tags.
+			 *
+			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps.
+			 */
+			if ( ! empty( $this->p->options[ 'wpsm_schema_videos' ] ) ) {
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'getting sitemaps videos' );
+				}
+
+				$sitemaps_entry[ 'video:video' ] = $this->p->util->get_sitemaps_videos( $mod );
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping sitemaps videos' );
+			}
+
+			/*
+			 * End debug timer.
+			 */
 			if ( $this->p->debug->enabled ) {
 
 				$this->p->debug->mark( 'getting post id ' . $post->ID . ' sitemaps entry' );	// End timer.
@@ -560,7 +579,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
 			/*
-			 * Get images.
+			 * Get image tags.
+			 *
+			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
 
@@ -687,7 +708,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$mod = $this->p->user->get_mod( $user->ID );
 
 			/*
-			 * Get images.
+			 * Get image tags.
+			 *
+			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
 			 */
 			if ( ! empty( $this->p->options[ 'wpsm_schema_images' ] ) ) {
 
@@ -745,8 +768,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$changefreq    = esc_xml( __( 'Change Frequency', 'wpsso-wp-sitemaps' ) );
 			$priority      = esc_xml( __( 'Priority', 'wpsso-wp-sitemaps' ) );
 			$alternates    = esc_xml( __( 'Alternates', 'wpsso-wp-sitemaps' ) );
-			$image_sitemap = esc_xml( __( 'Images', 'wpsso-wp-sitemaps' ) );
 			$news_sitemap  = esc_xml( __( 'News', 'wpsso-wp-sitemaps' ) );
+			$image_sitemap = esc_xml( __( 'Images', 'wpsso-wp-sitemaps' ) );
+			$video_sitemap = esc_xml( __( 'Videos', 'wpsso-wp-sitemaps' ) );
 
 			$xsl_content = <<<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -755,8 +779,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
         	xmlns:xhtml="http://www.w3.org/1999/xhtml"
-		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 		xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+		xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
 		exclude-result-prefixes="sitemap"
 		>
 
@@ -834,6 +859,14 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						</ul>
 					</ul>
 				</xsl:if>
+				<xsl:if test="news:news">
+					<ul class="news">
+						<li class="list-title">{$news_sitemap}</li>
+						<ul>
+                             				<xsl:apply-templates select="news:news"/>
+						</ul>
+					</ul>
+				</xsl:if>
 				<xsl:if test="image:image">
 					<ul class="images">
 						<li class="list-title">{$image_sitemap}</li>
@@ -842,11 +875,11 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 						</ul>
 					</ul>
 				</xsl:if>
-				<xsl:if test="news:news">
-					<ul class="news">
-						<li class="list-title">{$news_sitemap}</li>
+				<xsl:if test="video:video">
+					<ul class="videos">
+						<li class="list-title">{$video_sitemap}</li>
 						<ul>
-                             				<xsl:apply-templates select="news:news"/>
+                             				<xsl:apply-templates select="video:video"/>
 						</ul>
 					</ul>
 				</xsl:if>
@@ -881,15 +914,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		</li>
 	</xsl:template>
 
-	<xsl:template match="image:image">
-		<li>
-			<xsl:variable name="imgloc">
-				<xsl:value-of select="image:loc"/>
-			</xsl:variable>
-			<a href="{\$imgloc}"><xsl:value-of select="image:loc"/></a>
-		</li>
-	</xsl:template>
-
 	<xsl:template match="news:news">
 		<xsl:apply-templates select="news:publication"/>
 		<li>
@@ -900,6 +924,24 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	<xsl:template match="news:publication">
 		<li>
 			<xsl:value-of select="news:name"/> (<xsl:value-of select="news:language"/>)
+		</li>
+	</xsl:template>
+
+	<xsl:template match="image:image">
+		<li>
+			<xsl:variable name="image_loc">
+				<xsl:value-of select="image:loc"/>
+			</xsl:variable>
+			<a href="{\$image_loc}"><xsl:value-of select="image:loc"/></a>
+		</li>
+	</xsl:template>
+
+	<xsl:template match="video:video">
+		<li>
+			<xsl:variable name="video_player_loc">
+				<xsl:value-of select="video:player_loc"/>
+			</xsl:variable>
+			<a href="{\$video_player_loc}"><xsl:value-of select="video:title"/></a>
 		</li>
 	</xsl:template>
 

@@ -17,8 +17,8 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '6.0.0',	// Plugin version.
-					'opt_version' => '7',		// Increment when changing default option values.
+					'version'     => '7.0.0-dev.4',	// Plugin version.
+					'opt_version' => '8',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO Better WordPress Sitemaps XML',
 					'desc'        => 'Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '16.3.0',
+							'min_version'   => '16.5.0-dev.4',
 						),
 					),
 
@@ -105,6 +105,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_user_page'              => 1,
 					'wpsm_schema_images'                       => 0,	// Include Images Sitemaps.
+					'wpsm_schema_videos'                       => 1,	// Include Videos Sitemaps.
 					'wpsm_news_post_type'                      => 'none',	// Post Type for News Sitemaps.
 					'wpsm_site_name'                           => '',	// News Publication Name.
 					'wpsm_max_urls'                            => 2000,	// Maximum URLs per Sitemap.
@@ -167,7 +168,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 
 			$var_const = array();
 
-			$var_const[ 'WPSSO_NEWS_PUB_MAX_TIME' ] = 2 * DAY_IN_SECONDS;
+			$var_const[ 'WPSSOWPSM_NEWS_PUB_MAX_TIME' ] = 2 * DAY_IN_SECONDS;
 
 			/*
 			 * Maybe override the default constant value with a pre-defined constant value.
