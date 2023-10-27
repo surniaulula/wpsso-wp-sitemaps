@@ -1,5 +1,5 @@
-=== WPSSO Better WordPress Sitemaps XML ===
-Plugin Name: WPSSO Better WordPress Sitemaps XML
+=== WPSSO WP Sitemaps XML ===
+Plugin Name: WPSSO WP Sitemaps XML
 Plugin Slug: wpsso-wp-sitemaps
 Text Domain: wpsso-wp-sitemaps
 Domain Path: /languages
@@ -45,14 +45,14 @@ Exclude noindex and redirected posts, pages, custom post types, taxonomies (cate
 
 <h3>WPSSO Core Required</h3>
 
-WPSSO Better WordPress Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/), which provides complete structured data for WordPress to present your content at its best on social sites and in search results – no matter how URLs are shared, reshared, messaged, posted, embedded, or crawled.
+WPSSO WP Sitemaps XML (WPSSO WPSM) is an add-on for the [WPSSO Core plugin](https://wordpress.org/plugins/wpsso/), which provides complete structured data for WordPress to present your content at its best on social sites and in search results – no matter how URLs are shared, reshared, messaged, posted, embedded, or crawled.
 
 == Installation ==
 
 <h3 class="top">Install and Uninstall</h3>
 
-* [Install the WPSSO Better WordPress Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/install-the-plugin/).
-* [Uninstall the WPSSO Better WordPress Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/uninstall-the-plugin/).
+* [Install the WPSSO WP Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/install-the-plugin/).
+* [Uninstall the WPSSO WP Sitemaps XML add-on](https://wpsso.com/docs/plugins/wpsso-wp-sitemaps/installation/uninstall-the-plugin/).
 
 == Frequently Asked Questions ==
 
@@ -84,7 +84,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 7.0.0-dev.4 (2023/10/27)**
+**Version 7.0.0-b.1 (2023/10/27)**
 
 * **New Features**
 	* Added a new "Include Videos Sitemaps" option.
@@ -97,7 +97,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v16.5.0-dev.4.
+	* WPSSO Core v16.5.0-b.1.
 
 **Version 6.0.0 (2023/10/17)**
 
@@ -122,7 +122,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 7.0.0-dev.4 =
+= 7.0.0-b.1 =
 
 (2023/10/27) Added a new "Include Videos Sitemaps" option.
 
