@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: WPSSO Better WordPress Sitemaps XML
+ * Plugin Name: WPSSO WP Sitemaps XML
  * Plugin Slug: wpsso-wp-sitemaps
  * Text Domain: wpsso-wp-sitemaps
  * Domain Path: /languages
@@ -16,7 +16,7 @@
  * Requires At Least: 5.5
  * Tested Up To: 6.4.0
  * WC Tested Up To: 8.2.1
- * Version: 7.0.0-dev.4
+ * Version: 7.0.0-b.1
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *

@@ -1,8 +1,8 @@
-# Copyright (C) 2023 WPSSO Better WordPress Sitemaps XML
-# This file is distributed under the same license as the WPSSO Better WordPress Sitemaps XML package.
+# Copyright (C) 2023 WPSSO WP Sitemaps XML
+# This file is distributed under the same license as the WPSSO WP Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Better WordPress Sitemaps XML 7.0.0-dev.4\n"
+"Project-Id-Version: WPSSO WP Sitemaps XML 7.0.0-b.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: gettext/gettext-lib-config.php:6
 msgctxt "plugin name"
-msgid "WPSSO Better WordPress Sitemaps XML"
+msgid "WPSSO WP Sitemaps XML"
 msgstr ""
 
 #: gettext/gettext-lib-config.php:7
@@ -304,7 +304,7 @@ msgid "limited to 1000 for posts when news sitemaps are enabled"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WPSSO Better WordPress Sitemaps XML"
+msgid "WPSSO WP Sitemaps XML"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
