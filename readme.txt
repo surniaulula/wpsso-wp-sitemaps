@@ -84,7 +84,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 7.0.0-b.1 (2023/10/27)**
+**Version 7.0.0-b.2 (2023/10/27)**
 
 * **New Features**
 	* Added a new "Include Videos Sitemaps" option.
@@ -97,7 +97,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v16.5.0-b.1.
+	* WPSSO Core v16.5.0-b.2.
 
 **Version 6.0.0 (2023/10/17)**
 
@@ -122,7 +122,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 7.0.0-b.1 =
+= 7.0.0-b.2 =
 
 (2023/10/27) Added a new "Include Videos Sitemaps" option.
 
