@@ -101,6 +101,10 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 					$post_types        = SucomUtil::get_post_type_labels();
 					$def_news_pub_name = WpssoWpsmSitemaps::get_default_news_pub_name();
 					$news_pub_max_time = human_time_diff( 0, WPSSOWPSM_NEWS_PUB_MAX_TIME );
+					$videos_requires   = $this->p->check->is_pp() ? '' : sprintf( _x( '(requires %s for video details)',
+						'option comment', 'wpsso-wp-sitemaps' ), $this->p->util->get_pkg_info( 'wpsso', 'short_pro' ) );
+					$urls_limited      = sprintf( _x( '(post sitemaps limited to %d when news sitemaps enabled)',
+						'option comment', 'wpsso-wp-sitemaps' ), 1000 );
 
 					$table_rows[ 'wpsm_sitemaps_url' ] = '' .
 						$this->form->get_th_html( _x( 'WordPress Sitemaps URL', 'option label', 'wpsso-wp-sitemaps' ),
@@ -111,17 +115,6 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						$this->form->get_th_html( _x( 'Include in WP Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_sitemaps_for' ) .
 						'<td>' . $this->form->get_checklist_post_tax_user( $name_prefix = 'wpsm_sitemaps_for' ) . '</td>';
-
-					$table_rows[ 'wpsm_schema_images' ] = '' .
-						$this->form->get_th_html( _x( 'Include Images Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
-							$css_class = '', $css_id = 'wpsm_schema_images' ) .
-						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
-						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
-
-					$table_rows[ 'wpsm_schema_videos' ] = '' .
-						$this->form->get_th_html( _x( 'Include Videos Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
-							$css_class = '', $css_id = 'wpsm_schema_videos' ) .
-						'<td>' . $this->form->get_checkbox( 'wpsm_schema_videos' ) . '</td>';
 
 					$table_rows[ 'wpsm_news_post_type' ] = '' .
 						$this->form->get_th_html( _x( 'Post Type for News Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
@@ -139,11 +132,22 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 						'<td>' . $this->form->get_input_locale( 'wpsm_news_pub_name', $css_class = 'long_name', $css_id = '',
 							$len = 0, $def_news_pub_name ) . '</td>';
 
+					$table_rows[ 'wpsm_schema_images' ] = '' .
+						$this->form->get_th_html( _x( 'Include Images Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_schema_images' ) .
+						'<td>' . $this->form->get_checkbox( 'wpsm_schema_images' ) . ' ' .
+						_x( '(not required)', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
+
+					$table_rows[ 'wpsm_schema_videos' ] = '' .
+						$this->form->get_th_html( _x( 'Include Videos Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
+							$css_class = '', $css_id = 'wpsm_schema_videos' ) .
+						'<td>' . ( $this->p->check->is_pp() ? $this->form->get_checkbox( 'wpsm_schema_videos' ) :
+							$this->form->get_no_checkbox_comment( 'wpsm_schema_videos', $videos_requires ) ) . '</td>';
+
 					$table_rows[ 'wpsm_max_urls' ] = '' .
 						$this->form->get_th_html( _x( 'Maximum URLs per Sitemap', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_max_urls' ) .
-						'<td>' . $this->form->get_input( 'wpsm_max_urls', $css_class = 'xshort' ) . ' ' .
-							_x( 'limited to 1000 for posts when news sitemaps are enabled', 'option comment', 'wpsso-wp-sitemaps' ) . '</td>';
+						'<td>' . $this->form->get_input( 'wpsm_max_urls', $css_class = 'xshort' ) . ' ' . $urls_limited . '</td>';
 
 					break;
 			}

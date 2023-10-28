@@ -381,6 +381,28 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			$sitemaps_entry[ 'alternates' ] = $this->p->util->get_sitemaps_alternates( $mod );
 
 			/*
+			 * Get news tags.
+			 *
+			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
+			 */
+			if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] && $mod[ 'post_type' ] === $this->p->options[ 'wpsm_news_post_type' ] ) {
+
+				if ( $this->p->debug->enabled ) {
+
+					$this->p->debug->log( 'getting sitemaps news' );
+				}
+
+				$news_pub_time = WPSSOWPSM_NEWS_PUB_MAX_TIME;
+				$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name( $mod );
+
+				$sitemaps_entry[ 'news:news' ] = $this->p->util->get_sitemaps_news( $mod, $news_pub_time, $news_pub_name );
+
+			} elseif ( $this->p->debug->enabled ) {
+
+				$this->p->debug->log( 'skipping sitemaps news' );
+			}
+
+			/*
 			 * Get image tags.
 			 *
 			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps.
@@ -407,28 +429,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 			} elseif ( $this->p->debug->enabled ) {
 
 				$this->p->debug->log( 'skipping sitemaps images' );
-			}
-
-			/*
-			 * Get news tags.
-			 *
-			 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
-			 */
-			if ( 'none' !== $this->p->options[ 'wpsm_news_post_type' ] && $mod[ 'post_type' ] === $this->p->options[ 'wpsm_news_post_type' ] ) {
-
-				if ( $this->p->debug->enabled ) {
-
-					$this->p->debug->log( 'getting sitemaps news' );
-				}
-
-				$news_pub_time = WPSSOWPSM_NEWS_PUB_MAX_TIME;
-				$news_pub_name = WpssoWpsmSitemaps::get_news_pub_name( $mod );
-
-				$sitemaps_entry[ 'news:news' ] = $this->p->util->get_sitemaps_news( $mod, $news_pub_time, $news_pub_name );
-
-			} elseif ( $this->p->debug->enabled ) {
-
-				$this->p->debug->log( 'skipping sitemaps news' );
 			}
 
 			/*

@@ -99,16 +99,6 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					break;
 
-				case 'tooltip-wpsm_schema_images':	// Include Images Sitemaps.
-
-					$text = __( 'Include images from the webpage Schema markup in the WordPress sitemaps.',
-						'wpsso-wp-sitemaps' ) . ' ';
-
-					$text .= __( 'Google already reads image URLs and image information from the webpage Schema markup, so this option is not required.',
-						'wpsso-wp-sitemaps' );
-
-					break;
-
 				case 'tooltip-wpsm_news_post_type':	// Post Type for News Sitemaps.
 
 					$def_val           = $this->p->opt->get_defaults( 'wpsm_news_post_type' );
@@ -137,6 +127,23 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 					$text .= sprintf( __( 'It must exactly match the name as it appears on your articles on %s, omitting anything in parentheses.',
 						'wpsso-wp-sitemaps' ), '<a href="https://news.google.com/">news.google.com</a>' ) . ' ';
+
+					break;
+
+				case 'tooltip-wpsm_schema_images':	// Include Images Sitemaps.
+
+					$text = __( 'Include images in the WordPress sitemaps from the webpage Schema markup.',
+						'wpsso-wp-sitemaps' ) . ' ';
+
+					$text .= __( 'Google already reads image URLs and image information from the webpage Schema markup, so this option is not required.',
+						'wpsso-wp-sitemaps' );
+
+					break;
+
+				case 'tooltip-wpsm_schema_videos':	// Include Videos Sitemaps.
+
+					$text = __( 'Include videos in the WordPress sitemaps from the webpage Schema markup.',
+						'wpsso-wp-sitemaps' ) . ' ';
 
 					break;
 

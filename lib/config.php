@@ -17,8 +17,8 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '7.0.0-b.1',	// Plugin version.
-					'opt_version' => '8',		// Increment when changing default option values.
+					'version'     => '7.0.0-b.2',	// Plugin version.
+					'opt_version' => '9',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
 					'desc'        => 'Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '16.5.0-b.1',
+							'min_version'   => '16.5.0-b.2',
 						),
 					),
 
@@ -104,10 +104,10 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tribe_events'           => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_tribe-ea-record'        => 1,	// For The Events Calendar.
 					'wpsm_sitemaps_for_user_page'              => 1,
-					'wpsm_schema_images'                       => 0,	// Include Images Sitemaps.
-					'wpsm_schema_videos'                       => 1,	// Include Videos Sitemaps.
 					'wpsm_news_post_type'                      => 'none',	// Post Type for News Sitemaps.
 					'wpsm_site_name'                           => '',	// News Publication Name.
+					'wpsm_schema_images'                       => 0,	// Include Images Sitemaps.
+					'wpsm_schema_videos'                       => 1,	// Include Videos Sitemaps.
 					'wpsm_max_urls'                            => 2000,	// Maximum URLs per Sitemap.
 				),
 			),

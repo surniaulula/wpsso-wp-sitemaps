@@ -18,6 +18,7 @@ if ( ! class_exists( 'WpssoWpsmFilters' ) ) {
 		private $a;	// WpssoWpsm class object.
 		private $msgs;	// WpssoWpsmFiltersMessages class object.
 		private $opts;	// WpssoWpsmFiltersOptions class object.
+		private $upg;	// WpssoWpsmFiltersUpgrade class object.
 
 		/*
 		 * Instantiated by WpssoWpsm->init_objects().
