@@ -27,10 +27,6 @@ Improve the WordPress sitemaps XML with article modification times, alternate la
 
 <!-- /about -->
 
-**Includes Post Type Archives:**
-
-Include missing post type archive pages in WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
-
 **Includes Alternate Languages:**
 
 Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) (ie. alternate language URLs) from PolyLang and WMPL.
@@ -38,6 +34,10 @@ Include [localized pages for Google](https://developers.google.com/search/docs/a
 **Includes Images and Videos:**
 
 Optionally include images and videos in the WordPress sitemaps XML. Note that video information requires the WPSSO Core Premium plugin for video details.
+
+**Includes Post Type Archives:**
+
+Include missing post type archive pages in WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
 **Select Post Types and Taxonomies:**
 
