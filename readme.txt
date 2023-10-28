@@ -84,7 +84,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 7.0.0-b.2 (2023/10/27)**
+**Version 7.0.0-b.2 (2023/10/28)**
 
 * **New Features**
 	* Added a new "Include Videos Sitemaps" option.
@@ -124,7 +124,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 7.0.0-b.2 =
 
-(2023/10/27) Added a new "Include Videos Sitemaps" option.
+(2023/10/28) Added a new "Include Videos Sitemaps" option.
 
 = 6.0.0 =
 
