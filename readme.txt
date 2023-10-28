@@ -1,4 +1,4 @@
-=== WPSSO WP Sitemaps XML ===
+=== WPSSO WP Sitemaps XML with News, Image, and Video Sitemaps ===
 Plugin Name: WPSSO WP Sitemaps XML
 Plugin Slug: wpsso-wp-sitemaps
 Text Domain: wpsso-wp-sitemaps
@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-wp-sitemaps/assets/
-Tags: xml sitemap, image sitemap, news sitemap, woocommerce, google news
+Tags: google news, image sitemap, news sitemap, video sitemap, woocommerce
 Contributors: jsmoriss
 Requires Plugins: wpsso
 Requires PHP: 7.2.34
@@ -15,7 +15,7 @@ Tested Up To: 6.4.0
 WC Tested Up To: 8.2.1
 Stable Tag: 6.0.0
 
-Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
+Extend the WordPress sitemaps XML with article modification times, alternate languages, news sitemaps, image sitemaps, and video sitemaps.
 
 == Description ==
 
@@ -23,17 +23,21 @@ Improves the WordPress sitemaps XML with article modification times, alternate l
 
 **Extends the WordPress Sitemaps XML:**
 
-Improve the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
+Improve the WordPress sitemaps XML with article modification times, alternate language URLs, news sitemaps, images sitemaps, video sitemaps (requires WPSSO Core Premium for video details) and more.
 
 <!-- /about -->
 
 **Includes Post Type Archives:**
 
-Include post type archive pages in the WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
+Include missing post type archive pages in WordPress sitemaps (like the WooCommerce shop page and The Events Calendar events page).
 
 **Includes Alternate Languages:**
 
 Include [localized pages for Google](https://developers.google.com/search/docs/advanced/crawling/localized-versions#sitemap) (ie. alternate language URLs) from PolyLang and WMPL.
+
+**Includes Images and Videos:**
+
+Optionally include images and videos in the WordPress sitemaps XML. Note that video information requires the WPSSO Core Premium plugin for video details.
 
 **Select Post Types and Taxonomies:**
 
@@ -84,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 7.0.0-b.2 (2023/10/28)**
+**Version 7.0.0-rc.1 (2023/10/28)**
 
 * **New Features**
 	* Added a new "Include Videos Sitemaps" option.
@@ -97,7 +101,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v16.5.0-b.2.
+	* WPSSO Core v16.5.0-rc.1.
 
 **Version 6.0.0 (2023/10/17)**
 
@@ -122,7 +126,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 7.0.0-b.2 =
+= 7.0.0-rc.1 =
 
 (2023/10/28) Added a new "Include Videos Sitemaps" option.
 
