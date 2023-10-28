@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WPSSO WP Sitemaps XML 7.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-10-27 09:18-0700\n"
+"PO-Revision-Date: 2023-10-28 07:57-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -105,43 +105,47 @@ msgstr "L'URL des plans de site WordPress peut être soumise dans la console de 
 msgid "Select the post types and taxonomies to include in the WordPress sitemaps."
 msgstr "Sélectionnez les types d'articles et les taxonomies à inclure dans les plans de site WordPress."
 
-#: lib/filters-messages.php:104
-msgid "Include images from the webpage Schema markup in the WordPress sitemaps."
-msgstr "Ajoutez des images du balisage de Schéma de la page Web dans les plans de site WordPress."
-
 #: lib/filters-messages.php:107
-msgid "Google already reads image URLs and image information from the webpage Schema markup, so this option is not required."
-msgstr "Google lit déjà les URL d'images et les informations sur les images à partir du balisage de Schéma de la page Web. Cette option n'est donc pas requise."
-
-#: lib/filters-messages.php:117
 msgid "If you are a news publisher, you may select a post type for your news articles (default is %s)."
 msgstr "Si vous êtes un éditeur d'actualités, vous pouvez sélectionner un type d'article pour vos articles d'actualité (la valeur par défaut est %s)."
 
-#: lib/filters-messages.php:120
+#: lib/filters-messages.php:110
 msgid "When this option is enabled, news tags in sitemaps are added to news articles that are less than %s old."
 msgstr "Lorsque cette option est activée, les balises d'actualité dans les plans de site sont ajoutées aux articles d'actualité datant de moins de %s."
 
-#: lib/filters-messages.php:129
+#: lib/filters-messages.php:119
 msgid "Google only allows news tags in sitemaps for articles that were published in the last %s."
 msgstr "Google autorise uniquement les balises d'actualité dans les plans de site pour les articles publiés au cours des %s derniers."
 
-#: lib/filters-messages.php:136
+#: lib/filters-messages.php:126
 msgid "The name of the news publication."
 msgstr "Le nom de la publication d'actualités."
 
-#: lib/filters-messages.php:138
+#: lib/filters-messages.php:128
 msgid "It must exactly match the name as it appears on your articles on %s, omitting anything in parentheses."
 msgstr "Il doit correspondre exactement au nom tel qu'il apparaît sur vos articles sur %s, en omettant ce qui est entre parenthèses."
 
-#: lib/filters-messages.php:147
+#: lib/filters-messages.php:135
+msgid "Include images in the WordPress sitemaps from the webpage Schema markup."
+msgstr "Incluez des images dans les plans de site WordPress à partir du balisage de Schéma de la page Web."
+
+#: lib/filters-messages.php:138
+msgid "Google already reads image URLs and image information from the webpage Schema markup, so this option is not required."
+msgstr "Google lit déjà les URL d'images et les informations sur les images à partir du balisage de Schéma de la page Web. Cette option n'est donc pas requise."
+
+#: lib/filters-messages.php:145
+msgid "Include videos in the WordPress sitemaps from the webpage Schema markup."
+msgstr "Incluez des vidéos dans les plans de site WordPress à partir du balisage de Schéma de la page Web."
+
+#: lib/filters-messages.php:154
 msgid "The maximum number of URLs to include in each sitemap (default is %s)."
 msgstr "Le nombre maximal d'URL à inclure dans chaque plan de site (la valeur par défaut est %s)."
 
-#: lib/filters-messages.php:150
+#: lib/filters-messages.php:157
 msgid "The WordPress default is %1$s URLs per sitemap, but Google only allows %2$s news tags in sitemaps."
 msgstr "La valeur par défaut de WordPress est de %1$s URLs par plan de site, mais Google n'autorise que %2$s balises d'actualité dans les plans de site."
 
-#: lib/filters-messages.php:153
+#: lib/filters-messages.php:160
 msgid "If news sitemaps are enabled, sitemaps for post objects will be limited to %s URLs automatically."
 msgstr "Si les plans de site d'actualités sont activés, les plans de site pour les objets d'article seront automatiquement limités à %s URLs."
 
@@ -218,55 +222,60 @@ msgctxt "metabox title"
 msgid "WordPress Sitemaps"
 msgstr "Plans de site WordPress"
 
+#: lib/submenu/wpsm-general.php:104
+msgctxt "option comment"
+msgid "(requires %s for video details)"
+msgstr "(nécessite %s pour les détails des vidéos)"
+
 #: lib/submenu/wpsm-general.php:106
+msgctxt "option comment"
+msgid "(post sitemaps limited to %d when news sitemaps enabled)"
+msgstr "(plans de site d'articles limités à %d lorsque les plans de site d'actualités sont activés)"
+
+#: lib/submenu/wpsm-general.php:110
 msgctxt "option label"
 msgid "WordPress Sitemaps URL"
 msgstr "URL plans de site WordPress"
 
-#: lib/submenu/wpsm-general.php:111
+#: lib/submenu/wpsm-general.php:115
 msgctxt "option label"
 msgid "Include in WP Sitemaps"
 msgstr "Inclure dans les plans de site WP"
 
-#: lib/submenu/wpsm-general.php:116
-msgctxt "option label"
-msgid "Include Images Sitemaps"
-msgstr "Inclure plan de site d'images"
-
-#: lib/submenu/wpsm-general.php:119
-msgctxt "option comment"
-msgid "(not required)"
-msgstr "(non requis)"
-
-#: lib/submenu/wpsm-general.php:122
-msgctxt "option label"
-msgid "Include Videos Sitemaps"
-msgstr "Inclure plan de site vidéos"
-
-#: lib/submenu/wpsm-general.php:127
+#: lib/submenu/wpsm-general.php:120
 msgctxt "option label"
 msgid "Post Type for News Sitemaps"
 msgstr "Type d'article pour plans de site d'actualités"
 
-#: lib/submenu/wpsm-general.php:132
+#: lib/submenu/wpsm-general.php:125
 msgctxt "option label"
 msgid "News Publication Cut-Off"
 msgstr "Date limite de publication d'actualités"
 
-#: lib/submenu/wpsm-general.php:137
+#: lib/submenu/wpsm-general.php:130
 msgctxt "option label"
 msgid "News Publication Name"
 msgstr "Nom de publication d'actualités"
 
-#: lib/submenu/wpsm-general.php:143
+#: lib/submenu/wpsm-general.php:136
+msgctxt "option label"
+msgid "Include Images Sitemaps"
+msgstr "Inclure plan de site d'images"
+
+#: lib/submenu/wpsm-general.php:139
+msgctxt "option comment"
+msgid "(not required)"
+msgstr "(non requis)"
+
+#: lib/submenu/wpsm-general.php:142
+msgctxt "option label"
+msgid "Include Videos Sitemaps"
+msgstr "Inclure plan de site vidéos"
+
+#: lib/submenu/wpsm-general.php:148
 msgctxt "option label"
 msgid "Maximum URLs per Sitemap"
 msgstr "Nombre maximal d'URL par plan de site"
-
-#: lib/submenu/wpsm-general.php:146
-msgctxt "option comment"
-msgid "limited to 1000 for posts when news sitemaps are enabled"
-msgstr "limité à 1000 pour les articles lorsque les plans de site d'actualités sont activés"
 
 #. Plugin Name of the plugin/theme
 msgid "WPSSO WP Sitemaps XML"
