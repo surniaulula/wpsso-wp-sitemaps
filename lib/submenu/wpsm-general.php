@@ -141,8 +141,8 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpsmGeneral' ) && class_exists( 'WpssoAdmi
 					$table_rows[ 'wpsm_schema_videos' ] = '' .
 						$this->form->get_th_html( _x( 'Include Videos Sitemaps', 'option label', 'wpsso-wp-sitemaps' ),
 							$css_class = '', $css_id = 'wpsm_schema_videos' ) .
-						'<td>' . ( $this->p->check->is_pp() ? $this->form->get_checkbox( 'wpsm_schema_videos' ) :
-							$this->form->get_no_checkbox_comment( 'wpsm_schema_videos', $videos_requires ) ) . '</td>';
+						( $this->p->check->is_pp() ? '<td>' . $this->form->get_checkbox( 'wpsm_schema_videos' ) . '</td>' :
+							$this->form->get_no_td_checkbox( 'wpsm_schema_videos', $videos_requires ) );
 
 					$table_rows[ 'wpsm_max_urls' ] = '' .
 						$this->form->get_th_html( _x( 'Maximum URLs per Sitemap', 'option label', 'wpsso-wp-sitemaps' ),
