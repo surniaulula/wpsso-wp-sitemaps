@@ -40,7 +40,7 @@ if ( ! class_exists( 'WpssoWpsmFiltersMessages' ) ) {
 
 			switch ( $msg_key ) {
 
-				case 'info-wpsm-general':
+				case 'info-wpsm-settings':
 
 					$addon_name = $this->p->cf[ 'plugin' ][ 'wpssowpsm' ][ 'name' ];
 

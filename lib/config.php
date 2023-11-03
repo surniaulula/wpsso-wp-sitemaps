@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '7.0.0',	// Plugin version.
+					'version'     => '7.1.0-dev.8',	// Plugin version.
 					'opt_version' => '9',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '16.5.0',
+							'min_version'   => '16.7.0-dev.8',
 						),
 					),
 
@@ -60,7 +60,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					 */
 					'lib' => array(
 						'submenu' => array(
-							'wpsm-general' => 'WP Sitemaps',
+							'wp-sitemaps' => 'WP Sitemaps',
 						),
 					),
 
