@@ -51,7 +51,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpSitemaps' ) && class_exists( 'WpssoAdmin
 			return $form_button_rows;
 		}
 
-		protected function get_table_rows( $page_id, $metabox_id ) {
+		protected function get_table_rows( $page_id, $metabox_id, $tab_key = '', $args = array() ) {
 
 			$table_rows = array();
 
