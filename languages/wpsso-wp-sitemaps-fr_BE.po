@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO WP Sitemaps XML 7.0.0\n"
+"Project-Id-Version: WPSSO WP Sitemaps XML 7.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2023-10-28 07:57-0700\n"
+"PO-Revision-Date: 2023-11-03 21:35-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -217,62 +217,62 @@ msgstr "Les champs autres que %s ne sont pas supportés par les plans de sites p
 msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
 msgstr "Les balises de requête conditionnelle ne fonctionnent pas avant le lancement de la requête. Avant cela, elles renvoient toujours le booléen false."
 
-#: lib/submenu/wpsm-general.php:58
+#: lib/submenu/wp-sitemaps.php:32
 msgctxt "metabox title"
 msgid "WordPress Sitemaps"
 msgstr "Plans de site WordPress"
 
-#: lib/submenu/wpsm-general.php:104
+#: lib/submenu/wp-sitemaps.php:70
 msgctxt "option comment"
 msgid "(requires %s for video details)"
 msgstr "(nécessite %s pour les détails des vidéos)"
 
-#: lib/submenu/wpsm-general.php:106
+#: lib/submenu/wp-sitemaps.php:73
 msgctxt "option comment"
 msgid "(post sitemaps limited to %d when news sitemaps enabled)"
 msgstr "(plans de site d'articles limités à %d lorsque les plans de site d'actualités sont activés)"
 
-#: lib/submenu/wpsm-general.php:110
+#: lib/submenu/wp-sitemaps.php:77
 msgctxt "option label"
 msgid "WordPress Sitemaps URL"
 msgstr "URL plans de site WordPress"
 
-#: lib/submenu/wpsm-general.php:115
+#: lib/submenu/wp-sitemaps.php:82
 msgctxt "option label"
 msgid "Include in WP Sitemaps"
 msgstr "Inclure dans les plans de site WP"
 
-#: lib/submenu/wpsm-general.php:120
+#: lib/submenu/wp-sitemaps.php:87
 msgctxt "option label"
 msgid "Post Type for News Sitemaps"
 msgstr "Type d'article pour plans de site d'actualités"
 
-#: lib/submenu/wpsm-general.php:125
+#: lib/submenu/wp-sitemaps.php:92
 msgctxt "option label"
 msgid "News Publication Cut-Off"
 msgstr "Date limite de publication d'actualités"
 
-#: lib/submenu/wpsm-general.php:130
+#: lib/submenu/wp-sitemaps.php:97
 msgctxt "option label"
 msgid "News Publication Name"
 msgstr "Nom de publication d'actualités"
 
-#: lib/submenu/wpsm-general.php:136
+#: lib/submenu/wp-sitemaps.php:103
 msgctxt "option label"
 msgid "Include Images Sitemaps"
 msgstr "Inclure plan de site d'images"
 
-#: lib/submenu/wpsm-general.php:139
+#: lib/submenu/wp-sitemaps.php:106
 msgctxt "option comment"
 msgid "(not required)"
 msgstr "(non requis)"
 
-#: lib/submenu/wpsm-general.php:142
+#: lib/submenu/wp-sitemaps.php:109
 msgctxt "option label"
 msgid "Include Videos Sitemaps"
 msgstr "Inclure plan de site vidéos"
 
-#: lib/submenu/wpsm-general.php:148
+#: lib/submenu/wp-sitemaps.php:115
 msgctxt "option label"
 msgid "Maximum URLs per Sitemap"
 msgstr "Nombre maximal d'URL par plan de site"
