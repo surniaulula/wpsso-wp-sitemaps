@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO WP Sitemaps XML package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO WP Sitemaps XML 7.1.0-dev.10\n"
+"Project-Id-Version: WPSSO WP Sitemaps XML 7.1.0-dev.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-wp-"
 "sitemaps\n"
 "POT-Creation-Date: 2023-MO-DA HO:MI+ZONE\n"
@@ -258,57 +258,57 @@ msgctxt "metabox title"
 msgid "WordPress Sitemaps"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:75
+#: lib/submenu/wp-sitemaps.php:58
 msgctxt "option comment"
 msgid "(requires %s for video details)"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:78
+#: lib/submenu/wp-sitemaps.php:61
 msgctxt "option comment"
 msgid "(post sitemaps limited to %d when news sitemaps enabled)"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:82
+#: lib/submenu/wp-sitemaps.php:65
 msgctxt "option label"
 msgid "WordPress Sitemaps URL"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:87
+#: lib/submenu/wp-sitemaps.php:70
 msgctxt "option label"
 msgid "Include in WP Sitemaps"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:92
+#: lib/submenu/wp-sitemaps.php:75
 msgctxt "option label"
 msgid "Post Type for News Sitemaps"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:97
+#: lib/submenu/wp-sitemaps.php:80
 msgctxt "option label"
 msgid "News Publication Cut-Off"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:102
+#: lib/submenu/wp-sitemaps.php:85
 msgctxt "option label"
 msgid "News Publication Name"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:108
+#: lib/submenu/wp-sitemaps.php:91
 msgctxt "option label"
 msgid "Include Images Sitemaps"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:111
+#: lib/submenu/wp-sitemaps.php:94
 msgctxt "option comment"
 msgid "(not required)"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:114
+#: lib/submenu/wp-sitemaps.php:97
 msgctxt "option label"
 msgid "Include Videos Sitemaps"
 msgstr ""
 
-#: lib/submenu/wp-sitemaps.php:120
+#: lib/submenu/wp-sitemaps.php:103
 msgctxt "option label"
 msgid "Maximum URLs per Sitemap"
 msgstr ""
