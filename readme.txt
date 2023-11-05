@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 7.1.0-dev.11 (2021/11/05)**
+**Version 8.0.0-dev.13 (2021/11/05)**
 
 * **New Features**
 	* None.
@@ -97,11 +97,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Bugfixes**
 	* None.
 * **Developer Notes**
-	* Refactored the settings page load process.
+	* Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v16.7.0-dev.11.
+	* WPSSO Core v17.0.0-dev.13.
 
 **Version 7.0.0 (2023/10/28)**
 
@@ -118,38 +118,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WordPress v5.5.
 	* WPSSO Core v16.5.0.
 
-**Version 6.0.0 (2023/10/17)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps:
-		* Post Type for News Sitemaps
-		* News Publication Cut-Off
-		* News Publication Name
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Added a `WpssoWpsmSitemaps::get_news_pub_name()` method.
-	* Added a `WpssoWpsmSitemaps::get_default_news_pub_name()` method.
-	* Refactored `WpssoWpsmSitemapsFilters->wp_sitemaps_posts_entry` to add news sitemap XML tags.
-	* Refactored `WpssoWpsmSitemapsRenderer->add_items` to add support for the 'news:language', 'news:name', 'news:news', 'news:publication', 'news:publication_date', and 'news:title' tags.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.5.
-	* WPSSO Core v16.3.0.
-
 == Upgrade Notice ==
 
-= 7.1.0-dev.11 =
+= 8.0.0-dev.13 =
 
-(2021/11/05) Refactored the settings page load process.
+(2021/11/05) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
 
 = 7.0.0 =
 
 (2023/10/28) Added a new "Include Videos Sitemaps" option.
-
-= 6.0.0 =
-
-(2023/10/17) Added new options in the SSO &gt; WP Sitemaps settings page for news sitemaps.
 
