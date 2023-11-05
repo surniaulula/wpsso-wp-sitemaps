@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 7.1.0-dev.11 (2021/11/04)**
+**Version 7.1.0-dev.11 (2021/11/05)**
 
 * **New Features**
 	* None.
@@ -143,7 +143,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 7.1.0-dev.11 =
 
-(2021/11/04) Refactored the settings page load process.
+(2021/11/05) Refactored the settings page load process.
 
 = 7.0.0 =
 
