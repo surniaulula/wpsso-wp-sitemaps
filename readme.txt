@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 8.0.0-b.2 (2021/11/07)**
+**Version 8.0.0-b.3 (2021/11/07)**
 
 * **New Features**
 	* None.
@@ -101,7 +101,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.5.
-	* WPSSO Core v17.0.0-b.2.
+	* WPSSO Core v17.0.0-b.3.
 
 **Version 7.0.0 (2023/10/28)**
 
@@ -120,7 +120,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 8.0.0-b.2 =
+= 8.0.0-b.3 =
 
 (2021/11/07) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
 
