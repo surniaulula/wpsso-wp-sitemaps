@@ -35,7 +35,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) && class_exists( 'WP_Sitemaps' ) ) {
 
 		/*
 		 * The name of the news publication. It must exactly match the name as it appears on your articles on
-		 * news.google.com, omitting anything in parentheses. 
+		 * news.google.com, omitting anything in parentheses.
 		 *
 		 * See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap.
 		 */
