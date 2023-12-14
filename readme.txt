@@ -12,7 +12,7 @@ Requires Plugins: wpsso
 Requires PHP: 7.2.34
 Requires At Least: 5.5
 Tested Up To: 6.4.2
-WC Tested Up To: 8.3.1
+WC Tested Up To: 8.4.0
 Stable Tag: 8.0.0
 
 Extend the WordPress sitemaps XML with article modification times, alternate languages, news sitemaps, image sitemaps, and video sitemaps.
