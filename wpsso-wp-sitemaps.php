@@ -13,7 +13,7 @@
  * Description: Improves the WordPress sitemaps XML with article modification times, alternate language URLs, images sitemaps, news sitemaps and more.
  * Requires Plugins: wpsso
  * Requires PHP: 7.2.34
- * Requires At Least: 5.5
+ * Requires At Least: 5.8
  * Tested Up To: 6.4.2
  * WC Tested Up To: 8.4.0
  * Version: 8.0.0
