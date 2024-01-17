@@ -12,8 +12,8 @@ Requires Plugins: wpsso
 Requires PHP: 7.2.34
 Requires At Least: 5.8
 Tested Up To: 6.4.2
-WC Tested Up To: 8.4.0
-Stable Tag: 8.0.0
+WC Tested Up To: 8.5.1
+Stable Tag: 8.1.0
 
 Extend the WordPress sitemaps XML with article modification times, alternate languages, news sitemaps, image sitemaps, and video sitemaps.
 
@@ -88,6 +88,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 8.1.0 (2024/01/12)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* None.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.8.
+	* WPSSO Core v17.8.0.
+
 **Version 8.0.0 (2021/11/08)**
 
 * **New Features**
@@ -103,28 +118,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WordPress v5.8.
 	* WPSSO Core v17.0.0.
 
-**Version 7.0.0 (2023/10/28)**
-
-* **New Features**
-	* Added a new "Include Videos Sitemaps" option.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.5.
-	* WPSSO Core v16.5.0.
-
 == Upgrade Notice ==
+
+= 8.1.0 =
+
+(2024/01/12) Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
 
 = 8.0.0 =
 
 (2021/11/08) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
-
-= 7.0.0 =
-
-(2023/10/28) Added a new "Include Videos Sitemaps" option.
 
