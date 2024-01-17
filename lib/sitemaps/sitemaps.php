@@ -58,7 +58,7 @@ if ( ! class_exists( 'WpssoWpsmSitemaps' ) && class_exists( 'WP_Sitemaps' ) ) {
 
 			$wpsso =& Wpsso::get_instance();
 
-			$news_pub_name = SucomUtil::get_site_name( $wpsso->options, $mixed );
+			$news_pub_name = SucomUtilWP::get_site_name( $wpsso->options, $mixed );
 			$news_pub_name = trim( preg_replace( '/ *\(.*\) */', ' ', $news_pub_name ) );
 
 			return $news_pub_name;

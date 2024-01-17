@@ -51,7 +51,7 @@ if ( ! class_exists( 'WpssoWpsmSubmenuWpSitemaps' ) && class_exists( 'WpssoAdmin
 			}
 
 			$sitemaps_url      = get_site_url( $blog_id = null, $path = '/wp-sitemap.xml' );
-			$post_types        = SucomUtil::get_post_type_labels();
+			$post_types        = SucomUtilWP::get_post_type_labels();
 			$def_news_pub_name = WpssoWpsmSitemaps::get_default_news_pub_name();
 			$news_pub_max_time = human_time_diff( 0, WPSSOWPSM_NEWS_PUB_MAX_TIME );
 
