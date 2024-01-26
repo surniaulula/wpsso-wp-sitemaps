@@ -49,49 +49,50 @@ msgstr ""
 msgid "Plugin conflict detected:"
 msgstr ""
 
-#: lib/conflict-seo.php:54
+#. translators: Please ignore - translation uses a different text domain.
+#: lib/conflict-seo.php:55
 msgid "Rank Math"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/conflict-seo.php:62
+#: lib/conflict-seo.php:63
 msgid "Sitemap"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/conflict-seo.php:67
+#: lib/conflict-seo.php:68
 msgid "Dashboard"
 msgstr ""
 
-#: lib/conflict-seo.php:74
+#: lib/conflict-seo.php:75
 msgid "Please disable the %1$s module in the %2$s settings."
 msgstr ""
 
-#: lib/conflict-seo.php:92
+#: lib/conflict-seo.php:93
 msgid "Yoast SEO"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/conflict-seo.php:104
+#: lib/conflict-seo.php:105
 msgid "XML sitemaps"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/conflict-seo.php:110
+#: lib/conflict-seo.php:111
 msgid "Settings"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/conflict-seo.php:112
+#: lib/conflict-seo.php:113
 msgid "Site features"
 msgstr ""
 
 #. translators: Please ignore - translation uses a different text domain.
-#: lib/conflict-seo.php:114
+#: lib/conflict-seo.php:115
 msgid "APIs"
 msgstr ""
 
-#: lib/conflict-seo.php:121
+#: lib/conflict-seo.php:122
 msgid "Please disable the %1$s option in the %2$s settings."
 msgstr ""
 
