@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 8.2.0-rc.1 (2024/01/26)**
+**Version 8.2.0 (2024/01/26)**
 
 * **New Features**
 	* None.
@@ -103,47 +103,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WordPress v5.8.
 	* WPSSO Core v17.8.0.
 
-**Version 8.1.0 (2024/01/12)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.8.
-	* WPSSO Core v17.8.0.
-
-**Version 8.0.0 (2021/11/08)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* None.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.8.
-	* WPSSO Core v17.0.0.
-
 == Upgrade Notice ==
 
-= 8.2.0-rc.1 =
+= 8.2.0 =
 
 (2024/01/26) Added a conflict check for Rank Math's sitemap module.
-
-= 8.1.0 =
-
-(2024/01/12) Update for `SucomUtil` and `SucomUtilWP` changes in WPSSO Core v17.8.0.
-
-= 8.0.0 =
-
-(2021/11/08) Refactored the settings page and metabox load process for WPSSO Core v17.0.0.
 
