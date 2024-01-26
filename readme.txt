@@ -88,6 +88,21 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 8.2.0-rc.1 (2024/01/26)**
+
+* **New Features**
+	* None.
+* **Improvements**
+	* Added a conflict check for Rank Math's sitemap module.
+* **Bugfixes**
+	* None.
+* **Developer Notes**
+	* None.
+* **Requires At Least**
+	* PHP v7.2.34.
+	* WordPress v5.8.
+	* WPSSO Core v17.8.0.
+
 **Version 8.1.0 (2024/01/12)**
 
 * **New Features**
@@ -119,6 +134,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WPSSO Core v17.0.0.
 
 == Upgrade Notice ==
+
+= 8.2.0-rc.1 =
+
+(2024/01/26) Added a conflict check for Rank Math's sitemap module.
 
 = 8.1.0 =
 
