@@ -3,7 +3,7 @@
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO WP Sitemaps XML</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>Extend the WordPress sitemaps XML with article modification times, alternate languages, news sitemaps, image sitemaps, and video sitemaps.</td></tr>
-<tr><th align="right" valign="top" nowrap>Stable Version</th><td>8.1.0</td></tr>
+<tr><th align="right" valign="top" nowrap>Stable Version</th><td>8.2.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires PHP</th><td>7.2.34 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires WordPress</th><td>5.8 or newer</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To WordPress</th><td>6.4.3</td></tr>
