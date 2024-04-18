@@ -12,7 +12,7 @@ Requires Plugins: wpsso
 Requires PHP: 7.2.34
 Requires At Least: 5.8
 Tested Up To: 6.5.2
-WC Tested Up To: 8.7.0
+WC Tested Up To: 8.8.2
 Stable Tag: 8.2.0
 
 Extend the WordPress sitemaps XML with article modification times, alternate languages, news sitemaps, image sitemaps, and video sitemaps.
@@ -88,7 +88,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 8.3.0-dev.1 (2024/04/16)**
+**Version 8.3.0-dev.2 (2024/04/18)**
 
 * **New Features**
 	* None.
@@ -101,7 +101,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * **Requires At Least**
 	* PHP v7.2.34.
 	* WordPress v5.8.
-	* WPSSO Core v17.17.0-dev.1.
+	* WPSSO Core v17.17.0-dev.2.
 
 **Version 8.2.0 (2024/01/26)**
 
@@ -120,9 +120,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 8.3.0-dev.1 =
+= 8.3.0-dev.2 =
 
-(2024/04/16) Added support for the new `SucomUtilOptions` class in WPSSO Core v17.17.0.
+(2024/04/18) Added support for the new `SucomUtilOptions` class in WPSSO Core v17.17.0.
 
 = 8.2.0 =
 
