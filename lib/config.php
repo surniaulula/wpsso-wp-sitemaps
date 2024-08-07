@@ -97,7 +97,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 					'wpsm_sitemaps_for_tax_product_brand'      => 1,	// For WooCommerce Brands.
 					'wpsm_sitemaps_for_tax_product_cat'        => 1,	// For WooCommerce.
 					'wpsm_sitemaps_for_tax_product_tag'        => 1,	// For WooCommerce.
-					'wpsm_sitemaps_for_tax_pwb-brand'          => 1,	// For Perfect WooCommerce Brands Add-on.
+					'wpsm_sitemaps_for_tax_pwb-brand'          => 1,	// For Perfect Brands for WooCommerce.
 					'wpsm_sitemaps_for_tax_tribe_events_cat'   => 0,	// For The Events Calendar.
 					'wpsm_sitemaps_for_tax_yith_product_brand' => 1,	// For YITH WooCommerce Brands Add-on.
 					'wpsm_sitemaps_for_topic'                  => 0,	// For Bbpress
