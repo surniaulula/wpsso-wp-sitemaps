@@ -17,7 +17,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssowpsm' => array(			// Plugin acronym.
-					'version'     => '8.3.0',	// Plugin version.
+					'version'     => '8.4.0-dev.1',	// Plugin version.
 					'opt_version' => '9',		// Increment when changing default option values.
 					'short'       => 'WPSSO WPSM',	// Short plugin name.
 					'name'        => 'WPSSO WP Sitemaps XML',
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 							'home'          => 'https://wordpress.org/plugins/wpsso/',
 							'plugin_class'  => 'Wpsso',
 							'version_const' => 'WPSSO_VERSION',
-							'min_version'   => '17.18.0',
+							'min_version'   => '18.4.1-dev.1',
 						),
 					),
 
@@ -191,8 +191,11 @@ if ( ! class_exists( 'WpssoWpsmConfig' ) ) {
 		 */
 		public static function require_libs( $plugin_file ) {
 
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/conflict.php';
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/filters.php';
 			require_once WPSSOWPSM_PLUGINDIR . 'lib/register.php';
-			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps.php';
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/functions.php';
+			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps/filters.php';
 
 			add_filter( 'wpssowpsm_load_lib', array( __CLASS__, 'load_lib' ), 10, 3 );
 		}

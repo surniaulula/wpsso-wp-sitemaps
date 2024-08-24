@@ -16,7 +16,7 @@
  * Requires At Least: 5.8
  * Tested Up To: 6.6.1
  * WC Tested Up To: 9.2.2
- * Version: 8.3.0
+ * Version: 8.4.0-dev.1
  *
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -72,12 +72,8 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 
 		/*
 		 * Called by Wpsso->set_objects() which runs at init priority 10.
-		 *
-		 * Require library files with functions or static methods in require_libs().
-		 *
-		 * Require library files with dynamic methods and instantiate the class object in init_objects().
 		 */
-		public function init_objects() {
+		public function init_objects_preloader() {
 
 			$this->p =& Wpsso::get_instance();
 
@@ -91,17 +87,9 @@ if ( ! class_exists( 'WpssoWpsm' ) ) {
 				return;	// Stop here.
 			}
 
-			require_once WPSSOWPSM_PLUGINDIR . 'lib/conflict.php';
-
-			$this->conflict = new WpssoWpsmConflict( $this->p, $this );
-
-			require_once WPSSOWPSM_PLUGINDIR . 'lib/filters.php';
-
-			$this->filters = new WpssoWpsmFilters( $this->p, $this );
-
-			require_once WPSSOWPSM_PLUGINDIR . 'lib/sitemaps/filters.php';
-
-			$this->sm_filters = new WpssoWpsmSitemapsFilters( $this->p, $this );
+			new WpssoWpsmConflict( $this->p, $this );
+			new WpssoWpsmFilters( $this->p, $this );
+			new WpssoWpsmSitemapsFilters( $this->p, $this );
 		}
 	}
 
