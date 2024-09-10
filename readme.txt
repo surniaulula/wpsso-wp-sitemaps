@@ -118,21 +118,6 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* WordPress v5.8.
 	* WPSSO Core v17.18.0.
 
-**Version 8.2.0 (2024/01/26)**
-
-* **New Features**
-	* None.
-* **Improvements**
-	* Added a conflict check for Rank Math's sitemap module.
-* **Bugfixes**
-	* None.
-* **Developer Notes**
-	* None.
-* **Requires At Least**
-	* PHP v7.2.34.
-	* WordPress v5.8.
-	* WPSSO Core v17.8.0.
-
 == Upgrade Notice ==
 
 = 8.4.0 =
@@ -142,8 +127,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 8.3.0 =
 
 (2024/04/23) Added support for the new `SucomUtilOptions` class in WPSSO Core v17.17.0.
-
-= 8.2.0 =
-
-(2024/01/26) Added a conflict check for Rank Math's sitemap module.
 
