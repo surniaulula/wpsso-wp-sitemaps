@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'WpssoWpsmSitemaps' ) && class_exists( 'WP_Sitemaps' ) ) {
 
 	/*
-	 * Since WPSSO WPSM v3.0.0.
-	 *
 	 * WpssoWpsmSitemaps extends WP_Sitemaps to set a different rederer class.
 	 *
 	 * See wordpress/wp-includes/sitemaps/class-wp-sitemaps.php.

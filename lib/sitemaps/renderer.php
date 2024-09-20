@@ -20,9 +20,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 	 */
 	class WpssoWpsmSitemapsRenderer extends WP_Sitemaps_Renderer {
 
-		/*
-		 * Since WPSSO WPSM v4.1.0.
-		 */
 		public function render_index( $sitemaps ) {
 
 			$xml = $this->get_sitemap_index_xml( $sitemaps );
@@ -30,9 +27,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 			$this->output_xml( $xml );
 		}
 
-		/*
-		 * Since WPSSO WPSM v3.0.0.
-		 */
 		public function render_sitemap( $url_list ) {
 
 			global $wp_query;
@@ -63,8 +57,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsRenderer' ) && class_exists( 'WP_Sitemaps
 		}
 
 		/*
-		 * Since WPSSO WPSM v4.1.0.
-		 *
 		 * Format the XML to make it human readable.
 		 */
 		private function format_output( $xml ) {

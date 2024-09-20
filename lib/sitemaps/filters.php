@@ -192,8 +192,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/*
-		 * Since WPSSO WPSM v2.0.0.
-		 *
 		 * Include post type archive pages without a post ID.
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
@@ -272,8 +270,6 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		}
 
 		/*
-		 * Since WPSSO WPSM v2.0.0.
-		 *
 		 * Recreates the functionality of the WP_Sitemaps_Posts->get_posts_query_args() protected method.
 		 *
 		 * See wordpress/wp-includes/sitemaps/providers/class-wp-sitemaps-posts.php.
