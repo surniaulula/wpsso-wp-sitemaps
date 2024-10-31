@@ -113,9 +113,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 
 			foreach ( $post_types as $name => $obj ) {
 
-				if ( empty( $this->p->options[ 'wpsm_sitemaps_for_' . $name ] ) ) {
+				if ( is_object( $obj ) ) {	// Just in case.
 
-					unset( $post_types[ $name ] );
+					if ( empty( $this->p->options[ 'wpsm_sitemaps_for_' . $name ] ) ) {
+
+						unset( $post_types[ $name ] );
+					}
 				}
 			}
 
