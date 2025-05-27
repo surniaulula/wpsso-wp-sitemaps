@@ -774,7 +774,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 		version="1.0"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
-        	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+		xmlns:xhtml="http://www.w3.org/1999/xhtml"
 		xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
 		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
 		xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
@@ -784,9 +784,9 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 	<xsl:output method="html" encoding="UTF-8" indent="yes" />
 
 	<!--
-	  Set variables for whether lastmod, changefreq or priority occur for any url in the sitemap.
-	  We do this up front because it can be expensive in a large sitemap.
-	  -->
+	Set variables for whether lastmod, changefreq or priority occur for any url in the sitemap.
+	We do this up front because it can be expensive in a large sitemap.
+	-->
 	<xsl:variable name="has-lastmod"     select="count( /sitemap:urlset/sitemap:url/sitemap:lastmod )" />
 	<xsl:variable name="has-changefreq"  select="count( /sitemap:urlset/sitemap:url/sitemap:changefreq )" />
 	<xsl:variable name="has-priority"    select="count( /sitemap:urlset/sitemap:url/sitemap:priority )" />
@@ -814,14 +814,14 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					</div>
 					<div id="sitemap__content">
 						<p class="text">{$number_urls}</p>
-                                		<xsl:apply-templates select="sitemap:urlset"/>
+						<xsl:apply-templates select="sitemap:urlset"/>
 					</div>
 				</div>
 			</body>
 		</html>
 	</xsl:template>
 
-    	<xsl:template match="sitemap:urlset">
+	<xsl:template match="sitemap:urlset">
 		<table id="sitemap__table">
 			<thead>
 				<tr>
@@ -838,12 +838,12 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 				</tr>
 			</thead>
 			<tbody>
-                             	<xsl:apply-templates select="sitemap:url"/>
+				<xsl:apply-templates select="sitemap:url"/>
 			</tbody>
 		</table>
 	</xsl:template>
 
-    	<xsl:template match="sitemap:url">
+	<xsl:template match="sitemap:url">
 		<tr>
 			<td class="loc">
 				<a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc" /></a>
@@ -851,7 +851,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					<ul class="alternates">
 						<li class="list-title">{$alternates}</li>
 						<ul>
-                             				<xsl:apply-templates select="xhtml:link"/>
+							<xsl:apply-templates select="xhtml:link"/>
 						</ul>
 					</ul>
 				</xsl:if>
@@ -859,7 +859,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					<ul class="news">
 						<li class="list-title">{$news_sitemap}</li>
 						<ul>
-                             				<xsl:apply-templates select="news:news"/>
+							<xsl:apply-templates select="news:news"/>
 						</ul>
 					</ul>
 				</xsl:if>
@@ -867,7 +867,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					<ul class="images">
 						<li class="list-title">{$image_sitemap}</li>
 						<ul>
-                             				<xsl:apply-templates select="image:image"/>
+							<xsl:apply-templates select="image:image"/>
 						</ul>
 					</ul>
 				</xsl:if>
@@ -875,7 +875,7 @@ if ( ! class_exists( 'WpssoWpsmSitemapsFilters' ) ) {
 					<ul class="videos">
 						<li class="list-title">{$video_sitemap}</li>
 						<ul>
-                             				<xsl:apply-templates select="video:video"/>
+							<xsl:apply-templates select="video:video"/>
 						</ul>
 					</ul>
 				</xsl:if>
