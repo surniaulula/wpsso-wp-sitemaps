@@ -1,4 +1,4 @@
-<h1>WPSSO WP Sitemaps XML with News, Image, and Video Sitemaps</h1>
+<h1>WPSSO WP Sitemaps XML with News, Image, and Video Sitemap</h1>
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO WP Sitemaps XML</td></tr>
