@@ -35,7 +35,7 @@ if ( ! class_exists( 'WpssoWpsmConflictSeo' ) ) {
 			}
 
 			$this->log_pre    = 'seo plugin conflict detected - ';
-			$this->notice_pre =  __( 'Plugin conflict detected:', 'wpsso' ) . ' ';
+			$this->notice_pre = __( 'Plugin conflict detected:', 'wpsso' ) . ' ';
 
 			$this->conflict_check_rankmath();	// Rank Math.
 			$this->conflict_check_wpseo();		// Yoast SEO.
